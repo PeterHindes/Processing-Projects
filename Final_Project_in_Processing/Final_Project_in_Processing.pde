@@ -10,10 +10,13 @@ PFont arialBold;
 //Consistency variables
 int dialoguePading = 25;
 
+//Dynamic Consistency variables
+int[] siz;
+
 //Functions
-int[] siz = {1000, 700};
 void setup () {
-  size(1000,700);
+  size           (1000, 700);
+  siz = new int[]{1000, 700};
 
   //background (0);
   background(255);
@@ -35,6 +38,9 @@ void draw () {
 
 //Custom Functions
 void dialogueBox (String title, String message) {
+  //Box BG
+  fill();
+
   //Title
   textFont(arialBold);
   text(

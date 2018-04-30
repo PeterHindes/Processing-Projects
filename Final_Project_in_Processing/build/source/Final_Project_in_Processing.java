@@ -43,22 +43,28 @@ public void setup () {
 public void draw () {
   fill(0);
 
-  textFont(arialBold);
-  text("GOVERNMENT ANNOUNCEMENT",  /*Position text*/ 0+ dialoguePading, siz[1] -100);
-
-  textFont(arial);
-  text("Those infected by the outbreak CANNOT feel, think or remember any past experiences. They are dangerous and MUST be killed ON SIGHT"
-    /*Position text*/ ,0+ dialoguePading, siz[1] -75,  /*Limit text to screen*/ siz[0] - dialoguePading*2, siz[1] -75);
+  dialogueBox(
+    "GOVERNMENT ANNOUNCEMENT",
+    "Those infected by the outbreak CANNOT feel, think or remember any past experiences. They are dangerous and MUST be killed ON SIGHT"
+  );
 }
 
 //Custom Functions
-public void dialogueBox () {
+public void dialogueBox (String title, String message) {
+  //Title
   textFont(arialBold);
-  text("GOVERNMENT ANNOUNCEMENT",  /*Position text*/ 0+ dialoguePading, siz[1] -100);
+  text(
+    title,
+    /*Position text*/ 0+ dialoguePading, siz[1] -100
+  );
 
+  //Message
   textFont(arial);
-  text("Those infected by the outbreak CANNOT feel, think or remember any past experiences. They are dangerous and MUST be killed ON SIGHT"
-    /*Position text*/ ,0+ dialoguePading, siz[1] -75,  /*Limit text to screen*/ siz[0] - dialoguePading*2, siz[1] -75);
+  text(
+    message,
+    /*Position text*/ 0+ dialoguePading, siz[1] -75,
+    /*Limit text to screen*/ siz[0] - dialoguePading*2, siz[1] -75
+  );
 }
 
 //Key Calls
@@ -66,7 +72,7 @@ public void keyReleased () {
 
 //  if (key == 'd'
 }
-
+ 
   public void settings() {  size(1000,700); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Final_Project_in_Processing" };

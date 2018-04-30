@@ -28,41 +28,68 @@ int rphph = -1;
 boolean dontRun = false;
 
 //Dynamic Consistency Vars
+int[] siz = new int[2];
+int center;
 
-//Init Images
+/*/Init Images
 PImage rock;
 PImage paper;
 PImage holePunch;
+*/
+//Init Images As Arrays
 PImage[] all = new PImage[3];
 
 //Consistency
-int wide = 100;
-int margin = 60;
-int majorChange = 5;
-int minorChange = 1;
+//Key Infographic Strings
+String s1 = "z: Rock";
+String s2 = "x: Paper";
+String s3 = "c: Hole Punch";
+//Key Infographic Spacing
+int kiMargin = 50;
+//int kiCenter = int(textWidth(s1)) + int(textWidth(s2)) + int(textWidth(s3)) +kiMargin +kiMargin;
+//int kiCenter;
 
-int[] siz = {900, 700};
+//Setup Function
 public void setup() {
-  
+      //Size Of Canvis Setup
+  siz = new int[]{900, 700};    //Size Of Canvis As A Variable
+  center = siz[0]/2;            //Find the center and make a Variable
 
-  //Load Images
+  //An attempt to center arround the bloc and not s2
+  //kiCenter = (int(center/2)) - ((int(textWidth(s1) + textWidth(s2) + textWidth(s3))  +kiMargin +kiMargin)/2);
+
+  /*/Load Images
   rock = loadImage("Img/rock.png");
   paper = loadImage("Img/paper.png");
   holePunch = loadImage("Img/hole-punch.png");
+  */
   //Load Images As Array
   all[0] = loadImage("Img/rock.png");
   all[1] = loadImage("Img/paper.png");
   all[2] = loadImage("Img/hole-punch.png");
 }
 
-
+//Run
 public void draw() {
   background(bg);
+
+  keyInfographic();
 }
+
+
+public void keyInfographic(){
+  textSize(26);
+  textAlign(CENTER, TOP);
+  text(s1, center -textWidth(s1)/2 -textWidth(s2)/2  -kiMargin, 10);
+  text(s2, center, 10);
+  text(s3, center +textWidth(s3)/2 +textWidth(s2)/2  +kiMargin, 10);
+}
+
 
 public int compPlay() {
   return PApplet.parseInt(random(3)+1);
 }
+
 
 //Key Calls
 public void keyPressed() {
@@ -98,36 +125,7 @@ public void keyReleased() {
 
   }
 }
-
-/*
-void bar(int index) {
-  int pos = index*(wide+margin)+margin;
-
-  if (pos > siz[1]) {
-    print("Error, Bars should not be drawn off screen, check pos calc and size.\n");
-    fill(0);
-    text("Error bar out of bounds", 10, 10);
-  }
-
-  if (index == selectedIndex) {
-    strokeWeight(2);
-    stroke(50);
-  } else {
-    strokeWeight(1);
-    stroke(0);
-  }
-
-  fill(palette[index]);
-  rect(pos, siz[1], wide, -bars[index]);
-
-
-  fill(3);
-  textAlign(CENTER);
-  textSize(20);
-  text(bars[index], pos+(wide/2), siz[1]-bars[index]-3);
-}
-*/
-  public void settings() {  size(900, 700); }
+  public void settings() {  size           (900, 700); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "rock_paper_holePunch_Processing_java" };
     if (passedArgs != null) {

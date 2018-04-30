@@ -10,8 +10,11 @@ color bg = #b3b8bf;
 //1:rock 2:paper 3:holeP
 int rphph = -1;
 boolean dontRun = false;
+String message;
 
 //Dynamic Consistency Vars
+int[] siz = new int[2];
+int center;
 
 /*/Init Images
 PImage rock;
@@ -22,14 +25,23 @@ PImage holePunch;
 PImage[] all = new PImage[3];
 
 //Consistency
-int wide = 100;
-int margin = 60;
-int majorChange = 5;
-int minorChange = 1;
+//Key Infographic Strings
+String s1 = "z: Rock";
+String s2 = "x: Paper";
+String s3 = "c: Hole Punch";
+//Key Infographic Spacing
+int kiMargin = 50;
+//int kiCenter = int(textWidth(s1)) + int(textWidth(s2)) + int(textWidth(s3)) +kiMargin +kiMargin;
+//int kiCenter;
 
-int[] siz = {900, 700};
+//Setup Function
 void setup() {
-  size(900, 700);
+  size           (900, 700);    //Size Of Canvis Setup
+  siz = new int[]{900, 700};    //Size Of Canvis As A Variable
+  center = siz[0]/2;            //Find the center and make a Variable
+
+  //An attempt to center arround the bloc and not s2
+  //kiCenter = (int(center/2)) - ((int(textWidth(s1) + textWidth(s2) + textWidth(s3))  +kiMargin +kiMargin)/2);
 
   /*/Load Images
   rock = loadImage("Img/rock.png");
@@ -42,14 +54,27 @@ void setup() {
   all[2] = loadImage("Img/hole-punch.png");
 }
 
-
+//Run
 void draw() {
   background(bg);
+
+  keyInfographic();
 }
+
+
+void keyInfographic(){
+  textSize(26);
+  textAlign(CENTER, TOP);
+  text(s1, center -textWidth(s1)/2 -textWidth(s2)/2  -kiMargin, 10);
+  text(s2, center, 10);
+  text(s3, center +textWidth(s3)/2 +textWidth(s2)/2  +kiMargin, 10);
+}
+
 
 int compPlay() {
   return int(random(3)+1);
 }
+
 
 //Key Calls
 void keyPressed() {
@@ -75,11 +100,43 @@ void keyPressed() {
 
 void keyReleased() {
   if (!dontRun){
+    compu = compPlay();
+
     /*
-    if (rphph == compPlay())
-      print("Draw");
-    if (rphph > compPlay())
+    the 9 posibilities of rps
+      1 |2 |3
+      r |p |s
+   1r|rr|rp|rs
+   2p|pr|pp|ps
+   3s|sr|sp|ss
+
+    p>r
+    r>s
+    s>p
+
+    Doubles are the same if statment
+    if comp == player then ...
     */
+    if (rphph == compu){  //1 //Doubles
+      message = "Draw";
+    } else if (rphph == 2 && compu == 1){ //2 //p>r
+      message = "Player Wins";
+    } else if (rphph == 1 && compu == 3){ //3 //r>s
+      message = "Player Wins";
+    } else if (rphph == 3 && compu == 2){ //4 //s>p
+      message = "Player Wins";
+
+    } else if (compu == 2 && rphph == 1){ //5 //p>r
+      message = "Computer Wins";
+    } else if (compu == 1 && rphph == 3){ //6 //r>s
+      message = "Computer Wins";
+    } else if (compu == 3 && rphph == 2){ //7 //s>p
+      message = "Computer Wins";
+    }
+/*  } else if (rphph == 2 && compu == 2){ //8
+Un Needed due to doubles
+    } else if (rphph == 2 && compu == 2){ //9
+*/
 
     image(all[rphph-1],30,30);
 

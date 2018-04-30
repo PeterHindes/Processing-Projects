@@ -10,7 +10,7 @@ color bg = #b3b8bf;
 //1:rock 2:paper 3:holeP
 int rphph = -1;
 boolean dontRun = false;
-String message;
+String message = "Chose";
 
 //Dynamic Consistency Vars
 int[] siz = new int[2];
@@ -49,9 +49,9 @@ void setup() {
   holePunch = loadImage("Img/hole-punch.png");
   */
   //Load Images As Array
-  all[0] = loadImage("Img/rock.png");
-  all[1] = loadImage("Img/paper.png");
-  all[2] = loadImage("Img/hole-punch.png");
+  all[0] = loadImage("Img/Scaled/rock.png");
+  all[1] = loadImage("Img/Scaled/paper.png");
+  all[2] = loadImage("Img/Scaled/hole-punch.png");
 }
 
 //Run
@@ -59,6 +59,11 @@ void draw() {
   background(bg);
 
   keyInfographic();
+
+  text(message,150,200);
+  if (!(rphph == -1)){
+    image(all[rphph-1],30,230);
+  }
 }
 
 
@@ -100,7 +105,7 @@ void keyPressed() {
 
 void keyReleased() {
   if (!dontRun){
-    compu = compPlay();
+    int compu = compPlay();
 
     /*
     the 9 posibilities of rps
@@ -137,8 +142,6 @@ void keyReleased() {
 Un Needed due to doubles
     } else if (rphph == 2 && compu == 2){ //9
 */
-
-    image(all[rphph-1],30,30);
 
   }
 }

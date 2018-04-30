@@ -26,6 +26,7 @@ int bg = 0xffb3b8bf;
 //1:rock 2:paper 3:holeP
 int rphph = -1;
 boolean dontRun = false;
+String message = "Chose";
 
 //Dynamic Consistency Vars
 int[] siz = new int[2];
@@ -64,9 +65,9 @@ public void setup() {
   holePunch = loadImage("Img/hole-punch.png");
   */
   //Load Images As Array
-  all[0] = loadImage("Img/rock.png");
-  all[1] = loadImage("Img/paper.png");
-  all[2] = loadImage("Img/hole-punch.png");
+  all[0] = loadImage("Img/Scaled/rock.png");
+  all[1] = loadImage("Img/Scaled/paper.png");
+  all[2] = loadImage("Img/Scaled/hole-punch.png");
 }
 
 //Run
@@ -74,6 +75,11 @@ public void draw() {
   background(bg);
 
   keyInfographic();
+
+  text(message,150,200);
+  if (!(rphph == -1)){
+    image(all[rphph-1],30,30);
+  }
 }
 
 
@@ -115,13 +121,43 @@ public void keyPressed() {
 
 public void keyReleased() {
   if (!dontRun){
-    /*
-    if (rphph == compPlay())
-      print("Draw");
-    if (rphph > compPlay())
-    */
+    int compu = compPlay();
 
-    image(all[rphph-1],30,30);
+    /*
+    the 9 posibilities of rps
+      1 |2 |3
+      r |p |s
+   1r|rr|rp|rs
+   2p|pr|pp|ps
+   3s|sr|sp|ss
+
+    p>r
+    r>s
+    s>p
+
+    Doubles are the same if statment
+    if comp == player then ...
+    */
+    if (rphph == compu){  //1 //Doubles
+      message = "Draw";
+    } else if (rphph == 2 && compu == 1){ //2 //p>r
+      message = "Player Wins";
+    } else if (rphph == 1 && compu == 3){ //3 //r>s
+      message = "Player Wins";
+    } else if (rphph == 3 && compu == 2){ //4 //s>p
+      message = "Player Wins";
+
+    } else if (compu == 2 && rphph == 1){ //5 //p>r
+      message = "Computer Wins";
+    } else if (compu == 1 && rphph == 3){ //6 //r>s
+      message = "Computer Wins";
+    } else if (compu == 3 && rphph == 2){ //7 //s>p
+      message = "Computer Wins";
+    }
+/*  } else if (rphph == 2 && compu == 2){ //8
+Un Needed due to doubles
+    } else if (rphph == 2 && compu == 2){ //9
+*/
 
   }
 }

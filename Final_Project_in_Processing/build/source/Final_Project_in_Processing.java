@@ -19,7 +19,7 @@ public class Final_Project_in_Processing extends PApplet {
 
 //Resources
   //Colors
-    int[] msgBx = {0x66669961};
+    int[] msgBx = {0x3a3a4c38, 0xff222e30};
   //External
     //Images
       //PImage martha1;
@@ -39,9 +39,6 @@ public void setup () {
   
   siz = new int[]{1000, 700};
 
-  //background (0);
-  background(100);
-
   //Setup Resources
   arialBold = createFont("Arial-Bold", 22);
   arial = createFont("Arial", 17);
@@ -49,28 +46,24 @@ public void setup () {
 }
 
 public void draw () {
-  fill(0);
+  background(175);
 
   dialogueBox(
     "GOVERNMENT ANNOUNCEMENT",
-    "Those infected by the outbreak CANNOT feel, think or remember any past experiences. They are dangerous and MUST be killed ON SIGHT"
+    "Those infected by the outbreak CANNOT feel, think or remember any past experiences."+
+    "They are dangerous and MUST be killed ON SIGHT"
   );
-
-  fill(255,0,0,191);
-  rect(10,10,50,50);
 }
 
 //Custom Functions
 public void dialogueBox (String title, String message) {
-  //Box BG
-  noStroke();
-  //fill(50,50,60,20);
-  fill(255,0,0,191);
-  rect(10,10,50,50);
 
-  fill(0);
+  fill(msgBx[0]);
+  rect(15,siz[1]-15,siz[0]-30,-125,25);
 
   //Title
+  //fill(msgBx[1]);
+  fill(0);
   textFont(arialBold);
   text(
     title,

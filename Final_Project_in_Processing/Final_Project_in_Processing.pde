@@ -3,7 +3,7 @@
 
 //Resources
   //Colors
-    color[] msgBx = {0x66669961};
+    color[] msgBx = {0x3a3a4c38, #222e30};
   //External
     //Images
       //PImage martha1;
@@ -23,9 +23,6 @@ void setup () {
   size           (1000, 700);
   siz = new int[]{1000, 700};
 
-  //background (0);
-  background(100);
-
   //Setup Resources
   arialBold = createFont("Arial-Bold", 22);
   arial = createFont("Arial", 17);
@@ -33,28 +30,24 @@ void setup () {
 }
 
 void draw () {
-  fill(0);
+  background(175);
 
   dialogueBox(
     "GOVERNMENT ANNOUNCEMENT",
-    "Those infected by the outbreak CANNOT feel, think or remember any past experiences. They are dangerous and MUST be killed ON SIGHT"
+    "Those infected by the outbreak CANNOT feel, think or remember any past experiences."+
+    "They are dangerous and MUST be killed ON SIGHT"
   );
-
-  fill(255,0,0,191);
-  rect(10,10,50,50);
 }
 
 //Custom Functions
 void dialogueBox (String title, String message) {
-  //Box BG
-  noStroke();
-  //fill(50,50,60,20);
-  fill(255,0,0,191);
-  rect(10,10,50,50);
 
-  fill(0);
+  fill(msgBx[0]);
+  rect(15,siz[1]-15,siz[0]-30,-125,25);
 
   //Title
+  //fill(msgBx[1]);
+  fill(0);
   textFont(arialBold);
   text(
     title,
@@ -64,9 +57,17 @@ void dialogueBox (String title, String message) {
   //Message
   textFont(arial);
   text(
-    message,
-    /*Position text*/ 0+ dialoguePading, siz[1] -75,
-    /*Limit text to screen*/ siz[0] - dialoguePading*2, siz[1] -75
+    message  ,
+    //Position text
+      //X Axis\/  left side
+                  0          + dialoguePading  ,
+      //Y Axis\/  bottom side |  height of 3 lines
+                  siz[1]      -  textAscent()*3     +  dialoguePading  ,
+    //Limit text to screen
+      //X Axis\/  right side |  Pading for the right side
+                  siz[0]     -  dialoguePading*2  ,
+      //Y Axis\/  bottom side |  height of 3 lines
+                  siz[1]      -  textAscent()*3
   );
 }
 

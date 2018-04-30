@@ -1,0 +1,5 @@
+void keyInfoGraphic(){
+  text("z: Rock", 10, 10);
+  text("x: Paper", 10, 10);
+  text("c: Hole Punch", 10, 10);
+}

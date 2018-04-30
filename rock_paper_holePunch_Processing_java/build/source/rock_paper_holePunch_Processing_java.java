@@ -17,12 +17,15 @@ public class rock_paper_holePunch_Processing_java extends PApplet {
 //Varable Section
 //Global Refrences
 int[] palette = {0xffe6194b, 0xff3cb44b, 0xffffe119, 0xff0082c8, 0xfff58231, 0xff911eb4, 0xff46f0f0, 0xfff032e6, 0xffd2f53c, 0xfffabebe, 0xff008080, 0xffe6beff, 0xffaa6e28, 0xfffffac8, 0xff800000, 0xffaaffc3, 0xff808000, 0xffffd8b1, 0xff000080, 0xff808080, 0xffFFFFFF, 0xff000000};
+int bg = 0xffb3b8bf;
 
 //Keys            z       x       c   ??
 //boolean keys[] = {false, false, false, false, false};
 
 //Dynamic Vars
+//1:rock 2:paper 3:holeP
 int rphph = -1;
+boolean dontRun = false;
 
 //Dynamic Consistency Vars
 
@@ -30,6 +33,7 @@ int rphph = -1;
 PImage rock;
 PImage paper;
 PImage holePunch;
+PImage[] all = new PImage[3];
 
 //Consistency
 int wide = 100;
@@ -43,85 +47,59 @@ public void setup() {
 
   //Load Images
   rock = loadImage("Img/rock.png");
+  paper = loadImage("Img/paper.png");
+  holePunch = loadImage("Img/hole-punch.png");
+  //Load Images As Array
+  all[0] = loadImage("Img/rock.png");
+  all[1] = loadImage("Img/paper.png");
+  all[2] = loadImage("Img/hole-punch.png");
+}
+
+
+public void draw() {
+  background(bg);
+}
+
+public int compPlay() {
+  return PApplet.parseInt(random(3)+1);
+}
+
+//Key Calls
+public void keyPressed() {
+  switch(key) {
+    case 'z':
+      rphph = 1;
+      dontRun = false;
+      break;
+    case 'x':
+      rphph = 2;
+      dontRun = false;
+      break;
+    case 'c':
+      rphph = 3;
+      dontRun = false;
+      break;
+    default:
+      rphph = 0;
+      dontRun = true;
+      break;
+  }
+}
+
+public void keyReleased() {
+  if (!dontRun){
+    /*
+    if (rphph == compPlay())
+      print("Draw");
+    if (rphph > compPlay())
+    */
+
+    image(all[rphph-1],30,30);
+
+  }
 }
 
 /*
-void draw() {
-  background(#fffac8);
-
-  int indx = 0;
-  for (int higt : bars) {
-    bar(indx);
-    indx++;
-  }
-  indx = 0;
-}
-
-void keyPressed() {
-  if (key == CODED) {
-    switch(keyCode) {
-    case UP:
-      keys[0] = true;
-      break;
-    case DOWN:
-      keys[1] = true;
-      break;
-    case RIGHT:
-      keys[2] = true;
-      break;
-    case LEFT:
-      keys[3] = true;
-      break;
-    case SHIFT:
-      keys[4] = true;
-    }
-  }
-}
-
-void keyHandler() {
-  if (keys[4]) {
-    Change = majorChange;
-  } else {
-    Change = minorChange;
-  }
-
-  if (keys[0]) {
-    bars[selectedIndex] += Change;
-  } else if (keys[1]) {
-    bars[selectedIndex] -= Change;
-  } else if (keys[2]) {
-    if (selectedIndex < maxIndex) {
-      selectedIndex += Change;
-    }
-  } else if (keys[3]) {
-    if (selectedIndex > 0) {
-      selectedIndex -= Change;
-    }
-  }
-}
-
-void keyReleased() {
-  keyHandler();
-  if (key == CODED) {
-    switch(keyCode) {
-    case UP:
-      keys[0] = false;
-      break;
-    case DOWN:
-      keys[1] = false;
-      break;
-    case RIGHT:
-      keys[2] = false;
-      break;
-    case LEFT:
-      keys[3] = false;
-      break;
-    case SHIFT:
-      keys[4] = false;
-    }
-  }
-}
-
 void bar(int index) {
   int pos = index*(wide+margin)+margin;
 

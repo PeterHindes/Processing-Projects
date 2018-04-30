@@ -17,6 +17,7 @@ boolean dontRun = false;
 PImage rock;
 PImage paper;
 PImage holePunch;
+PImage[] all = new PImage[3];
 
 //Consistency
 int wide = 100;
@@ -32,6 +33,10 @@ void setup() {
   rock = loadImage("Img/rock.png");
   paper = loadImage("Img/paper.png");
   holePunch = loadImage("Img/hole-punch.png");
+  //Load Images As Array
+  all[0] = loadImage("Img/rock.png");
+  all[1] = loadImage("Img/paper.png");
+  all[2] = loadImage("Img/hole-punch.png");
 }
 
 
@@ -39,7 +44,7 @@ void draw() {
   background(bg);
 }
 
-void compPlay() {
+int compPlay() {
   return int(random(3)+1);
 }
 
@@ -48,12 +53,15 @@ void keyPressed() {
   switch(key) {
     case 'z':
       rphph = 1;
+      dontRun = false;
       break;
     case 'x':
       rphph = 2;
+      dontRun = false;
       break;
     case 'c':
       rphph = 3;
+      dontRun = false;
       break;
     default:
       rphph = 0;
@@ -64,11 +72,14 @@ void keyPressed() {
 
 void keyReleased() {
   if (!dontRun){
+    /*
     if (rphph == compPlay())
       print("Draw");
     if (rphph > compPlay())
-  } else {
-    dontRun = false;
+    */
+
+    image(all[rphph-1],30,30);
+
   }
 }
 

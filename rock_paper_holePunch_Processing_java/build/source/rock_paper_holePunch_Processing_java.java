@@ -77,8 +77,8 @@ public void draw() {
   keyInfographic();
 
   text(message,150,200);
-  if (!(rphph == -1)){
-    image(all[rphph-1],30,30);
+  if (rphph > 0){
+    image(all[rphph-1],30,230);
   }
 }
 

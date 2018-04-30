@@ -55,7 +55,7 @@ void dialogueBox (String title, String message) {
   );
 
   //Message
-  //print(textAscent()*3 + "\n");f
+  //print(textAscent()*3 + "\n");
   textFont(arial);
   //print(textAscent()*3 + "\n");
   text(

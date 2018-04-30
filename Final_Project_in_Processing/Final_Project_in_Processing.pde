@@ -1,10 +1,15 @@
 //Variables
 
 
-//Resource Variables
-//PImage martha1;
-PFont arial;
-PFont arialBold;
+//Resources
+  //Colors
+    color[] msgBx = {0x66669961};
+  //External
+    //Images
+      //PImage martha1;
+      PFont arial;
+      PFont arialBold;
+    //Sound
 
 
 //Consistency variables
@@ -19,7 +24,7 @@ void setup () {
   siz = new int[]{1000, 700};
 
   //background (0);
-  background(255);
+  background(100);
 
   //Setup Resources
   arialBold = createFont("Arial-Bold", 22);
@@ -34,12 +39,20 @@ void draw () {
     "GOVERNMENT ANNOUNCEMENT",
     "Those infected by the outbreak CANNOT feel, think or remember any past experiences. They are dangerous and MUST be killed ON SIGHT"
   );
+
+  fill(255,0,0,191);
+  rect(10,10,50,50);
 }
 
 //Custom Functions
 void dialogueBox (String title, String message) {
   //Box BG
-  fill();
+  noStroke();
+  //fill(50,50,60,20);
+  fill(255,0,0,191);
+  rect(10,10,50,50);
+
+  fill(0);
 
   //Title
   textFont(arialBold);

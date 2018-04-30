@@ -17,22 +17,30 @@ public class Final_Project_in_Processing extends PApplet {
 //Variables
 
 
-//Resource Variables
-//PImage martha1;
-PFont arial;
-PFont arialBold;
+//Resources
+  //Colors
+    int[] msgBx = {0x66669961};
+  //External
+    //Images
+      //PImage martha1;
+      PFont arial;
+      PFont arialBold;
+    //Sound
 
 
 //Consistency variables
 int dialoguePading = 25;
 
+//Dynamic Consistency variables
+int[] siz;
+
 //Functions
-int[] siz = {1000, 700};
 public void setup () {
   
+  siz = new int[]{1000, 700};
 
   //background (0);
-  background(255);
+  background(100);
 
   //Setup Resources
   arialBold = createFont("Arial-Bold", 22);
@@ -47,10 +55,21 @@ public void draw () {
     "GOVERNMENT ANNOUNCEMENT",
     "Those infected by the outbreak CANNOT feel, think or remember any past experiences. They are dangerous and MUST be killed ON SIGHT"
   );
+
+  fill(255,0,0,191);
+  rect(10,10,50,50);
 }
 
 //Custom Functions
 public void dialogueBox (String title, String message) {
+  //Box BG
+  noStroke();
+  //fill(50,50,60,20);
+  fill(255,0,0,191);
+  rect(10,10,50,50);
+
+  fill(0);
+
   //Title
   textFont(arialBold);
   text(
@@ -72,8 +91,7 @@ public void keyReleased () {
 
 //  if (key == 'd'
 }
- 
-  public void settings() {  size(1000,700); }
+  public void settings() {  size           (1000, 700); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Final_Project_in_Processing" };
     if (passedArgs != null) {

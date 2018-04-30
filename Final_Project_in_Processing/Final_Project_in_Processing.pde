@@ -34,8 +34,8 @@ void draw () {
 
   dialogueBox(
     "GOVERNMENT ANNOUNCEMENT",
-    "Those infected by the outbreak CANNOT feel, think or remember any past experiences."+
-    "They are dangerous and MUST be killed ON SIGHT"
+    "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
+    "They are dangerous and MUST be killed ON SIGHT!"
   );
 }
 
@@ -55,17 +55,19 @@ void dialogueBox (String title, String message) {
   );
 
   //Message
+  //print(textAscent()*3 + "\n");
   textFont(arial);
+  //print(textAscent()*3 + "\n");
   text(
     message  ,
     //Position text
       //X Axis\/  left side
-                  0          + dialoguePading  ,
-      //Y Axis\/  bottom side |  height of 3 lines
-                  siz[1]      -  textAscent()*3     +  dialoguePading  ,
+                  0           + dialoguePading  ,
+      //Y Axis\/  bottom side |  height of 3 lines  |    **Subtract means up on the y axis**
+                  siz[1]      -  textAscent()*3     -  dialoguePading  ,
     //Limit text to screen
-      //X Axis\/  right side |  Pading for the right side
-                  siz[0]     -  dialoguePading*2  ,
+      //X Axis\/  right side  |  Pading for the right side
+                  siz[0]      -  dialoguePading*2  ,
       //Y Axis\/  bottom side |  height of 3 lines
                   siz[1]      -  textAscent()*3
   );

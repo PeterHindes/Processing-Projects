@@ -13,10 +13,12 @@ boolean dontRun = false;
 
 //Dynamic Consistency Vars
 
-//Init Images
+/*/Init Images
 PImage rock;
 PImage paper;
 PImage holePunch;
+*/
+//Init Images As Arrays
 PImage[] all = new PImage[3];
 
 //Consistency
@@ -29,10 +31,11 @@ int[] siz = {900, 700};
 void setup() {
   size(900, 700);
 
-  //Load Images
+  /*/Load Images
   rock = loadImage("Img/rock.png");
   paper = loadImage("Img/paper.png");
   holePunch = loadImage("Img/hole-punch.png");
+  */
   //Load Images As Array
   all[0] = loadImage("Img/rock.png");
   all[1] = loadImage("Img/paper.png");
@@ -82,32 +85,3 @@ void keyReleased() {
 
   }
 }
-
-/*
-void bar(int index) {
-  int pos = index*(wide+margin)+margin;
-
-  if (pos > siz[1]) {
-    print("Error, Bars should not be drawn off screen, check pos calc and size.\n");
-    fill(0);
-    text("Error bar out of bounds", 10, 10);
-  }
-
-  if (index == selectedIndex) {
-    strokeWeight(2);
-    stroke(50);
-  } else {
-    strokeWeight(1);
-    stroke(0);
-  }
-
-  fill(palette[index]);
-  rect(pos, siz[1], wide, -bars[index]);
-
-
-  fill(3);
-  textAlign(CENTER);
-  textSize(20);
-  text(bars[index], pos+(wide/2), siz[1]-bars[index]-3);
-}
-*/

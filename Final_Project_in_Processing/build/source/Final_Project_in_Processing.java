@@ -27,6 +27,8 @@ public class Final_Project_in_Processing extends PApplet {
   //Colors
     int[] msgBx = {0x3a3a4c38, 0xff222e30};
   //External
+    //Classes
+      dialogueBox db = new dialogueBox();
     //Images
       //PImage martha1;
     //Fonts
@@ -79,7 +81,7 @@ public class Final_Project_in_Processing extends PApplet {
 
     player();
 
-    dialogueBox(
+    db.primary(
       2,
       "GOVERNMENT ANNOUNCEMENT",
       "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
@@ -89,7 +91,8 @@ public class Final_Project_in_Processing extends PApplet {
 
 
 //Custom Functions
-  public void dialogueBox (int lineCount, String title, String message) {
+/*
+  void dialogueBox (int lineCount, String title, String message) {
 
     //Activate Matrix
     pushMatrix();
@@ -102,9 +105,9 @@ public class Final_Project_in_Processing extends PApplet {
     //Calculate
     //Height of title and body in seprate vars with their respective fonts
     textFont(mesageFont);
-    int bodyHeight  = PApplet.parseInt(textAscent())*(lineCount+1);
+    int bodyHeight  = int(textAscent())*(lineCount+1);
     textFont(titleFont);
-    int titleHeight = PApplet.parseInt(textAscent());
+    int titleHeight = int(textAscent());
     //body position with all padding verticaly
     int bodyNspacingHeight = bodyHeight          + dialoguePading;
     int titleNspacingHeight = titleHeight        + dialoguePading;
@@ -136,7 +139,7 @@ public class Final_Project_in_Processing extends PApplet {
     text(title, 0,-dialogueBoxTitlePading);
 
     popMatrix();
-  }
+  }*/
 
   public void player() {
 
@@ -219,6 +222,56 @@ public class Final_Project_in_Processing extends PApplet {
       }
     }
   }
+class dialogueBox {
+  public void primary (int lineCount, String title, String message) {
+
+    //Activate Matrix
+    pushMatrix();
+    //Allign to bottom with padding
+    //translate(0 + dialoguePading ,  siz[1] - (dialoguePading));
+    //Allign to bottom without padding
+    translate(0 ,  siz[1]);
+
+
+    //Calculate
+    //Height of title and body in seprate vars with their respective fonts
+    textFont(mesageFont);
+    int bodyHeight  = PApplet.parseInt(textAscent())*(lineCount+1);
+    textFont(titleFont);
+    int titleHeight = PApplet.parseInt(textAscent());
+    //body position with all padding verticaly
+    int bodyNspacingHeight = bodyHeight          + dialoguePading;
+    int titleNspacingHeight = titleHeight        + dialoguePading;
+
+    int rectRightPaded = siz[0] - dialogueBoxPading*2;
+    int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The title is double because it is fliped to the top, and the body is bottom
+
+
+    //Rectangle
+    translate(dialogueBoxPading,-dialogueBoxPading);
+    fill(msgBx[0]);
+    rect(0,0,
+      rectRightPaded ,
+      -wholeMessagePadded ,
+      7
+    );
+
+    //Message
+    translate(dialoguePading,-dialoguePading);
+    translate(0,-bodyHeight);
+    fill(0);
+    textAlign(LEFT, TOP);
+    textFont(mesageFont);
+    text(message, 0,0, siz[0] - dialoguePading*2, siz[1]      - bodyHeight);
+
+    //Title
+    textAlign(LEFT, BOTTOM);
+    textFont(titleFont);
+    text(title, 0,-dialogueBoxTitlePading);
+
+    popMatrix();
+  }
+}
 static class externalClass {
 
   public static void external() {

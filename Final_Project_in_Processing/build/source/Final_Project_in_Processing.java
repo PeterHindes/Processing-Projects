@@ -49,15 +49,23 @@ public void draw () {
   background(175);
 
   dialogueBox(
+    2,
     "GOVERNMENT ANNOUNCEMENT",
-    "Those infected by the outbreak CANNOT feel, think or remember any past experiences."+
+    "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
     "They are dangerous and MUST be killed ON SIGHT!"
   );
 }
 
 //Custom Functions
-public void dialogueBox (String title, String message) {
+public void dialogueBox (int lineCount, String title, String message) {
 
+  //Calculate
+  textFont(arial);
+  int bodyHeight  = PApplet.parseInt(textAscent())*lineCount;
+  textFont(arialBold);
+  int titleHeight = PApplet.parseInt(textAscent());
+
+  //Draw
   fill(msgBx[0]);
   rect(15,siz[1]-15,siz[0]-30,-125,25);
 
@@ -67,25 +75,28 @@ public void dialogueBox (String title, String message) {
   textFont(arialBold);
   text(
     title,
-    /*Position text*/ 0+ dialoguePading, siz[1] -100
+    //Position text
+      //X Axis\/  left side   |
+                  0           + dialoguePading  ,
+      //Y Axis\/  bottom side | height of lines  |
+                  siz[1]      - bodyHeight       + 5
+
   );
 
   //Message
-  //print(textAscent()*3 + "\n");
   textFont(arial);
-  //print(textAscent()*3 + "\n");
   text(
     message  ,
     //Position text
       //X Axis\/  left side
-                  0          + dialoguePading  ,
-      //Y Axis\/  bottom side |  height of 3 lines
-                  siz[1]      -  textAscent()*3,//     -  dialoguePading  ,
+                  0           + dialoguePading  ,
+      //Y Axis\/  bottom side | height of lines   |    **Subtract means up on the y axis**
+                  siz[1]      - bodyHeight        - dialoguePading  ,
     //Limit text to screen
-      //X Axis\/  right side |  Pading for the right side
-                  siz[0]     -  dialoguePading*2  ,
-      //Y Axis\/  bottom side |  height of 3 lines
-      /*            siz[1]      -  textAscent()*3*/ 1000
+      //X Axis\/  right side  | Pading for the right side
+                  siz[0]      - dialoguePading*2  ,
+      //Y Axis\/  bottom side | height of lines
+                  siz[1]      - bodyHeight
   );
 }
 

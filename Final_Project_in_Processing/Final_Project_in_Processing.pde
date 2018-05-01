@@ -33,6 +33,7 @@ void draw () {
   background(175);
 
   dialogueBox(
+    2,
     "GOVERNMENT ANNOUNCEMENT",
     "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
     "They are dangerous and MUST be killed ON SIGHT!"
@@ -40,8 +41,15 @@ void draw () {
 }
 
 //Custom Functions
-void dialogueBox (String title, String message) {
+void dialogueBox (int lineCount, String title, String message) {
 
+  //Calculate
+  textFont(arial);
+  int bodyHeight  = int(textAscent())*lineCount;
+  textFont(arialBold);
+  int titleHeight = int(textAscent());
+
+  //Draw
   fill(msgBx[0]);
   rect(15,siz[1]-15,siz[0]-30,-125,25);
 
@@ -51,30 +59,32 @@ void dialogueBox (String title, String message) {
   textFont(arialBold);
   text(
     title,
-    /*Position text*/ 0+ dialoguePading, siz[1] -100
+    //Position text
+      //X Axis\/  left side   |
+                  0           + dialoguePading  ,
+      //Y Axis\/  bottom side | height of lines  |
+                  siz[1]      - bodyHeight       + 5
+
   );
 
   //Message
-  //print(textAscent()*3 + "\n");
   textFont(arial);
-  //print(textAscent()*3 + "\n");
   text(
     message  ,
     //Position text
       //X Axis\/  left side
                   0           + dialoguePading  ,
-      //Y Axis\/  bottom side |  height of 3 lines  |    **Subtract means up on the y axis**
-                  siz[1]      -  textAscent()*3     -  dialoguePading  ,
+      //Y Axis\/  bottom side | height of lines   |    **Subtract means up on the y axis**
+                  siz[1]      - bodyHeight        - dialoguePading  ,
     //Limit text to screen
-      //X Axis\/  right side  |  Pading for the right side
-                  siz[0]      -  dialoguePading*2  ,
-      //Y Axis\/  bottom side |  height of 3 lines
-                  siz[1]      -  textAscent()*3
+      //X Axis\/  right side  | Pading for the right side
+                  siz[0]      - dialoguePading*2  ,
+      //Y Axis\/  bottom side | height of lines
+                  siz[1]      - bodyHeight
   );
 }
 
 //Key Calls
 void keyReleased () {
 
-//  if (key == 'd'
 }

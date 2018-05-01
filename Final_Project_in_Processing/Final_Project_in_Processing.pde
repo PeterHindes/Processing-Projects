@@ -51,7 +51,8 @@ void dialogueBox (int lineCount, String title, String message) {
   textFont(arialBold);
   int titleHeight = int(textAscent());
 
-  //print(bodyHeight + "\n" + titleHeight + "\n");
+  //Y Axis\/               bottom side | height of lines   |    **Subtract means up on the y axis**
+  int bodyNspacingHeight =       -(- bodyHeight        - dialoguePading);
 
   //Draw
   fill(msgBx[0]);
@@ -59,13 +60,13 @@ void dialogueBox (int lineCount, String title, String message) {
     //First point
       //X Axis\/
       dialogueBoxPading  ,
-      //Y Axis\/
-      siz[1]-dialogueBoxPading  ,
+      //Y Axis\/  bottom | padding up from the bottom
+                  siz[1] - dialogueBoxPading  ,
     //Second relative point
-      //X Axis\/
-      siz[0]-dialogueBoxPading*2  ,
+      //X Axis\/  right side absolute | padding for the right | acomodation for the pading on the left from the first point
+                  siz[0]              - dialogueBoxPading     - dialogueBoxPading  ,
       //Y Axis\/
-      -125  ,
+                  -(bodyNspacingHeight  + titleHeight),
     //Corner radius
       dialogueBoxCornerRadius
   );
@@ -80,7 +81,7 @@ void dialogueBox (int lineCount, String title, String message) {
       //X Axis\/  left side   |
                   0           + dialoguePading  ,
       //Y Axis\/  bottom side | height of lines   | Padding From The Body | Space Above Body
-                  siz[1]      - bodyHeight        - dialoguePading        - 15
+                  /*siz[1]      - bodyHeight        - dialoguePading */siz[1] - bodyNspacingHeight       - 15
 
   );
 
@@ -92,7 +93,7 @@ void dialogueBox (int lineCount, String title, String message) {
       //X Axis\/  left side
                   0           + dialoguePading  ,
       //Y Axis\/  bottom side | height of lines   |    **Subtract means up on the y axis**
-                  siz[1]      - bodyHeight        - dialoguePading  ,
+        siz[1] - bodyNspacingHeight  ,//          siz[1]      - bodyHeight        - dialoguePading  ,
     //Limit text to screen
       //X Axis\/  right side  | Pading for the right side
                   siz[0]      - dialoguePading*2  ,

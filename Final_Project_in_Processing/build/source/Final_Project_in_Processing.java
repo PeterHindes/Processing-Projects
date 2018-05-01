@@ -30,6 +30,8 @@ public class Final_Project_in_Processing extends PApplet {
 
 //Consistency variables
 int dialoguePading = 25;
+int dialogueBoxPading = dialoguePading - 10;
+int dialogueBoxCornerRadius = 25;
 
 //Dynamic Consistency variables
 int[] siz;
@@ -65,11 +67,25 @@ public void dialogueBox (int lineCount, String title, String message) {
   textFont(arialBold);
   int titleHeight = PApplet.parseInt(textAscent());
 
-  //print(bodyHeight + "\n" + titleHeight + "\n");
+  //Y Axis\/               bottom side | height of lines   |    **Subtract means up on the y axis**
+  int bodyNspacingHeight =       -(- bodyHeight        - dialoguePading);
 
   //Draw
   fill(msgBx[0]);
-  rect(15,siz[1]-15,siz[0]-30,-125,25);
+  rect(
+    //First point
+      //X Axis\/
+      dialogueBoxPading  ,
+      //Y Axis\/  bottom | padding up from the bottom
+                  siz[1] - dialogueBoxPading  ,
+    //Second relative point
+      //X Axis\/  right side absolute | padding for the right | acomodation for the pading on the left from the first point
+                  siz[0]              - dialogueBoxPading     - dialogueBoxPading  ,
+      //Y Axis\/
+                  -(bodyNspacingHeight  + titleHeight),
+    //Corner radius
+      dialogueBoxCornerRadius
+  );
 
   //Title
   //fill(msgBx[1]);
@@ -81,7 +97,7 @@ public void dialogueBox (int lineCount, String title, String message) {
       //X Axis\/  left side   |
                   0           + dialoguePading  ,
       //Y Axis\/  bottom side | height of lines   | Padding From The Body | Space Above Body
-                  siz[1]      - bodyHeight        - dialoguePading        - 15
+                  /*siz[1]      - bodyHeight        - dialoguePading */siz[1] - bodyNspacingHeight       - 15
 
   );
 
@@ -93,7 +109,7 @@ public void dialogueBox (int lineCount, String title, String message) {
       //X Axis\/  left side
                   0           + dialoguePading  ,
       //Y Axis\/  bottom side | height of lines   |    **Subtract means up on the y axis**
-                  siz[1]      - bodyHeight        - dialoguePading  ,
+        siz[1] - bodyNspacingHeight  ,//          siz[1]      - bodyHeight        - dialoguePading  ,
     //Limit text to screen
       //X Axis\/  right side  | Pading for the right side
                   siz[0]      - dialoguePading*2  ,

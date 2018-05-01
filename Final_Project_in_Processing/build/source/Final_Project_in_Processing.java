@@ -24,10 +24,9 @@ public class Final_Project_in_Processing extends PApplet {
 
 
 //Resources
-  //Colors
-    int[] msgBx = {0x3a3a4c38, 0xff222e30};
   //External
     //Classes
+      dialogue dia = new dialogue();
       dialogueBox db = new dialogueBox();
     //Images
       //PImage martha1;
@@ -35,6 +34,12 @@ public class Final_Project_in_Processing extends PApplet {
       PFont titleFont;
       PFont mesageFont;
     //Sound
+  //Palletes
+    //Colors
+      int[] msgBx = {0x3a3a4c38, 0xff222e30};
+    //Dialogue
+      String[][] dialogue = dia.setupDialogue();  //Dialogue setup in external file dialogue.pde
+      String[][] titles = dia.setupTitles();
 
 
 //Consistency variables
@@ -82,12 +87,14 @@ public class Final_Project_in_Processing extends PApplet {
 
     player();
 
-    db.primary(
+    db.primary(2,titles[0][0],dialogue[0][0]);
+
+    /*db.primary(
       2,
-      "GOVERNMENT ANNOUNCEMENT",
-      "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
-      "They are dangerous and MUST be killed ON SIGHT!"
-    );
+      "OFFICIAL ANNOUNCEMENT",
+      "Infected individuals CANNOT remember their past or think for themselves. "+
+      "They are dangerous and should be killed on sight!"
+    );*/
   }
 
 
@@ -173,6 +180,33 @@ public class Final_Project_in_Processing extends PApplet {
       }
     }
   }
+class dialogue {
+  public String[][] setupDialogue(){
+
+    return new String[][]
+    {
+      {
+        "Infected individuals CANNOT remember their past or think for themselves. "+
+        "They are dangerous and should be killed on sight!"
+      },
+      {
+        "Am I infected? Oh god, whats that black figure coming twards me?!"
+      }
+    };
+
+  }
+  public String[][] setupTitles(){
+    return new String[][]
+    {
+      {
+        "OFFICIAL ANNOUNCEMENT"
+      },
+      {
+        "Martha"
+      }
+    };
+  }
+}
 class dialogueBox {
   public void primary (int lineCount, String title, String message) {
 
@@ -213,7 +247,7 @@ class dialogueBox {
     fill(0);
     textAlign(LEFT, TOP);
     textFont(mesageFont);
-    text(message, 0,0, siz[0] - dialoguePading*2, siz[1]      - bodyHeight);
+    text(message, 0,0, rectRightPaded - dialoguePading*2, siz[1]      - bodyHeight);
 
     //Title
     textAlign(LEFT, BOTTOM);

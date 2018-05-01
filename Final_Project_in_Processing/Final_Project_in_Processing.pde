@@ -8,13 +8,9 @@
 
 
 //Resources
-  //Palletes
-    //Colors
-      color[] msgBx = {0x3a3a4c38, #222e30};
-    //Dialogue
-      String[][] dialogue;  //Dialogue setup in external file dialogue.pde
   //External
     //Classes
+      dialogue dia = new dialogue();
       dialogueBox db = new dialogueBox();
     //Images
       //PImage martha1;
@@ -22,9 +18,12 @@
       PFont titleFont;
       PFont mesageFont;
     //Sound
-
-
-
+  //Palletes
+    //Colors
+      color[] msgBx = {0x3a3a4c38, #222e30};
+    //Dialogue
+      String[][] dialogue = dia.setupDialogue();  //Dialogue setup in external file dialogue.pde
+      String[][] titles = dia.setupTitles();
 
 
 //Consistency variables
@@ -72,12 +71,14 @@
 
     player();
 
-    db.primary(
+    db.primary(2,titles[0][0],dialogue[0][0]);
+
+    /*db.primary(
       2,
       "OFFICIAL ANNOUNCEMENT",
       "Infected individuals CANNOT remember their past or think for themselves. "+
       "They are dangerous and should be killed on sight!"
-    );
+    );*/
   }
 
 

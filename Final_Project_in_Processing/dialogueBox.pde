@@ -38,7 +38,7 @@ class dialogueBox {
     fill(0);
     textAlign(LEFT, TOP);
     textFont(mesageFont);
-    text(message, 0,0, siz[0] - dialoguePading*2, siz[1]      - bodyHeight);
+    text(message, 0,0, rectRightPaded - dialoguePading*2, siz[1]      - bodyHeight);
 
     //Title
     textAlign(LEFT, BOTTOM);

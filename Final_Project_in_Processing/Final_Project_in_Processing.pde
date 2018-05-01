@@ -1,6 +1,6 @@
 //Variables
   int[] playerPos = {30,0};
-  int floorLevel = 20;
+  int floorLevel = 120;
   int time = 0;
 
   //keys            UP     Down   RIGHT  LEFT   SHIFT
@@ -8,8 +8,11 @@
 
 
 //Resources
-  //Colors
-    color[] msgBx = {0x3a3a4c38, #222e30};
+  //Palletes
+    //Colors
+      color[] msgBx = {0x3a3a4c38, #222e30};
+    //Dialogue
+      String[][] dialogue;  //Dialogue setup in external file dialogue.pde
   //External
     //Classes
       dialogueBox db = new dialogueBox();
@@ -19,6 +22,9 @@
       PFont titleFont;
       PFont mesageFont;
     //Sound
+
+
+
 
 
 //Consistency variables
@@ -68,9 +74,9 @@
 
     db.primary(
       2,
-      "GOVERNMENT ANNOUNCEMENT",
-      "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
-      "They are dangerous and MUST be killed ON SIGHT!"
+      "OFFICIAL ANNOUNCEMENT",
+      "Infected individuals CANNOT remember their past or think for themselves. "+
+      "They are dangerous and should be killed on sight!"
     );
   }
 
@@ -80,9 +86,9 @@
 
     pushMatrix();
 
-    translate(playerPos[0],  siz[1]-floorLevel-playerPos[1]);
+    translate(playerPos[0],  siz[1]-playerPos[1]);
 
-    rect(0,0,  15,15);
+    rect(0,-floorLevel,  15,15);
     popMatrix();
 
   }

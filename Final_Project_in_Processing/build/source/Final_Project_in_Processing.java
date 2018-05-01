@@ -81,7 +81,7 @@ public void dialogueBox (int lineCount, String title, String message) {
   int titleNspacingHeight = titleHeight        + dialoguePading;
 
   int rectRightPaded = siz[0] - dialogueBoxPading*2;
-  int wholeMessagePadded = 500;
+  int wholeMessagePadded = bodyHeight+titleHeight*2;
 
 
   //Rectangle

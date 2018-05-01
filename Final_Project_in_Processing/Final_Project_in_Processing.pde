@@ -65,7 +65,7 @@ void dialogueBox (int lineCount, String title, String message) {
   int titleNspacingHeight = titleHeight        + dialoguePading;
 
   int rectRightPaded = siz[0] - dialogueBoxPading*2;
-  int wholeMessagePadded = 500;
+  int wholeMessagePadded = bodyHeight+titleHeight*2; //The title is double because it is fliped to the top, and the body is bottom
 
 
   //Rectangle

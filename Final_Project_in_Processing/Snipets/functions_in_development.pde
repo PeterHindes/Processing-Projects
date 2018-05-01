@@ -15,6 +15,30 @@ void dialogueBox (int lineCount, String title, String message) {
   textFont(arialBold);
   int titleHeight = int(textAscent());
   //body position with all padding verticaly
-  int bodyNspacingHeight = bodyHeight        + dialoguePading;
+  int bodyNspacingHeight = bodyHeight          + dialoguePading;
+  int titleNspacingHeight = titleHeight        + dialoguePading;
+
+  int rightPaded = siz[0] - dialoguePading*2;
+  int wholeMessagePadded =
+
+
+  //Rectangle
+  translate(dialogueBoxPading,dialogueBoxPading);
+  fill(msgBx[0]);
+  rect(0,0,
+    rightPaded ,
+    wholeMessagePadded
+  );
+
+  //Text
+  translate(dialoguePading,dialoguePading);
+  translate(0,bodyHeight)
+  fill(0);
+  textAlign(LEFT, TOP);
+  text(message, 0,0);
+
+  //Title
+  textAlign(LEFT, BOTTOM);
+  text(title, 0,0)
 
 }

@@ -29,8 +29,8 @@ public class Final_Project_in_Processing extends PApplet {
 
 
 //Consistency variables
-int dialoguePading = 25;
-int dialogueBoxPading = dialoguePading - 10;
+int dialoguePading = 10;
+int dialogueBoxPading = 15;
 int dialogueBoxCornerRadius = 25;
 
 //Dynamic Consistency variables
@@ -59,16 +59,62 @@ public void draw () {
 }
 
 //Custom Functions
+
 public void dialogueBox (int lineCount, String title, String message) {
 
+  //Activate Matrix
+  pushMatrix();
+  //Allign to bottom with padding
+  //translate(0 + dialoguePading ,  siz[1] - (dialoguePading));
+  //Allign to bottom without padding
+  translate(0 ,  siz[1]);
+
+
   //Calculate
+  //Height of title and body in seprate vars with their respective fonts
   textFont(arial);
   int bodyHeight  = PApplet.parseInt(textAscent())*lineCount;
   textFont(arialBold);
   int titleHeight = PApplet.parseInt(textAscent());
+  //body position with all padding verticaly
+  int bodyNspacingHeight = bodyHeight          + dialoguePading;
+  int titleNspacingHeight = titleHeight        + dialoguePading;
 
-  //Y Axis\/               bottom side | height of lines   |    **Subtract means up on the y axis**
-  int bodyNspacingHeight =       -(- bodyHeight        - dialoguePading);
+  int rightPaded = siz[0] - dialoguePading*2;
+  int wholeMessagePadded =
+
+
+  //Rectangle
+  //translate(dialogueBoxPading,dialogueBoxPading);
+  fill(msgBx[0]);
+  rect(0,0,
+    rightPaded ,
+    wholeMessagePadded
+  );
+
+  //Text
+  translate(dialoguePading,dialoguePading);
+  translate(0,bodyHeight);
+  fill(0);
+  textAlign(LEFT, TOP);
+  text(message, 0,0);
+
+  //Title
+  textAlign(LEFT, BOTTOM);
+  text(title, 0,0);
+
+}
+
+/*void dialogueBox (int lineCount, String title, String message) {
+
+  //Calculate
+  //Height of title and body in seprate vars with their respective fonts
+  textFont(arial);
+  int bodyHeight  = int(textAscent())*lineCount;
+  textFont(arialBold);
+  int titleHeight = int(textAscent());
+  //body position with all padding verticaly
+  int bodyNspacingHeight = bodyHeight        + dialoguePading;
 
   //Draw
   fill(msgBx[0]);
@@ -82,7 +128,7 @@ public void dialogueBox (int lineCount, String title, String message) {
       //X Axis\/  right side absolute | padding for the right | acomodation for the pading on the left from the first point
                   siz[0]              - dialogueBoxPading     - dialogueBoxPading  ,
       //Y Axis\/
-                  -(bodyNspacingHeight  + titleHeight),
+                  -bodyNspacingHeight - titleHeight,
     //Corner radius
       dialogueBoxCornerRadius
   );
@@ -97,7 +143,7 @@ public void dialogueBox (int lineCount, String title, String message) {
       //X Axis\/  left side   |
                   0           + dialoguePading  ,
       //Y Axis\/  bottom side | height of lines   | Padding From The Body | Space Above Body
-                  /*siz[1]      - bodyHeight        - dialoguePading */siz[1] - bodyNspacingHeight       - 15
+                  /*siz[1]      - bodyHeight        - dialoguePading siz[1] - bodyNspacingHeight       - 15
 
   );
 
@@ -116,7 +162,7 @@ public void dialogueBox (int lineCount, String title, String message) {
       //Y Axis\/  bottom side | height of lines
                   siz[1]      - bodyHeight
   );
-}
+}*/
 
 //Key Calls
 public void keyReleased () {

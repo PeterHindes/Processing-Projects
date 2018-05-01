@@ -49,7 +49,7 @@ public void draw () {
   background(175);
 
   dialogueBox(
-    2,
+    3,
     "GOVERNMENT ANNOUNCEMENT",
     "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
     "They are dangerous and MUST be killed ON SIGHT!"
@@ -65,6 +65,8 @@ public void dialogueBox (int lineCount, String title, String message) {
   textFont(arialBold);
   int titleHeight = PApplet.parseInt(textAscent());
 
+  //print(bodyHeight + "\n" + titleHeight + "\n");
+
   //Draw
   fill(msgBx[0]);
   rect(15,siz[1]-15,siz[0]-30,-125,25);
@@ -78,8 +80,8 @@ public void dialogueBox (int lineCount, String title, String message) {
     //Position text
       //X Axis\/  left side   |
                   0           + dialoguePading  ,
-      //Y Axis\/  bottom side | height of lines  |
-                  siz[1]      - bodyHeight       + 5
+      //Y Axis\/  bottom side | height of lines   | Padding From The Body | Space Above Body
+                  siz[1]      - bodyHeight        - dialoguePading        - 15
 
   );
 
@@ -103,7 +105,6 @@ public void dialogueBox (int lineCount, String title, String message) {
 //Key Calls
 public void keyReleased () {
 
-//  if (key == 'd'
 }
   public void settings() {  size           (1000, 700); }
   static public void main(String[] passedArgs) {

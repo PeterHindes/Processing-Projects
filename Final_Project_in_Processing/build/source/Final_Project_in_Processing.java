@@ -15,12 +15,13 @@ import java.io.IOException;
 public class Final_Project_in_Processing extends PApplet {
 
 //Variables
-int[] playerPos = {30,0};
-int floorLevel = 20;
-int time = 0;
+  int[] playerPos = {30,0};
+  int floorLevel = 20;
+  int time = 0;
 
-//Keys            UP     Down   RIGHT  LEFT   SHIFT
-boolean keys[] = {false, false, false, false, false};
+  //keys            UP     Down   RIGHT  LEFT   SHIFT
+  boolean keys[] = {false, false, false, false, false};
+
 
 //Resources
   //Colors
@@ -35,178 +36,195 @@ boolean keys[] = {false, false, false, false, false};
 
 
 //Consistency variables
-int timeRequired = 15000;
-int dialoguePading = 10;
-int dialogueBoxPading = 15;
-int dialogueBoxCornerRadius = 25;
-int dialogueBoxTitlePading = 10;
+  //Time
+    int timeRequiredWalk = 15000;
+    int timeRequiredRun = 15000/2;
+  //dialogueBox
+    int dialoguePading = 10;
+    int dialogueBoxPading = 15;
+    int dialogueBoxCornerRadius = 25;
+    int dialogueBoxTitlePading = 10;
 
 //Dynamic Consistency variables
-int[] siz;
+  int[] siz;
+  int timeRequiredCurrent = timeRequiredWalk;
 
-//Functions
-public void setup () {
-  
-  siz = new int[]{1000, 700};
+//System Functions
+  public void setup () {
+    
+    siz = new int[]{1000, 700};
 
-  //Setup Resources
-  titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
-  mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
-  //martha1 = loadImage("martha-1.png");
-}
+    externalClass.external();
 
-public void draw () {
+    //Import External Resources
+      //Images
+        //martha1 = loadImage("martha-1.png");
+      //Fonts
+        titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
+        mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
+      //Sound
 
-  time += millis();
-  //print(time);
-
-  if (time > timeRequired){
-    keyHandler();
-    time = 0;
   }
 
-  background(175);
+  public void draw () {
 
-  player();
+    //Run the key handler every few mSeconds
+    time += millis();
+    if (time > timeRequiredCurrent){
+      keyHandler();
+      time = 0;
+    }
 
-  dialogueBox(
-    2,
-    "GOVERNMENT ANNOUNCEMENT",
-    "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
-    "They are dangerous and MUST be killed ON SIGHT!"
-  );
-}
+    background(175);
+
+    player();
+
+    dialogueBox(
+      2,
+      "GOVERNMENT ANNOUNCEMENT",
+      "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
+      "They are dangerous and MUST be killed ON SIGHT!"
+    );
+  }
+
 
 //Custom Functions
+  public void dialogueBox (int lineCount, String title, String message) {
 
-public void dialogueBox (int lineCount, String title, String message) {
-
-  //Activate Matrix
-  pushMatrix();
-  //Allign to bottom with padding
-  //translate(0 + dialoguePading ,  siz[1] - (dialoguePading));
-  //Allign to bottom without padding
-  translate(0 ,  siz[1]);
-
-
-  //Calculate
-  //Height of title and body in seprate vars with their respective fonts
-  textFont(mesageFont);
-  int bodyHeight  = PApplet.parseInt(textAscent())*(lineCount+1);
-  textFont(titleFont);
-  int titleHeight = PApplet.parseInt(textAscent());
-  //body position with all padding verticaly
-  int bodyNspacingHeight = bodyHeight          + dialoguePading;
-  int titleNspacingHeight = titleHeight        + dialoguePading;
-
-  int rectRightPaded = siz[0] - dialogueBoxPading*2;
-  int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The title is double because it is fliped to the top, and the body is bottom
+    //Activate Matrix
+    pushMatrix();
+    //Allign to bottom with padding
+    //translate(0 + dialoguePading ,  siz[1] - (dialoguePading));
+    //Allign to bottom without padding
+    translate(0 ,  siz[1]);
 
 
-  //Rectangle
-  translate(dialogueBoxPading,-dialogueBoxPading);
-  fill(msgBx[0]);
-  rect(0,0,
-    rectRightPaded ,
-    -wholeMessagePadded ,
-    7
-  );
+    //Calculate
+    //Height of title and body in seprate vars with their respective fonts
+    textFont(mesageFont);
+    int bodyHeight  = PApplet.parseInt(textAscent())*(lineCount+1);
+    textFont(titleFont);
+    int titleHeight = PApplet.parseInt(textAscent());
+    //body position with all padding verticaly
+    int bodyNspacingHeight = bodyHeight          + dialoguePading;
+    int titleNspacingHeight = titleHeight        + dialoguePading;
 
-  //Message
-  translate(dialoguePading,-dialoguePading);
-  translate(0,-bodyHeight);
-  fill(0);
-  textAlign(LEFT, TOP);
-  textFont(mesageFont);
-  text(message, 0,0, siz[0] - dialoguePading*2, siz[1]      - bodyHeight);
+    int rectRightPaded = siz[0] - dialogueBoxPading*2;
+    int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The title is double because it is fliped to the top, and the body is bottom
 
-  //Title
-  textAlign(LEFT, BOTTOM);
-  textFont(titleFont);
-  text(title, 0,-dialogueBoxTitlePading);
 
-  popMatrix();
-}
+    //Rectangle
+    translate(dialogueBoxPading,-dialogueBoxPading);
+    fill(msgBx[0]);
+    rect(0,0,
+      rectRightPaded ,
+      -wholeMessagePadded ,
+      7
+    );
 
-public void player() {
+    //Message
+    translate(dialoguePading,-dialoguePading);
+    translate(0,-bodyHeight);
+    fill(0);
+    textAlign(LEFT, TOP);
+    textFont(mesageFont);
+    text(message, 0,0, siz[0] - dialoguePading*2, siz[1]      - bodyHeight);
 
-  pushMatrix();
+    //Title
+    textAlign(LEFT, BOTTOM);
+    textFont(titleFont);
+    text(title, 0,-dialogueBoxTitlePading);
 
-  translate(playerPos[0],  siz[1]-floorLevel-playerPos[1]);
+    popMatrix();
+  }
 
-  rect(0,0,  15,15);
-  popMatrix();
+  public void player() {
 
-}
+    pushMatrix();
 
-//Key Calls
-//Set Keys
-public void keyPressed() {
-  if (key == CODED) {
-    switch(keyCode) {
-    case UP:
-      keys[0] = true;
-      break;
-    case DOWN:
-      keys[1] = true;
-      break;
-    case RIGHT:
-      keys[2] = true;
-      break;
-    case LEFT:
-      keys[3] = true;
-      break;
-    case SHIFT:
-      keys[4] = true;
+    translate(playerPos[0],  siz[1]-floorLevel-playerPos[1]);
+
+    rect(0,0,  15,15);
+    popMatrix();
+
+  }
+
+
+//Keyboard Managment
+  //Set Keys
+  public void keyPressed() {
+    if (key == CODED) {
+      switch(keyCode) {
+      case UP:
+        keys[0] = true;
+        break;
+      case DOWN:
+        keys[1] = true;
+        break;
+      case RIGHT:
+        keys[2] = true;
+        break;
+      case LEFT:
+        keys[3] = true;
+        break;
+      case SHIFT:
+        keys[4] = true;
+      }
     }
   }
-}
 
-//Handle Keys To Actions
-//  Keys            UP     Down   RIGHT  LEFT   SHIFT
-//boolean keys[] = {false, false, false, false, false};
-public void keyHandler() {
+  //Handle Keys To Actions
+  //  Keys            UP     Down   RIGHT  LEFT   SHIFT
+  //boolean keys[] = {false, false, false, false, false};
+  public void keyHandler() {
 
-  //Shift
-  if (keys[4])        {
+    //Shift
+    if (keys[4])        {
 
-  } else              {
+    } else              {
+
+    }
+
+    //Arrow Keys
+    if        (keys[0]) {
+
+    } else if (keys[1]) {
+
+    } else if (keys[2]) {
+      playerPos[0]+=5;
+    } else if (keys[3]) {
+      playerPos[0]-=5;
+    }
 
   }
 
-  //Arrow Keys
-  if        (keys[0]) {
-
-  } else if (keys[1]) {
-
-  } else if (keys[2]) {
-    playerPos[0]+=5;
-  } else if (keys[3]) {
-    playerPos[0]-=5;
-  }
-
-}
-
-//Unset Keys
-public void keyReleased() {
-  if (key == CODED)   {
-    switch(keyCode)   {
-    case UP:
-      keys[0] = false;
-      break;
-    case DOWN:
-      keys[1] = false;
-      break;
-    case RIGHT:
-      keys[2] = false;
-      break;
-    case LEFT:
-      keys[3] = false;
-      break;
-    case SHIFT:
-      keys[4] = false;
+  //Unset Keys
+  public void keyReleased() {
+    if (key == CODED)   {
+      switch(keyCode)   {
+      case UP:
+        keys[0] = false;
+        break;
+      case DOWN:
+        keys[1] = false;
+        break;
+      case RIGHT:
+        keys[2] = false;
+        break;
+      case LEFT:
+        keys[3] = false;
+        break;
+      case SHIFT:
+        keys[4] = false;
+      }
     }
   }
+static class externalClass {
+
+  public static void external() {
+    print("Called");
+  }
+
 }
   public void settings() {  size           (1000, 700); }
   static public void main(String[] passedArgs) {

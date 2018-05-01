@@ -38,6 +38,8 @@
     size           (1000, 700);
     siz = new int[]{1000, 700};
 
+    externalClass.external();
+
     //Import External Resources
       //Images
         //martha1 = loadImage("martha-1.png");
@@ -52,7 +54,7 @@
 
     //Run the key handler every few mSeconds
     time += millis();
-    if (time > timeRequired){
+    if (time > timeRequiredCurrent){
       keyHandler();
       time = 0;
     }

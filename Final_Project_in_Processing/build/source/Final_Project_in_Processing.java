@@ -23,8 +23,9 @@ public class Final_Project_in_Processing extends PApplet {
   //External
     //Images
       //PImage martha1;
-      PFont arial;
-      PFont arialBold;
+    //Fonts
+      PFont titleFont;
+      PFont mesageFont;
     //Sound
 
 
@@ -32,6 +33,7 @@ public class Final_Project_in_Processing extends PApplet {
 int dialoguePading = 10;
 int dialogueBoxPading = 15;
 int dialogueBoxCornerRadius = 25;
+int dialogueBoxTitlePading = 10;
 
 //Dynamic Consistency variables
 int[] siz;
@@ -42,8 +44,8 @@ public void setup () {
   siz = new int[]{1000, 700};
 
   //Setup Resources
-  arialBold = createFont("Arial-Bold", 22);
-  arial = createFont("Arial", 17);
+  titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
+  mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
   //martha1 = loadImage("martha-1.png");
 }
 
@@ -51,7 +53,7 @@ public void draw () {
   background(175);
 
   dialogueBox(
-    3,
+    2,
     "GOVERNMENT ANNOUNCEMENT",
     "Those infected by the outbreak CANNOT feel, think or remember any past experiences. "+
     "They are dangerous and MUST be killed ON SIGHT!"
@@ -72,16 +74,16 @@ public void dialogueBox (int lineCount, String title, String message) {
 
   //Calculate
   //Height of title and body in seprate vars with their respective fonts
-  textFont(arial);
-  int bodyHeight  = PApplet.parseInt(textAscent())*lineCount;
-  textFont(arialBold);
+  textFont(mesageFont);
+  int bodyHeight  = PApplet.parseInt(textAscent())*(lineCount+1);
+  textFont(titleFont);
   int titleHeight = PApplet.parseInt(textAscent());
   //body position with all padding verticaly
   int bodyNspacingHeight = bodyHeight          + dialoguePading;
   int titleNspacingHeight = titleHeight        + dialoguePading;
 
   int rectRightPaded = siz[0] - dialogueBoxPading*2;
-  int wholeMessagePadded = bodyHeight+titleHeight*2;
+  int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The title is double because it is fliped to the top, and the body is bottom
 
 
   //Rectangle
@@ -89,7 +91,8 @@ public void dialogueBox (int lineCount, String title, String message) {
   fill(msgBx[0]);
   rect(0,0,
     rectRightPaded ,
-    -wholeMessagePadded
+    -wholeMessagePadded ,
+    7
   );
 
   //Text
@@ -97,11 +100,13 @@ public void dialogueBox (int lineCount, String title, String message) {
   translate(0,-bodyHeight);
   fill(0);
   textAlign(LEFT, TOP);
-  text(message, 0,0);
+  textFont(mesageFont);
+  text(message, 0,0, siz[0] - dialoguePading*2, siz[1]      - bodyHeight);
 
   //Title
   textAlign(LEFT, BOTTOM);
-  text(title, 0,0);
+  textFont(titleFont);
+  text(title, 0,-dialogueBoxTitlePading);
 
   popMatrix();
 }

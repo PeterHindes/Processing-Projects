@@ -46,13 +46,13 @@ void draw () {
 void dialogueBox (int lineCount, String title, String message) {
 
   //Calculate
+  //Height of title and body in seprate vars with their respective fonts
   textFont(arial);
   int bodyHeight  = int(textAscent())*lineCount;
   textFont(arialBold);
   int titleHeight = int(textAscent());
-
-  //Y Axis\/               bottom side | height of lines   |    **Subtract means up on the y axis**
-  int bodyNspacingHeight =       -(- bodyHeight        - dialoguePading);
+  //body position with all padding verticaly
+  int bodyNspacingHeight = bodyHeight        + dialoguePading;
 
   //Draw
   fill(msgBx[0]);
@@ -66,7 +66,7 @@ void dialogueBox (int lineCount, String title, String message) {
       //X Axis\/  right side absolute | padding for the right | acomodation for the pading on the left from the first point
                   siz[0]              - dialogueBoxPading     - dialogueBoxPading  ,
       //Y Axis\/
-                  -(bodyNspacingHeight  + titleHeight),
+                  -bodyNspacingHeight - titleHeight,
     //Corner radius
       dialogueBoxCornerRadius
   );

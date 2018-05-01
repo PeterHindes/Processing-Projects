@@ -14,33 +14,20 @@ import java.io.IOException;
 
 public class alphaex extends PApplet {
   public void setup() {
+fill(255);
+rect(0, 0, 50, 50);  // White rectangle
 
-background(0);
-noStroke();
+pushMatrix();
+fill(0);
+rect(0, 0, 50, 50);  // Black rectangle
+translate(30, 20);
+popMatrix();
 
-// No fourth argument means 100% opacity.
-fill(0,0,255);
-rect(0,0,100,200);
-
-// 255 means 100% opacity.
-fill(255,0,0,255);
-rect(0,0,200,40);
-
-// 75% opacity.
-fill(255,0,0,191);
-rect(0,50,200,40);
-
-// 55% opacity.
-fill(255,0,0,127);
-rect(0,100,200,40);
-
-// 25% opacity.
-fill(255,0,0,63);
-rect(0,150,200,40);
+fill(100);
+rect(15, 10, 50, 50);  // Gray rectangle
     noLoop();
   }
 
-  public void settings() { size(200,200); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "alphaex" };
     if (passedArgs != null) {

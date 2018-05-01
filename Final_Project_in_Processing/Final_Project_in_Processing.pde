@@ -2,7 +2,7 @@
 int[] playerPos = {30,0};
 int floorLevel = 20;
 
-//Keys            UP     Down   LEFT   RIGHT  SHIFT
+//Keys            UP     Down   RIGHT  LEFT   SHIFT
 boolean keys[] = {false, false, false, false, false};
 
 //Resources
@@ -136,24 +136,26 @@ void keyPressed() {
 }
 
 //Handle Keys To Actions
+//  Keys            UP     Down   RIGHT  LEFT   SHIFT
+//boolean keys[] = {false, false, false, false, false};
 void keyHandler() {
 
   //Shift
-  if (keys[4]) {
+  if (keys[4])        {
 
-  } else {
+  } else              {
 
   }
 
   //Arrow Keys
-  if (keys[0]) {
+  if        (keys[0]) {
 
   } else if (keys[1]) {
 
   } else if (keys[2]) {
-
+    playerPos[0]+=5;
   } else if (keys[3]) {
-
+    playerPos[0]-=5;
   }
 
 }
@@ -161,8 +163,8 @@ void keyHandler() {
 //Unset Keys
 void keyReleased() {
   keyHandler();
-  if (key == CODED) {
-    switch(keyCode) {
+  if (key == CODED)   {
+    switch(keyCode)   {
     case UP:
       keys[0] = false;
       break;

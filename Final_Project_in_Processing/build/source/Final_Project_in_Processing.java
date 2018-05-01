@@ -18,6 +18,9 @@ public class Final_Project_in_Processing extends PApplet {
 int[] playerPos = {30,0};
 int floorLevel = 20;
 
+//Keys            UP     Down   LEFT   RIGHT  SHIFT
+boolean keys[] = {false, false, false, false, false};
+
 //Resources
   //Colors
     int[] msgBx = {0x3a3a4c38, 0xff222e30};
@@ -118,7 +121,7 @@ public void player() {
 
   pushMatrix();
 
-  translate(playerPos[0],siz[1]-floorLevel-playerPos[1]);
+  translate(playerPos[0],  siz[1]-floorLevel-playerPos[1]);
 
   rect(0,0,  15,15);
   popMatrix();
@@ -126,8 +129,72 @@ public void player() {
 }
 
 //Key Calls
-public void keyReleased () {
+//Set Keys
+public void keyPressed() {
+  if (key == CODED) {
+    switch(keyCode) {
+    case UP:
+      keys[0] = true;
+      break;
+    case DOWN:
+      keys[1] = true;
+      break;
+    case RIGHT:
+      keys[2] = true;
+      break;
+    case LEFT:
+      keys[3] = true;
+      break;
+    case SHIFT:
+      keys[4] = true;
+    }
+  }
+}
 
+//Handle Keys To Actions
+public void keyHandler() {
+
+  //Shift
+  if (keys[4]) {
+
+  } else {
+
+  }
+
+  //Arrow Keys
+  if (keys[0]) {
+
+  } else if (keys[1]) {
+
+  } else if (keys[2]) {
+
+  } else if (keys[3]) {
+
+  }
+
+}
+
+//Unset Keys
+public void keyReleased() {
+  keyHandler();
+  if (key == CODED) {
+    switch(keyCode) {
+    case UP:
+      keys[0] = false;
+      break;
+    case DOWN:
+      keys[1] = false;
+      break;
+    case RIGHT:
+      keys[2] = false;
+      break;
+    case LEFT:
+      keys[3] = false;
+      break;
+    case SHIFT:
+      keys[4] = false;
+    }
+  }
 }
   public void settings() {  size           (1000, 700); }
   static public void main(String[] passedArgs) {

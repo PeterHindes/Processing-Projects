@@ -2,6 +2,9 @@
 int[] playerPos = {30,0};
 int floorLevel = 20;
 
+//Keys            UP     Down   LEFT   RIGHT  SHIFT
+boolean keys[] = {false, false, false, false, false};
+
 //Resources
   //Colors
     color[] msgBx = {0x3a3a4c38, #222e30};
@@ -110,6 +113,70 @@ void player() {
 }
 
 //Key Calls
-void keyReleased () {
+//Set Keys
+void keyPressed() {
+  if (key == CODED) {
+    switch(keyCode) {
+    case UP:
+      keys[0] = true;
+      break;
+    case DOWN:
+      keys[1] = true;
+      break;
+    case RIGHT:
+      keys[2] = true;
+      break;
+    case LEFT:
+      keys[3] = true;
+      break;
+    case SHIFT:
+      keys[4] = true;
+    }
+  }
+}
 
+//Handle Keys To Actions
+void keyHandler() {
+
+  //Shift
+  if (keys[4]) {
+
+  } else {
+
+  }
+
+  //Arrow Keys
+  if (keys[0]) {
+
+  } else if (keys[1]) {
+
+  } else if (keys[2]) {
+
+  } else if (keys[3]) {
+
+  }
+
+}
+
+//Unset Keys
+void keyReleased() {
+  keyHandler();
+  if (key == CODED) {
+    switch(keyCode) {
+    case UP:
+      keys[0] = false;
+      break;
+    case DOWN:
+      keys[1] = false;
+      break;
+    case RIGHT:
+      keys[2] = false;
+      break;
+    case LEFT:
+      keys[3] = false;
+      break;
+    case SHIFT:
+      keys[4] = false;
+    }
+  }
 }

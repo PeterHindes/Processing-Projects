@@ -17,6 +17,7 @@ public class Final_Project_in_Processing extends PApplet {
 //Variables
 int[] playerPos = {30,0};
 int floorLevel = 20;
+int time = 0;
 
 //Keys            UP     Down   RIGHT  LEFT   SHIFT
 boolean keys[] = {false, false, false, false, false};
@@ -34,6 +35,7 @@ boolean keys[] = {false, false, false, false, false};
 
 
 //Consistency variables
+int timeRequired = 15000;
 int dialoguePading = 10;
 int dialogueBoxPading = 15;
 int dialogueBoxCornerRadius = 25;
@@ -54,6 +56,15 @@ public void setup () {
 }
 
 public void draw () {
+
+  time += millis();
+  //print(time);
+
+  if (time > timeRequired){
+    keyHandler();
+    time = 0;
+  }
+
   background(175);
 
   player();
@@ -157,14 +168,14 @@ public void keyPressed() {
 public void keyHandler() {
 
   //Shift
-  if (keys[4]) {
+  if (keys[4])        {
 
-  } else {
+  } else              {
 
   }
 
   //Arrow Keys
-  if (keys[0]) {
+  if        (keys[0]) {
 
   } else if (keys[1]) {
 
@@ -178,9 +189,8 @@ public void keyHandler() {
 
 //Unset Keys
 public void keyReleased() {
-  keyHandler();
-  if (key == CODED) {
-    switch(keyCode) {
+  if (key == CODED)   {
+    switch(keyCode)   {
     case UP:
       keys[0] = false;
       break;

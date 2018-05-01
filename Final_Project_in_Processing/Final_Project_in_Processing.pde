@@ -1,10 +1,11 @@
 //Variables
-int[] playerPos = {30,0};
-int floorLevel = 20;
-int time = 0;
+  int[] playerPos = {30,0};
+  int floorLevel = 20;
+  int time = 0;
 
-//Keys            UP     Down   RIGHT  LEFT   SHIFT
-boolean keys[] = {false, false, false, false, false};
+  //keys            UP     Down   RIGHT  LEFT   SHIFT
+  boolean keys[] = {false, false, false, false, false};
+
 
 //Resources
   //Colors
@@ -19,17 +20,18 @@ boolean keys[] = {false, false, false, false, false};
 
 
 //Consistency variables
-int timeRequiredWalk = 15000;
-int timeRequiredRun = 15000/2;
+  //Time
+    int timeRequiredWalk = 15000;
+    int timeRequiredRun = 15000/2;
   //dialogueBox
-  int dialoguePading = 10;
-  int dialogueBoxPading = 15;
-  int dialogueBoxCornerRadius = 25;
-  int dialogueBoxTitlePading = 10;
+    int dialoguePading = 10;
+    int dialogueBoxPading = 15;
+    int dialogueBoxCornerRadius = 25;
+    int dialogueBoxTitlePading = 10;
 
 //Dynamic Consistency variables
-int[] siz;
-int timeRequiredCurrent = timeRequiredWalk;
+  int[] siz;
+  int timeRequiredCurrent = timeRequiredWalk;
 
 //System Functions
   void setup () {

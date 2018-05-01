@@ -15,7 +15,8 @@ import java.io.IOException;
 public class Final_Project_in_Processing extends PApplet {
 
 //Variables
-
+int[] playerPos = {30,0};
+int floorLevel = 20;
 
 //Resources
   //Colors
@@ -51,6 +52,8 @@ public void setup () {
 
 public void draw () {
   background(175);
+
+  player();
 
   dialogueBox(
     2,
@@ -95,7 +98,7 @@ public void dialogueBox (int lineCount, String title, String message) {
     7
   );
 
-  //Text
+  //Message
   translate(dialoguePading,-dialoguePading);
   translate(0,-bodyHeight);
   fill(0);
@@ -111,64 +114,16 @@ public void dialogueBox (int lineCount, String title, String message) {
   popMatrix();
 }
 
-/*void dialogueBox (int lineCount, String title, String message) {
+public void player() {
 
-  //Calculate
-  //Height of title and body in seprate vars with their respective fonts
-  textFont(arial);
-  int bodyHeight  = int(textAscent())*lineCount;
-  textFont(arialBold);
-  int titleHeight = int(textAscent());
-  //body position with all padding verticaly
-  int bodyNspacingHeight = bodyHeight        + dialoguePading;
+  pushMatrix();
 
-  //Draw
-  fill(msgBx[0]);
-  rect(
-    //First point
-      //X Axis\/
-      dialogueBoxPading  ,
-      //Y Axis\/  bottom | padding up from the bottom
-                  siz[1] - dialogueBoxPading  ,
-    //Second relative point
-      //X Axis\/  right side absolute | padding for the right | acomodation for the pading on the left from the first point
-                  siz[0]              - dialogueBoxPading     - dialogueBoxPading  ,
-      //Y Axis\/
-                  -bodyNspacingHeight - titleHeight,
-    //Corner radius
-      dialogueBoxCornerRadius
-  );
+  translate(playerPos[0],siz[1]-floorLevel-playerPos[1]);
 
-  //Title
-  //fill(msgBx[1]);
-  fill(0);
-  textFont(arialBold);
-  text(
-    title,
-    //Position text
-      //X Axis\/  left side   |
-                  0           + dialoguePading  ,
-      //Y Axis\/  bottom side | height of lines   | Padding From The Body | Space Above Body
-                  /*siz[1]      - bodyHeight        - dialoguePading siz[1] - bodyNspacingHeight       - 15
+  rect(0,0,  15,15);
+  popMatrix();
 
-  );
-
-  //Message
-  textFont(arial);
-  text(
-    message  ,
-    //Position text
-      //X Axis\/  left side
-                  0           + dialoguePading  ,
-      //Y Axis\/  bottom side | height of lines   |    **Subtract means up on the y axis**
-        siz[1] - bodyNspacingHeight  ,//          siz[1]      - bodyHeight        - dialoguePading  ,
-    //Limit text to screen
-      //X Axis\/  right side  | Pading for the right side
-                  siz[0]      - dialoguePading*2  ,
-      //Y Axis\/  bottom side | height of lines
-                  siz[1]      - bodyHeight
-  );
-}*/
+}
 
 //Key Calls
 public void keyReleased () {

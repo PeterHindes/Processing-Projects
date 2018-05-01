@@ -1,5 +1,6 @@
 //Variables
-
+int[] playerPos = {30,0};
+int floorLevel = 20;
 
 //Resources
   //Colors
@@ -35,6 +36,8 @@ void setup () {
 
 void draw () {
   background(175);
+
+  player();
 
   dialogueBox(
     2,
@@ -93,6 +96,17 @@ void dialogueBox (int lineCount, String title, String message) {
   text(title, 0,-dialogueBoxTitlePading);
 
   popMatrix();
+}
+
+void player() {
+
+  pushMatrix();
+
+  translate(playerPos[0],  siz[1]-floorLevel-playerPos[1]);
+
+  rect(0,0,  15,15);
+  popMatrix();
+
 }
 
 //Key Calls

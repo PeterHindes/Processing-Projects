@@ -64,21 +64,21 @@ void dialogueBox (int lineCount, String title, String message) {
   int bodyNspacingHeight = bodyHeight          + dialoguePading;
   int titleNspacingHeight = titleHeight        + dialoguePading;
 
-  int rightPaded = siz[0] - dialoguePading*2;
-  int wholeMessagePadded =
+  int rectRightPaded = siz[0] - dialogueBoxPading*2;
+  int wholeMessagePadded = 500;
 
 
   //Rectangle
-  translate(dialogueBoxPading,dialogueBoxPading);
+  translate(dialogueBoxPading,-dialogueBoxPading);
   fill(msgBx[0]);
   rect(0,0,
-    rightPaded ,
-    wholeMessagePadded
+    rectRightPaded ,
+    -wholeMessagePadded
   );
 
   //Text
-  translate(dialoguePading,dialoguePading);
-  translate(0,bodyHeight);
+  translate(dialoguePading,-dialoguePading);
+  translate(0,-bodyHeight);
   fill(0);
   textAlign(LEFT, TOP);
   text(message, 0,0);
@@ -87,6 +87,7 @@ void dialogueBox (int lineCount, String title, String message) {
   textAlign(LEFT, BOTTOM);
   text(title, 0,0);
 
+  popMatrix();
 }
 
 /*void dialogueBox (int lineCount, String title, String message) {

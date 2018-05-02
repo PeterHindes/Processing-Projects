@@ -6,8 +6,7 @@ class dialogue {
       {
         "Infected individuals CANNOT remember their past or think for themselves. "+
         "They are dangerous and should be killed on sight!"
-      },
-      {
+        ,
         "Am I infected? Oh god, whats that black figure coming twards me?!"
       }
     };
@@ -17,9 +16,7 @@ class dialogue {
     return new String[][]
     {
       {
-        "OFFICIAL ANNOUNCEMENT"
-      },
-      {
+        "OFFICIAL ANNOUNCEMENT",
         "Martha"
       }
     };

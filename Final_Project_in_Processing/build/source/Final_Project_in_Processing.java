@@ -15,9 +15,11 @@ import java.io.IOException;
 public class Final_Project_in_Processing extends PApplet {
 
 //Variables
+  int time = 0;
   int[] playerPos = {30,0};
   int floorLevel = 120;
-  int time = 0;
+  int dialoguePrimary = 0;
+  int dialogueMinor = 0;
 
   //keys            UP     Down   RIGHT  LEFT   SHIFT
   boolean keys[] = {false, false, false, false, false};
@@ -61,8 +63,6 @@ public class Final_Project_in_Processing extends PApplet {
     
     siz = new int[]{1000, 700};
 
-    externalClass.external();
-
     //Import External Resources
       //Images
         //martha1 = loadImage("martha-1.png");
@@ -87,14 +87,8 @@ public class Final_Project_in_Processing extends PApplet {
 
     player();
 
-    db.primary(2,titles[0][0],dialogue[0][0]);
+    db.primary(2,  titles[dialoguePrimary][dialogueMinor], dialogue[dialoguePrimary][dialogueMinor]);
 
-    /*db.primary(
-      2,
-      "OFFICIAL ANNOUNCEMENT",
-      "Infected individuals CANNOT remember their past or think for themselves. "+
-      "They are dangerous and should be killed on sight!"
-    );*/
   }
 
 
@@ -116,20 +110,25 @@ public class Final_Project_in_Processing extends PApplet {
   public void keyPressed() {
     if (key == CODED) {
       switch(keyCode) {
-      case UP:
-        keys[0] = true;
-        break;
-      case DOWN:
-        keys[1] = true;
-        break;
-      case RIGHT:
-        keys[2] = true;
-        break;
-      case LEFT:
-        keys[3] = true;
-        break;
-      case SHIFT:
-        keys[4] = true;
+        case UP:
+          keys[0] = true;
+          break;
+        case DOWN:
+          keys[1] = true;
+          break;
+        case RIGHT:
+          keys[2] = true;
+          break;
+        case LEFT:
+          keys[3] = true;
+          break;
+        case SHIFT:
+          keys[4] = true;
+      }
+    } else {
+      switch(key) {
+        case ' ':
+          dialogueMinor++;
       }
     }
   }
@@ -188,8 +187,7 @@ class dialogue {
       {
         "Infected individuals CANNOT remember their past or think for themselves. "+
         "They are dangerous and should be killed on sight!"
-      },
-      {
+        ,
         "Am I infected? Oh god, whats that black figure coming twards me?!"
       }
     };
@@ -199,9 +197,7 @@ class dialogue {
     return new String[][]
     {
       {
-        "OFFICIAL ANNOUNCEMENT"
-      },
-      {
+        "OFFICIAL ANNOUNCEMENT",
         "Martha"
       }
     };
@@ -256,13 +252,6 @@ class dialogueBox {
 
     popMatrix();
   }
-}
-static class externalClass {
-
-  public static void external() {
-    print("Called");
-  }
-
 }
   public void settings() {  size           (1000, 700); }
   static public void main(String[] passedArgs) {

@@ -21,8 +21,8 @@ public class Final_Project_in_Processing extends PApplet {
   int dialoguePrimary = 0;
   int dialogueMinor = 0;
 
-  //keys            UP     Down   RIGHT  LEFT   SHIFT
-  boolean keys[] = {false, false, false, false, false};
+  //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
+  boolean keys[] = {false, false, false, false, false, false};
 
 
 //Resources
@@ -78,7 +78,7 @@ public class Final_Project_in_Processing extends PApplet {
     //Run the key handler every few mSeconds
     time += millis();
     if (time > timeRequiredCurrent){
-      keyHandler();
+      repeatKeyHandler();
       time = 0;
     }
 
@@ -124,11 +124,13 @@ public class Final_Project_in_Processing extends PApplet {
           break;
         case SHIFT:
           keys[4] = true;
+          break;
       }
     } else {
       switch(key) {
         case ' ':
-          dialogueMinor++;
+          keys[5] = true;
+          break;
       }
     }
   }
@@ -136,48 +138,76 @@ public class Final_Project_in_Processing extends PApplet {
   //Handle Keys To Actions
   //  Keys            UP     Down   RIGHT  LEFT   SHIFT
   //boolean keys[] = {false, false, false, false, false};
-  public void keyHandler() {
+  public void repeatKeyHandler() {
+    //Movement
+      //Arrow Keys  UP     Down   RIGHT  LEFT   SHIFT
+        if        (keys[0]) {
 
-    //Shift
-    if (keys[4])        {
+        } else if (keys[1]) {
 
-    } else              {
+        } else if (keys[2]) {
+          playerPos[0]+=5;
+        } else if (keys[3]) {
+          playerPos[0]-=5;
+        }
+      //Shift
+        if (keys[4])        {
 
-    }
+        } else              {
 
-    //Arrow Keys
-    if        (keys[0]) {
-
-    } else if (keys[1]) {
-
-    } else if (keys[2]) {
-      playerPos[0]+=5;
-    } else if (keys[3]) {
-      playerPos[0]-=5;
-    }
-
+        }
   }
 
-  //Unset Keys
+  //  Keys            UP     Down   RIGHT  LEFT   SHIFT
+  //boolean keys[] = {false, false, false, false, false};
+  public void singleKeyHandler() {
+    //dialogue
+      //Space
+        if(keys[5]){
+          if (dialogueMinor < dialogue[dialoguePrimary].length-1){
+            dialogueMinor++;
+            print("Minor Up");
+          } else if (dialoguePrimary < dialogue.length-1){
+            dialoguePrimary++;
+            print("Primary Up");
+          } else {
+            print("All Out\n");
+          }
+        }
+  }
+
+
+  //Handle Key Release
   public void keyReleased() {
-    if (key == CODED)   {
-      switch(keyCode)   {
-      case UP:
-        keys[0] = false;
-        break;
-      case DOWN:
-        keys[1] = false;
-        break;
-      case RIGHT:
-        keys[2] = false;
-        break;
-      case LEFT:
-        keys[3] = false;
-        break;
-      case SHIFT:
-        keys[4] = false;
+    //Run single event actions
+      singleKeyHandler();
+
+    //Unset Keys
+      if (key == CODED)   {
+        switch(keyCode)   {
+          case UP:
+            keys[0] = false;
+            break;
+          case DOWN:
+            keys[1] = false;
+            break;
+          case RIGHT:
+            keys[2] = false;
+            break;
+          case LEFT:
+            keys[3] = false;
+            break;
+          case SHIFT:
+            keys[4] = false;
+            break;
+        }
+      } else {
+        switch(key)      {
+          case ' ':
+            keys[5] = false;
+            break;
+        }
       }
-    }
   }
 class dialogue {
   public String[][] setupDialogue(){

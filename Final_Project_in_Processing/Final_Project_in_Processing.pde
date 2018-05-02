@@ -63,7 +63,7 @@
     //Run the key handler every few mSeconds
     //Open For Discusion Should we move this to the key managment file *****
     time += millis();
-    if (time > timeRequiredCurrent){
+    if (time > timeRequiredCurrent && keyPressed){
       kh.repeat();
       time = 0;
     }

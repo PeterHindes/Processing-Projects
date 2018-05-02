@@ -77,8 +77,9 @@ public class Final_Project_in_Processing extends PApplet {
   public void draw () {
 
     //Run the key handler every few mSeconds
+    //Open For Discusion Should we move this to the key managment file *****
     time += millis();
-    if (time > timeRequiredCurrent){
+    if (time > timeRequiredCurrent && keyPressed){
       kh.repeat();
       time = 0;
     }
@@ -95,14 +96,12 @@ public class Final_Project_in_Processing extends PApplet {
 
 //Custom Functions
   public void player() {
-
     pushMatrix();
 
     translate(playerPos[0],  siz[1]-playerPos[1]);
-
     rect(0,-floorLevel,  15,15);
-    popMatrix();
 
+    popMatrix();
   }
 
 
@@ -191,10 +190,12 @@ public class keyHandlers {
   //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
   private boolean keys[] = {false, false, false, false, false, false};
 
+
   //Handle Keys To Actions
   //  Keys            UP     Down   RIGHT  LEFT   SHIFT
   //boolean keys[] = {false, false, false, false, false};
   public void repeat() {
+
     //Movement
       //Arrow Keys  UP     Down   RIGHT  LEFT   SHIFT
         if        (keys[0]) {
@@ -212,11 +213,13 @@ public class keyHandlers {
         } else              {
 
         }
+
   }
 
   //  Keys            UP     Down   RIGHT  LEFT   SHIFT
   //boolean keys[] = {false, false, false, false, false};
   private void single() {
+
     //dialogue
       //Space
         if(keys[5]){
@@ -230,10 +233,12 @@ public class keyHandlers {
             print("All Out\n");
           }
         }
+
   }
 
 
   public void press() {
+
     //Set Keys
     if (key == CODED) {
       switch(keyCode) {
@@ -260,9 +265,11 @@ public class keyHandlers {
           break;
       }
     }
+
   }
 
   public void release() {
+
     //Run single event actions
       single();
 
@@ -292,6 +299,7 @@ public class keyHandlers {
             break;
         }
       }
+
   }
 
 }

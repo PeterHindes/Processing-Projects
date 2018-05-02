@@ -30,6 +30,7 @@ public class Final_Project_in_Processing extends PApplet {
     //Classes
       dialogue dia = new dialogue();
       dialogueBox db = new dialogueBox();
+      keyHandlers kh = new keyHandlers();
     //Images
       //PImage martha1;
     //Fonts
@@ -78,7 +79,7 @@ public class Final_Project_in_Processing extends PApplet {
     //Run the key handler every few mSeconds
     time += millis();
     if (time > timeRequiredCurrent){
-      repeatKeyHandler();
+      kh.repeat();
       time = 0;
     }
 
@@ -135,10 +136,11 @@ public class Final_Project_in_Processing extends PApplet {
     }
   }
 
+  /*
   //Handle Keys To Actions
   //  Keys            UP     Down   RIGHT  LEFT   SHIFT
   //boolean keys[] = {false, false, false, false, false};
-  public void repeatKeyHandler() {
+  void repeatKeyHandler() {
     //Movement
       //Arrow Keys  UP     Down   RIGHT  LEFT   SHIFT
         if        (keys[0]) {
@@ -160,27 +162,27 @@ public class Final_Project_in_Processing extends PApplet {
 
   //  Keys            UP     Down   RIGHT  LEFT   SHIFT
   //boolean keys[] = {false, false, false, false, false};
-  public void singleKeyHandler() {
+  void singleKeyHandler() {
     //dialogue
       //Space
         if(keys[5]){
-          if (dialogueMinor < dialogue[dialoguePrimary].length-1){
+          if (dialogueMinor < dialogue[dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
             dialogueMinor++;
             print("Minor Up");
-          } else if (dialoguePrimary < dialogue.length-1){
+          } else if (dialoguePrimary < dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
             dialoguePrimary++;
             print("Primary Up");
           } else {
             print("All Out\n");
           }
         }
-  }
+  }*/
 
 
   //Handle Key Release
   public void keyReleased() {
     //Run single event actions
-      singleKeyHandler();
+      kh.single();
 
     //Unset Keys
       if (key == CODED)   {
@@ -282,6 +284,52 @@ class dialogueBox {
 
     popMatrix();
   }
+}
+public class keyHandlers {
+
+
+  //Handle Keys To Actions
+  //  Keys            UP     Down   RIGHT  LEFT   SHIFT
+  //boolean keys[] = {false, false, false, false, false};
+  public void repeat() {
+    //Movement
+      //Arrow Keys  UP     Down   RIGHT  LEFT   SHIFT
+        if        (keys[0]) {
+
+        } else if (keys[1]) {
+
+        } else if (keys[2]) {
+          playerPos[0]+=5;
+        } else if (keys[3]) {
+          playerPos[0]-=5;
+        }
+      //Shift
+        if (keys[4])        {
+
+        } else              {
+
+        }
+  }
+
+  //  Keys            UP     Down   RIGHT  LEFT   SHIFT
+  //boolean keys[] = {false, false, false, false, false};
+  public void single() {
+    //dialogue
+      //Space
+        if(keys[5]){
+          if (dialogueMinor < dialogue[dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
+            dialogueMinor++;
+            print("Minor Up");
+          } else if (dialoguePrimary < dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
+            dialoguePrimary++;
+            print("Primary Up");
+          } else {
+            print("All Out\n");
+          }
+        }
+  }
+
+
 }
   public void settings() {  size           (1000, 700); }
   static public void main(String[] passedArgs) {

@@ -92,7 +92,7 @@
 
 //Keyboard Managment
   //Set Keys
-  void keyPressed() {
+  void keyPressed() { kh.press(key);/*
     if (key == CODED) {
       switch(keyCode) {
         case UP:
@@ -117,11 +117,11 @@
           keys[5] = true;
           break;
       }
-    }
+    }*/
   }
 
   //Handle Key Release
-  void keyReleased() {
+  void keyReleased() {kh.release(key);/*
     //Run single event actions
       kh.single();
 
@@ -150,5 +150,5 @@
             keys[5] = false;
             break;
         }
-      }
+      }*/
   }

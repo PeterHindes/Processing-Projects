@@ -61,6 +61,7 @@
   void draw () {
 
     //Run the key handler every few mSeconds
+    //Open For Discusion Should we move this to the key managment file *****
     time += millis();
     if (time > timeRequiredCurrent){
       kh.repeat();
@@ -79,14 +80,12 @@
 
 //Custom Functions
   void player() {
-
     pushMatrix();
 
     translate(playerPos[0],  siz[1]-playerPos[1]);
-
     rect(0,-floorLevel,  15,15);
-    popMatrix();
 
+    popMatrix();
   }
 
 

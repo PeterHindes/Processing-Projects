@@ -13,21 +13,24 @@ import java.io.OutputStream;
 import java.io.IOException; 
 
 public class alphaex extends PApplet {
-  public void setup() {
-fill(255);
-rect(0, 0, 50, 50);  // White rectangle
 
-pushMatrix();
-fill(0);
-rect(0, 0, 50, 50);  // Black rectangle
-translate(30, 20);
-popMatrix();
+int xey = 10;
 
-fill(100);
-rect(15, 10, 50, 50);  // Gray rectangle
-    noLoop();
-  }
 
+public void setup(){
+  
+}
+
+public void update(){
+  xey++;
+  print("Ran");
+}
+
+public void draw(){
+  background(100);
+  rect(xey,10, 20,20);
+}
+  public void settings() {  size(500,300); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "alphaex" };
     if (passedArgs != null) {

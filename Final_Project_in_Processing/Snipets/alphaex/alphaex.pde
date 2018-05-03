@@ -1,16 +1,12 @@
-int xey = 10;
-
+Scenes scenes = new Scenes();
+Scenes.One o = scenes.new One();
+Scenes.Two t = scenes.new Two();
 
 void setup(){
   size(500,300);
 }
 
-void update(){
-  xey++;
-  print("Ran");
-}
-
 void draw(){
-  background(100);
-  rect(xey,10, 20,20);
+  o.rect1();
+  t.rect1();
 }

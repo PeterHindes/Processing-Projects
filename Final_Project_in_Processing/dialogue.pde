@@ -8,10 +8,12 @@ class dialogue {
         "They are dangerous and should be killed on sight!",
 
         ". . .\n"+
-        "I feel like trash\n"+
+        "I feel like trash",
+
         ". . .\n"+
-        "My place looks like trash.\n"+
-        "Why is everything trash?\n,+
+        "My place looks like trash.",
+
+        "Why is everything trash?",
 
         "Oh- Ah crap, my photo!"
       }
@@ -24,11 +26,16 @@ class dialogue {
       {
         "OFFICIAL ANNOUNCEMENT",
         "Martha",
-        ":;",
-        ":;",
-        ":;",
-        ":;"
+        "Martha",
+        "Martha",
+        "Martha"
       }
     };
   }
 }
+
+//Still
+//Walking
+//Running
+//Walking up stairs
+//Climbing Ladder

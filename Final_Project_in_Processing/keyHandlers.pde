@@ -38,10 +38,10 @@ public class keyHandlers {
         if(keys[5]){
           if (dialogueMinor < dialogue[dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
             dialogueMinor++;
-            print("Minor Up" + dialogueMinor);
+            print("Minor Up " + dialogueMinor + " \n");
           } else if (dialoguePrimary < dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
             dialoguePrimary++;
-            print("Primary Up" + dialoguePrimary);
+            print("Primary Up " + dialoguePrimary + " \n");
           } else {
             print("All Out\n");
           }

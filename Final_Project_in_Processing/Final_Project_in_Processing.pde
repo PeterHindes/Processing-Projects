@@ -91,7 +91,7 @@
 
     //Render
     //background(175);
-    image(backGrnd, 0,0, siz[0],siz[1]);
+    image(backGrnd, 0,0, siz[0],backGrnd.height);
 
     bild.small(50,50);
 

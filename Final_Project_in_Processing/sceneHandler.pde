@@ -1,5 +1,7 @@
 class sHandlers {
 
+  Scene sn = new Scene();
+
   int sceneIndex = 0;
   int sceneVariant = 1;
   String[] sceneTitle = {
@@ -29,12 +31,12 @@ class sHandlers {
     }
   }
 
-  void setupS(){
-
+  public void setupS(){
+    sn.setupS(sceneTitle[sceneIndex], sceneVariant);
   }
 
-  void drawS(){
-
+  public void drawS(){
+    sn.drawS(sceneTitle[sceneIndex], sceneVariant);
   }
 
 }

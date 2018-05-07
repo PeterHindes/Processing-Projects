@@ -58,7 +58,7 @@
 
     //Import External Resources
       //Single Images
-        //marthaStill = loadImage("data/Img/Org/Martha.gif");
+        
       //Sprite Images
         for ( int i = 0; i < marthaStill.length; i++ ) {
           marthaStill[i] = loadImage( "data/Img/Org/MarthaStill/" + i + ".png" );

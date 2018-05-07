@@ -91,7 +91,7 @@
 
 //Keyboard Managment
   //Set Keys
-  void keyPressed()  { kh.press();   }
+  void keyPressed()  { kh.press(); }
 
   //Handle Key Release
   void keyReleased() { kh.release(); }

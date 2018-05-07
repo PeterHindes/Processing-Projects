@@ -1,13 +1,7 @@
-int[] playerPos = {30,0}
-int floorLevel = 20;
+//You should prototype a system for setup inside of a loup (single run)
 
-void player() {
+//Create a system for walking up stairs and ladders
 
-  pushMatrix();
+//Create a system for arbitrary floor height at a certain position, as well as levels of floor ** Very dificult **
 
-  translate(playerPos[0],siz[1]-floorLevel-playerPos[1])
-
-  rect(0,0,  15,15);
-  popMatrix()
-
-}
+//Setup scenes system

@@ -4,6 +4,9 @@
   int floorLevel = 120;
   int dialoguePrimary = 0;
   int dialogueMinor = 0;
+  //Sprites
+    float marthaStillCurrentFrame = 0;
+    float marthStillFrameIncrement = 0.05;
 
   //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
   boolean keys[] = {false, false, false, false, false, false};
@@ -16,7 +19,7 @@
       dialogueBox db = new dialogueBox();
       keyHandlers kh = new keyHandlers();
     //Images
-      //PImage martha1;
+      PImage[] marthaStill = new PImage[3];
     //Fonts
       PFont titleFont;
       PFont mesageFont;
@@ -49,8 +52,12 @@
     siz = new int[]{1000, 700};
 
     //Import External Resources
-      //Images
-        //martha1 = loadImage("martha-1.png");
+      //Single Images
+        //marthaStill = loadImage("data/Img/Org/Martha.gif");
+      //Sprite Images
+        for ( int i = 0; i < marthaStill.length; i++ ) {
+          marthaStill[i] = loadImage( "data/Img/Org/MarthaStill/" + i + ".png" );
+        }
       //Fonts
         titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
         mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
@@ -73,6 +80,29 @@
 
     player();
 
+    /*
+    String titleProper;
+    if(!(titles[dialoguePrimary][dialogueMinor] == ":;")){
+      titleProper = titles[dialoguePrimary][dialogueMinor];
+    } else {
+
+      int dialogueMinorProper = dialogueMinor;
+      int dialoguePrimaryProper = dialoguePrimary;
+
+      while (titles[dialoguePrimaryProper][dialogueMinorProper] == ":;") {
+        if (dialogueMinorProper > 0) {
+          dialogueMinorProper--;
+        } else if (dialoguePrimaryProper > 0) {
+          dialoguePrimaryProper--;
+          dialogueMinorProper = dialogueMinor;
+        } else {
+          print("Error all the way backed up!\n");
+        }
+      }
+      titleProper = titles[dialoguePrimaryProper][dialogueMinorProper];
+    }*/
+
+
     db.primary(2,  titles[dialoguePrimary][dialogueMinor], dialogue[dialoguePrimary][dialogueMinor]);
 
   }
@@ -83,7 +113,13 @@
     pushMatrix();
 
     translate(playerPos[0],  siz[1]-playerPos[1]);
-    rect(0,-floorLevel,  15,15);
+    //rect(0,-floorLevel,  15,15);
+    image(marthaStill[int(marthaStillCurrentFrame)],0,-floorLevel-marthaStill[int(marthaStillCurrentFrame)].height);
+    if (marthaStillCurrentFrame < marthaStill.length-marthStillFrameIncrement) {
+      marthaStillCurrentFrame+=marthStillFrameIncrement;
+    } else {
+      marthaStillCurrentFrame=0;
+    }
 
     popMatrix();
   }

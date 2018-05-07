@@ -20,6 +20,9 @@ public class Final_Project_in_Processing extends PApplet {
   int floorLevel = 120;
   int dialoguePrimary = 0;
   int dialogueMinor = 0;
+  //Sprites
+    float marthaStillCurrentFrame = 0;
+    float marthStillFrameIncrement = 0.05f;
 
   //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
   boolean keys[] = {false, false, false, false, false, false};
@@ -32,7 +35,7 @@ public class Final_Project_in_Processing extends PApplet {
       dialogueBox db = new dialogueBox();
       keyHandlers kh = new keyHandlers();
     //Images
-      //PImage martha1;
+      PImage[] marthaStill = new PImage[3];
     //Fonts
       PFont titleFont;
       PFont mesageFont;
@@ -65,8 +68,12 @@ public class Final_Project_in_Processing extends PApplet {
     siz = new int[]{1000, 700};
 
     //Import External Resources
-      //Images
-        //martha1 = loadImage("martha-1.png");
+      //Single Images
+        //marthaStill = loadImage("data/Img/Org/Martha.gif");
+      //Sprite Images
+        for ( int i = 0; i < marthaStill.length; i++ ) {
+          marthaStill[i] = loadImage( "data/Img/Org/MarthaStill/" + i + ".png" );
+        }
       //Fonts
         titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
         mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
@@ -89,6 +96,29 @@ public class Final_Project_in_Processing extends PApplet {
 
     player();
 
+    /*
+    String titleProper;
+    if(!(titles[dialoguePrimary][dialogueMinor] == ":;")){
+      titleProper = titles[dialoguePrimary][dialogueMinor];
+    } else {
+
+      int dialogueMinorProper = dialogueMinor;
+      int dialoguePrimaryProper = dialoguePrimary;
+
+      while (titles[dialoguePrimaryProper][dialogueMinorProper] == ":;") {
+        if (dialogueMinorProper > 0) {
+          dialogueMinorProper--;
+        } else if (dialoguePrimaryProper > 0) {
+          dialoguePrimaryProper--;
+          dialogueMinorProper = dialogueMinor;
+        } else {
+          print("Error all the way backed up!\n");
+        }
+      }
+      titleProper = titles[dialoguePrimaryProper][dialogueMinorProper];
+    }*/
+
+
     db.primary(2,  titles[dialoguePrimary][dialogueMinor], dialogue[dialoguePrimary][dialogueMinor]);
 
   }
@@ -99,7 +129,13 @@ public class Final_Project_in_Processing extends PApplet {
     pushMatrix();
 
     translate(playerPos[0],  siz[1]-playerPos[1]);
-    rect(0,-floorLevel,  15,15);
+    //rect(0,-floorLevel,  15,15);
+    image(marthaStill[PApplet.parseInt(marthaStillCurrentFrame)],0,-floorLevel-marthaStill[PApplet.parseInt(marthaStillCurrentFrame)].height);
+    if (marthaStillCurrentFrame < marthaStill.length-marthStillFrameIncrement) {
+      marthaStillCurrentFrame+=marthStillFrameIncrement;
+    } else {
+      marthaStillCurrentFrame=0;
+    }
 
     popMatrix();
   }
@@ -118,9 +154,17 @@ class dialogue {
     {
       {
         "Infected individuals CANNOT remember their past or think for themselves. "+
-        "They are dangerous and should be killed on sight!"
-        ,
-        "Am I infected? Oh god, whats that black figure coming twards me?!"
+        "They are dangerous and should be killed on sight!",
+
+        ". . .\n"+
+        "I feel like trash",
+
+        ". . .\n"+
+        "My place looks like trash.",
+
+        "Why is everything trash?",
+
+        "Oh- Ah crap, my photo!"
       }
     };
 
@@ -130,6 +174,9 @@ class dialogue {
     {
       {
         "OFFICIAL ANNOUNCEMENT",
+        "Martha",
+        "Martha",
+        "Martha",
         "Martha"
       }
     };
@@ -225,10 +272,10 @@ public class keyHandlers {
         if(keys[5]){
           if (dialogueMinor < dialogue[dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
             dialogueMinor++;
-            print("Minor Up");
+            print("Minor Up" + dialogueMinor);
           } else if (dialoguePrimary < dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
             dialoguePrimary++;
-            print("Primary Up");
+            print("Primary Up" + dialoguePrimary);
           } else {
             print("All Out\n");
           }
@@ -302,6 +349,29 @@ public class keyHandlers {
 
   }
 
+}
+class sHandlers {
+
+  int[] sceneN = {
+      0,
+      0
+    };
+
+
+  public void nextScene(int variant){
+
+  }
+  public void reRun(boolean specialRespawn){//, int respawnVariant) {
+
+  }
+
+  public void renderS(){
+
+  }
+
+}
+class Scene {
+  
 }
   public void settings() {  size           (1000, 700); }
   static public void main(String[] passedArgs) {

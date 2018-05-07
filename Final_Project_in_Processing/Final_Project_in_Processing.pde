@@ -89,29 +89,6 @@
 
     player();
 
-    /*    Auto Cascading Title Fetch [incomplete] [pita]
-    String titleProper;
-    if(!(titles[dialoguePrimary][dialogueMinor] == ":;")){
-      titleProper = titles[dialoguePrimary][dialogueMinor];
-    } else {
-
-      int dialogueMinorProper = dialogueMinor;
-      int dialoguePrimaryProper = dialoguePrimary;
-
-      while (titles[dialoguePrimaryProper][dialogueMinorProper] == ":;") {
-        if (dialogueMinorProper > 0) {
-          dialogueMinorProper--;
-        } else if (dialoguePrimaryProper > 0) {
-          dialoguePrimaryProper--;
-          dialogueMinorProper = dialogueMinor;
-        } else {
-          print("Error all the way backed up!\n");
-        }
-      }
-      titleProper = titles[dialoguePrimaryProper][dialogueMinorProper];
-    }*/
-
-
     db.primary(2,  titles[dialoguePrimary][dialogueMinor], dialogue[dialoguePrimary][dialogueMinor]);
 
   }

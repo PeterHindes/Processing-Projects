@@ -5,8 +5,8 @@
   int dialoguePrimary = 0;
   int dialogueMinor = 0;
   //Sprites
-    float marthaStillCurrentFrame = 0;
-    float marthStillFrameIncrement = 0.05;
+    float marthaCurrentFrame = 0;
+    float marthFrameIncrement = 0.05;
 
   //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
   boolean keys[] = {false, false, false, false, false, false};
@@ -19,6 +19,7 @@
       dialogueBox db = new dialogueBox();
       keyHandlers kh = new keyHandlers();
     //Images
+      PImage[] marthaCurrentVariant;
       PImage[] marthaStill = new PImage[3];
       PImage[] marthaWalking = new PImage[3];
       PImage[] marthaRunning = new PImage[3];
@@ -121,12 +122,14 @@
     pushMatrix();
 
     translate(playerPos[0],  siz[1]-playerPos[1]);
-    //rect(0,-floorLevel,  15,15);
-    image(marthaStill[int(marthaStillCurrentFrame)],0,-floorLevel-marthaStill[int(marthaStillCurrentFrame)].height);
-    if (marthaStillCurrentFrame < marthaStill.length-marthStillFrameIncrement) {
-      marthaStillCurrentFrame+=marthStillFrameIncrement;
+
+    marthaCurrentVariant = marthaStill;
+
+    image(marthaCurrentVariant[int(marthaCurrentFrame)],0,-floorLevel-marthaCurrentVariant[int(marthaCurrentFrame)].height);
+    if (marthaCurrentFrame < marthaCurrentVariant.length-marthFrameIncrement) {
+      marthaCurrentFrame+=marthFrameIncrement;
     } else {
-      marthaStillCurrentFrame=0;
+      marthaCurrentFrame=0;
     }
 
     popMatrix();

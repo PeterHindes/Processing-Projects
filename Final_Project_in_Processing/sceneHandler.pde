@@ -19,15 +19,15 @@ class sHandlers {
 
 
   public void nextScene(int variant){
-    sceneN[sceneIndex] = 0;
     sceneIndex++;
-    sceneN[sceneIndex] = variant;
+    sceneVariant = variant;
   }
   public void reRun(boolean specialRespawn){//, int respawnVariant) {
     if (!specialRespawn) {
       setupS();
     } else {
-      sceneN[sceneIndex] = variant;
+      sceneVariant = srVariant[sceneIndex];
+      setupS();
     }
   }
 

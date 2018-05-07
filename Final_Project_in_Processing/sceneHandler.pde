@@ -18,12 +18,12 @@ class sHandlers {
   };
 
 
-  void nextScene(int variant){
+  public void nextScene(int variant){
     sceneN[sceneIndex] = 0;
     sceneIndex++;
     sceneN[sceneIndex] = variant;
   }
-  void reRun(boolean specialRespawn){//, int respawnVariant) {
+  public void reRun(boolean specialRespawn){//, int respawnVariant) {
     if (!specialRespawn) {
       setupS();
     } else {

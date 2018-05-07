@@ -79,10 +79,12 @@
 
     //Run the key handler every few mSeconds
     //Open For Discusion Should we move this to the key managment file *****
-    time += millis();
-    if (time > timeRequiredCurrent && keyPressed){
-      kh.repeat();
-      time = 0;
+    if (keyPressed){
+      time += millis();
+      if (time > timeRequiredCurrent){
+        kh.repeat();
+        time = 0;
+      }
     }
 
     //Render
@@ -95,7 +97,6 @@
     db.primary(2,  titles[dialoguePrimary][dialogueMinor], dialogue[dialoguePrimary][dialogueMinor]);
 
   }
-
 
 //Custom Functions
   void player() {

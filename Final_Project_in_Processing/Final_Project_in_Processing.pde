@@ -17,6 +17,7 @@
     //Classes
       dialogue dia = new dialogue();
       dialogueBox db = new dialogueBox();
+      buildings bild = new buildings();
       keyHandlers kh = new keyHandlers();
     //Images
       PImage[] marthaCurrentVariant;
@@ -86,6 +87,8 @@
 
     //Render
     background(175);
+
+    bild.small(50,50);
 
     player();
 

@@ -39,3 +39,5 @@ class dialogue {
 //Running
 //Walking up stairs
 //Climbing Ladder
+
+//If Character goes off screen the slowing code breaks and they go fast ***

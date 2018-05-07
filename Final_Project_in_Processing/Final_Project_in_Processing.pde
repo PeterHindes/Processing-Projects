@@ -20,6 +20,8 @@
       buildings bild = new buildings();
       keyHandlers kh = new keyHandlers();
     //Images
+      PImage backGrnd;
+    //Sprites
       PImage[] marthaCurrentVariant;
       PImage[] marthaStill = new PImage[3];
       PImage[] marthaWalking = new PImage[3];
@@ -59,14 +61,14 @@
 
     //Import External Resources
       //Single Images
-
-      //Sprite Images
+        backGrnd = loadImage( "data/Img/Background/" + "betaInterior1" + ".png" );
+      //Sprites
         for ( int i = 0; i < marthaStill.length; i++ ) {
-          marthaStill[i] = loadImage( "data/Img/Org/MarthaStill/" + i + ".png" );
-          marthaWalking[i] = loadImage( "data/Img/Org/MarthaWalking/" + i + ".png" );
-          marthaRunning[i] = loadImage( "data/Img/Org/MarthaRunning/" + i + ".png" );
-          marthaLadder[i] = loadImage( "data/Img/Org/MarthaLadder/" + i + ".png" );
-          marthaStairs[i] = loadImage( "data/Img/Org/MarthaStairs/" + i + ".png" );
+          marthaStill[i]    = loadImage( "data/Img/Sprites/Martha/MarthaStill/" + i + ".png" );
+          marthaWalking[i]  = loadImage( "data/Img/Sprites/Martha/MarthaWalking/" + i + ".png" );
+          marthaRunning[i]  = loadImage( "data/Img/Sprites/Martha/MarthaRunning/" + i + ".png" );
+          marthaLadder[i]   = loadImage( "data/Img/Sprites/Martha/MarthaLadder/" + i + ".png" );
+          marthaStairs[i]   = loadImage( "data/Img/Sprites/Martha/MarthaStairs/" + i + ".png" );
         }
       //Fonts
         titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);

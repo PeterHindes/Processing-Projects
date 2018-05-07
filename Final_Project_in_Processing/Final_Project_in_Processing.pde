@@ -20,6 +20,10 @@
       keyHandlers kh = new keyHandlers();
     //Images
       PImage[] marthaStill = new PImage[3];
+      PImage[] marthaWalking = new PImage[3];
+      PImage[] marthaRunning = new PImage[3];
+      PImage[] marthaLadder = new PImage[3];
+      PImage[] marthaStairs = new PImage[3];
     //Fonts
       PFont titleFont;
       PFont mesageFont;
@@ -57,6 +61,10 @@
       //Sprite Images
         for ( int i = 0; i < marthaStill.length; i++ ) {
           marthaStill[i] = loadImage( "data/Img/Org/MarthaStill/" + i + ".png" );
+          marthaWalking[i] = loadImage( "data/Img/Org/MarthaWalking/" + i + ".png" );
+          marthaRunning[i] = loadImage( "data/Img/Org/MarthaRunning/" + i + ".png" );
+          marthaLadder[i] = loadImage( "data/Img/Org/MarthaLadder/" + i + ".png" );
+          marthaStairs[i] = loadImage( "data/Img/Org/MarthaStairs/" + i + ".png" );
         }
       //Fonts
         titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
@@ -80,7 +88,7 @@
 
     player();
 
-    /*
+    /*    Auto Cascading Title Fetch [incomplete] [pita]
     String titleProper;
     if(!(titles[dialoguePrimary][dialogueMinor] == ":;")){
       titleProper = titles[dialoguePrimary][dialogueMinor];

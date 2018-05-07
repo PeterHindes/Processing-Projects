@@ -143,7 +143,7 @@ public class Final_Project_in_Processing extends PApplet {
 
 //Keyboard Managment
   //Set Keys
-  public void keyPressed()  { kh.press();   }
+  public void keyPressed()  { kh.press(); }
 
   //Handle Key Release
   public void keyReleased() { kh.release(); }
@@ -182,6 +182,12 @@ class dialogue {
     };
   }
 }
+
+//Still
+//Walking
+//Running
+//Walking up stairs
+//Climbing Ladder
 class dialogueBox {
   public void primary (int lineCount, String title, String message) {
 

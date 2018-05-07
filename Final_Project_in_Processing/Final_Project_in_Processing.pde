@@ -90,7 +90,8 @@
     }
 
     //Render
-    background(175);
+    //background(175);
+    image(backGrnd, 0,0, siz[0],siz[1]);
 
     bild.small(50,50);
 

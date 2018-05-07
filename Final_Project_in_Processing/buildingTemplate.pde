@@ -9,7 +9,7 @@ class buildings {
     pushMatrix();
     translate(rx,siz[1]-ry);
 
-    print(smallXYratio + "  " + smallX + " " + smallY + "\n");
+    //print(smallXYratio + "  " + smallX + " " + smallY + "\n");
 
     rect(0,0,  int(smallX), -int(smallY));
 

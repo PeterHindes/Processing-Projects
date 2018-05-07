@@ -1,6 +1,9 @@
 class dialogueBox {
   public void primary (int lineCount, String title, String message) {
 
+    int opacityPC = 95;
+    int opacityBI = (255/100)*opacityPC;
+
     //Activate Matrix
     pushMatrix();
     //Allign to bottom with padding
@@ -20,12 +23,12 @@ class dialogueBox {
     int titleNspacingHeight = titleHeight        + dialoguePading;
 
     int rectRightPaded = siz[0] - dialogueBoxPading*2;
-    int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The title is double because it is fliped to the top, and the body is bottom
+    int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The titleHeight is double because it is fliped to the top, and the body is bottom
 
 
     //Rectangle
     translate(dialogueBoxPading,-dialogueBoxPading);
-    fill(msgBx[0]);
+    fill(msgBx[0], opacityBI);
     rect(0,0,
       rectRightPaded ,
       -wholeMessagePadded ,

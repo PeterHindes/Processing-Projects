@@ -34,7 +34,7 @@
     //Sound
   //Palletes
     //Colors
-      color[] msgBx = {0x3a3a4c38, #222e30};
+      color[] msgBx = {#634275, #222e30};
     //Dialogue
       String[][] dialogue = dia.setupDialogue();  //Dialogue setup in external file dialogue.pde
       String[][] titles = dia.setupTitles();
@@ -91,9 +91,9 @@
 
     //Render
     //background(175);
-    image(backGrnd, 0,0, siz[0],backGrnd.height);
+    image(backGrnd, 0,0, siz[0],backGrnd.height); //Background Image
 
-    bild.small(50,50);
+    //bild.small(50,50);
 
     player();
 
@@ -109,7 +109,15 @@
 
     marthaCurrentVariant = marthaStill;
 
-    image(marthaCurrentVariant[int(marthaCurrentFrame)],0,-floorLevel-marthaCurrentVariant[int(marthaCurrentFrame)].height);
+    float imageScale = 2f;
+    image(marthaCurrentVariant[int(marthaCurrentFrame)],
+      0  ,
+      -floorLevel -marthaCurrentVariant[int(marthaCurrentFrame)].height  ,
+      marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
+      marthaCurrentVariant[int(marthaCurrentFrame)].width * imageScale
+    );
+
+    //Advance Character Frame
     if (marthaCurrentFrame < marthaCurrentVariant.length-marthFrameIncrement) {
       marthaCurrentFrame+=marthFrameIncrement;
     } else {

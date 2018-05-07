@@ -1,7 +1,7 @@
 class buildings {
 
-  private float smallXYratio = 16f/9f;
-  private int smallScale = 500;
+  private float smallXYratio = 10f/13f;
+  private int smallScale = 200;
   private float smallX = smallScale*smallXYratio;
   private float smallY = smallScale/smallXYratio;
 

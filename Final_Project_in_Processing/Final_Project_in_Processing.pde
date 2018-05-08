@@ -109,10 +109,11 @@
 
     marthaCurrentVariant = marthaStill;
 
-    float imageScale = 2f;
+    float imageScale = 2.75f;
+    smooth(0);
     image(marthaCurrentVariant[int(marthaCurrentFrame)],
       0  ,
-      -floorLevel -marthaCurrentVariant[int(marthaCurrentFrame)].height  ,
+      -floorLevel - (marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale)  ,
       marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
       marthaCurrentVariant[int(marthaCurrentFrame)].width * imageScale
     );

@@ -13,6 +13,10 @@
 
 
 //Resources
+  //Libraries
+    import processing.sound.*;
+      //Suplimentary Sound variables
+      AudioDevice myAudioServer;
   //External
     //Classes
       dialogue dia = new dialogue();
@@ -32,6 +36,7 @@
       PFont titleFont;
       PFont mesageFont;
     //Sound
+      SoundFile glassBreakMedium;
   //Palletes
     //Colors
       color[] msgBx = {#634275, #222e30};
@@ -74,7 +79,10 @@
         titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
         mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
       //Sound
-
+        myAudioServer = new AudioDevice(this, 44100, 128);
+        glassBreakMedium = new SoundFile(this, "data/SoundEffects/" + "glass-break-medium" + ".wav");
+        //glassBreakMedium = new loadSound("data/SoundEffects/glass-break-medium.wav");
+        glassBreakMedium.play();
   }
 
   void draw () {

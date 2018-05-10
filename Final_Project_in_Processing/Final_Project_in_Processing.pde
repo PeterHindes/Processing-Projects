@@ -94,9 +94,17 @@
       }
     }
 
+
+    //Bg Calc
+    int imgYscl;
+    int quest;
+    quest = siz[0]/backGrnd.width;
+    imgYscl = quest * backGrnd.height;
+
+
     //Render
     //background(175);
-    image(backGrnd, 0,0, siz[0],backGrnd.height); //Background Image
+    image(backGrnd, 0,0, siz[0],imgYscl); //Background Image
 
     //bild.small(50,50);
 

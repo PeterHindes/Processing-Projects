@@ -1,0 +1,15 @@
+ix*?=sx
+this as a cpu solvable equation ^
+
+50*?=900
+both /50
+?=900/50
+simplify
+?=18
+
+ix*?=sx
+both /ix
+?=sx/ix
+solve
+
+iy*?=osy

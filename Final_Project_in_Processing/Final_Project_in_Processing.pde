@@ -65,7 +65,7 @@
 
     //Import External Resources
       //Single Images
-        backGrnd = loadImage( "data/Img/Background/" + "betaInterior1" + ".png" );
+        backGrnd = loadImage( "data/Img/Background/" + "betaInterior1-2d" + ".png" );
       //Sprites
         for ( int i = 0; i < marthaStill.length; i++ ) {
           marthaStill[i]    = loadImage( "data/Img/Sprites/Martha/MarthaStill/" + i + ".png" );

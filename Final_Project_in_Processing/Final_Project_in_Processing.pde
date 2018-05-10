@@ -96,12 +96,9 @@
 
 
     //Bg Calc
-    int imgYscl;
-    int quest;
-    quest = siz[0]/backGrnd.width;
-    imgYscl = quest * backGrnd.height;
-
-
+    //Calculate The height of the image relative to the scaled width
+    int quest = siz[0]/backGrnd.width;
+    int imgYscl = quest * backGrnd.height;
     //Render
     //background(175);
     image(backGrnd, 0,0, siz[0],imgYscl); //Background Image

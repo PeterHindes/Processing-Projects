@@ -102,17 +102,42 @@
     int imgYscl = quest * backGrnd.height;
     //Render
     //background(175);
-    image(backGrnd, 0,0, siz[0],imgYscl); //Background Image
+    //image(backGrnd, 0,0, siz[0],imgYscl); //Background Image
+
+    //Run
 
     //bild.small(50,50);
 
-    player();
+    canvas();
 
     db.primary(2,  titles[dialoguePrimary][dialogueMinor], dialogue[dialoguePrimary][dialogueMinor]);
 
   }
 
 //Custom Functions
+
+  void canvas() {
+    pushMatrix();
+    if (/*Character X Position is greater than 80% of the screen*/) {
+      /*keep the canvas moving so they never exceede 80% of the screen*/
+    } else if (/*Character X Position is less than 20% of the screen*/) {
+      /*keep the canvas moving so they never go below 20% of the screen*/
+    }
+
+    //World
+    //A Perfectly Centered but Limited background image
+    //image(backGrnd, 0,0, siz[0],imgYscl);
+    //A Background image that has the proper height by default and is wider than the screen
+    image(backGrnd, 0,0);
+
+    //Player
+    player();
+
+    //End
+    popMatrix();
+
+  }
+
   void player() {
     pushMatrix();
 

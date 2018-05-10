@@ -14,9 +14,8 @@
 
 //Resources
   //Libraries
-    import processing.sound.*;
-      //Suplimentary Sound variables
-      AudioDevice myAudioServer;
+    import ddf.minim.*;
+      Minim minim;
   //External
     //Classes
       dialogue dia = new dialogue();
@@ -36,7 +35,7 @@
       PFont titleFont;
       PFont mesageFont;
     //Sound
-      SoundFile glassBreakMedium;
+      AudioSample glassBreakMedium;
   //Palletes
     //Colors
       color[] msgBx = {#634275, #222e30};
@@ -79,10 +78,8 @@
         titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
         mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
       //Sound
-        myAudioServer = new AudioDevice(this, 44100, 128);
-        glassBreakMedium = new SoundFile(this, "data/SoundEffects/" + "glass-break-medium" + ".wav");
-        //glassBreakMedium = new loadSound("data/SoundEffects/glass-break-medium.wav");
-        glassBreakMedium.play();
+      minim = new Minim(this);
+      glassBreakMedium = minim.loadSample( "data/SoundEffects/" + "glass-break-medium" + ".wav" , 2048);
   }
 
   void draw () {
@@ -139,7 +136,14 @@
 
 //Keyboard Managment
   //Set Keys
-  void keyPressed()  { kh.press(); }
+  void keyPressed()  { kh.press(); glassBreakMedium.trigger(); }
 
   //Handle Key Release
   void keyReleased() { kh.release(); }
+
+//End Of Program
+void stop() {
+  glassBreakMedium.close();
+  minim.stop();
+  super.stop();
+}

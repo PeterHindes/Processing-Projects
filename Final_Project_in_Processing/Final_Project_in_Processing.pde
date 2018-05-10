@@ -121,7 +121,7 @@
     marthaCurrentVariant = marthaStill;
 
     float imageScale = 2.75f;
-    smooth(0);
+    //smooth(0);
     image(marthaCurrentVariant[int(marthaCurrentFrame)],
       0  ,
       -floorLevel - (marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale)  ,

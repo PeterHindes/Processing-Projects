@@ -1,12 +1,12 @@
 //Variables
   int time = 0;
   int[] playerPos = {30,0};
-  int floorLevel = 120;
+  int floorLevel = 60;
   int dialoguePrimary = 0;
   int dialogueMinor = 0;
   //Sprites
     float marthaCurrentFrame = 0;
-    float marthFrameIncrement = 0.05;
+    float marthFrameIncrement = 0.5;
 
   //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
   boolean keys[] = {false, false, false, false, false, false};
@@ -26,7 +26,7 @@
       PImage backGrnd;
     //Sprites
       PImage[] marthaCurrentVariant;
-      PImage[] marthaStill = new PImage[3];
+      PImage[] marthaStill = new PImage[22];
       PImage[] marthaWalking = new PImage[3];
       PImage[] marthaRunning = new PImage[3];
       PImage[] marthaLadder = new PImage[3];
@@ -68,11 +68,12 @@
         backGrnd = loadImage( "data/Img/Background/" + "betaInterior1-2d" + ".png" );
       //Sprites
         for ( int i = 0; i < marthaStill.length; i++ ) {
-          marthaStill[i]    = loadImage( "data/Img/Sprites/Martha/MarthaStill/" + i + ".png" );
-          marthaWalking[i]  = loadImage( "data/Img/Sprites/Martha/MarthaWalking/" + i + ".png" );
-          marthaRunning[i]  = loadImage( "data/Img/Sprites/Martha/MarthaRunning/" + i + ".png" );
-          marthaLadder[i]   = loadImage( "data/Img/Sprites/Martha/MarthaLadder/" + i + ".png" );
-          marthaStairs[i]   = loadImage( "data/Img/Sprites/Martha/MarthaStairs/" + i + ".png" );
+          String formatted = String.format("%02d", i);
+          marthaStill[i]    = loadImage( "data/Img/Sprites/Martha/MarthaStill/"   + "sprite_" + formatted + ".png" );
+          //marthaWalking[i]  = loadImage( "data/Img/Sprites/Martha/MarthaWalking/" + "sprite_" + formatted + ".png" );
+          //marthaRunning[i]  = loadImage( "data/Img/Sprites/Martha/MarthaRunning/" + "sprite_" + formatted + ".png" );
+          //marthaLadder[i]   = loadImage( "data/Img/Sprites/Martha/MarthaLadder/"  + "sprite_" + formatted + ".png" );
+          //marthaStairs[i]   = loadImage( "data/Img/Sprites/Martha/MarthaStairs/"  + "sprite_" + formatted + ".png" );
         }
       //Fonts
         titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);

@@ -1,10 +1,8 @@
 Ext ext = new Ext();
+//Refren refrend = new Refren();
 
 void setup() {
   print("Thats A Set\n");
   ext.works();
-}
-
-void draw() {
-  ext.draw();
+  //ext.refrenf.fren();
 }

@@ -15,21 +15,23 @@ import java.io.IOException;
 public class extLoops extends PApplet {
 
 Ext ext = new Ext();
+//Refren refrend = new Refren();
 
 public void setup() {
   print("Thats A Set\n");
   ext.works();
-}
-
-public void draw() {
-  ext.draw();
+  //ext.refrenf.fren();
 }
 class Ext {
-  public void draw() {
-    rect(5,5, 25,25);
-  }
+  Refren refren = new Refren();
   public void works() {
     print("Works\n");
+    refren.fren;
+  }
+}
+class Refren {
+  public void fren() {
+    print("Fren\n");
   }
 }
   static public void main(String[] passedArgs) {

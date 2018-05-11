@@ -1,8 +1,7 @@
 class Ext {
-  void draw() {
-    rect(5,5, 25,25);
-  }
+  Refren refren = new Refren();
   void works() {
     print("Works\n");
+    refren.fren;
   }
 }

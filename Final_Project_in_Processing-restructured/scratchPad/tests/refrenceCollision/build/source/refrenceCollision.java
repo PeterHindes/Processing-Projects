@@ -14,17 +14,20 @@ import java.io.IOException;
 
 public class refrenceCollision extends PApplet {
 
-Dual dual = new Dual();
+
 Branch branch = new Branch();
+Dual dual = new Dual();
+
 
 public void setup() {
   print("Main File Bois!\n");
-  dual.fren();
   branch.fren();
+  dual.fren();
 }
 class Branch {
   public void fren (){
     print("Your In The Branch\n");
+    dual.fren();
   }
 }
 class Dual {

@@ -1,8 +1,10 @@
-Dual dual = new Dual();
+
 Branch branch = new Branch();
+Dual dual = new Dual();
+
 
 void setup() {
   print("Main File Bois!\n");
-  dual.fren();
   branch.fren();
+  dual.fren();
 }

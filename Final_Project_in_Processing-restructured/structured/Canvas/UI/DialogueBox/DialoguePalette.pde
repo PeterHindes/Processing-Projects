@@ -1,5 +1,17 @@
 class DialoguePalette {
-  public static String Dialogue[][] =
+
+  public String Titles[][] =
+  {
+    {
+      "OFFICIAL ANNOUNCEMENT",
+      "Martha",
+      "Martha",
+      "Martha",
+      "Martha"
+    }
+  };
+
+  public String Dialogue[][] =
   {
     {
       "Infected individuals CANNOT remember their past or think for themselves. "+
@@ -16,15 +28,5 @@ class DialoguePalette {
       "Oh- Ah crap, my photo!"
     }
   };
-
-  public static String Titles[][] =
-  {
-    {
-      "OFFICIAL ANNOUNCEMENT",
-      "Martha",
-      "Martha",
-      "Martha",
-      "Martha"
-    }
-  };
+  
 }

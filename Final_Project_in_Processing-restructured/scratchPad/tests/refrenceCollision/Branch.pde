@@ -1,5 +1,5 @@
 class Branch {
-  void main (){
+  void fren (){
     print("Your In The Branch\n");
   }
 }

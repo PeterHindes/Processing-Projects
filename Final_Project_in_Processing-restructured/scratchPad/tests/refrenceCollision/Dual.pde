@@ -1,5 +1,5 @@
 class Dual {
-  void main (){
+  void fren (){
     print("Your In The Dual\n");
   }
 }

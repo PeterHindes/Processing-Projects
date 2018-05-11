@@ -1,43 +1,30 @@
 class DialoguePalette {
-  public String[][] setupDialogue(){
-
-    return new String[][]
+  public static String Dialogue[][] =
+  {
     {
-      {
-        "Infected individuals CANNOT remember their past or think for themselves. "+
-        "They are dangerous and should be killed on sight!",
+      "Infected individuals CANNOT remember their past or think for themselves. "+
+      "They are dangerous and should be killed on sight!",
 
-        ". . .\n"+
-        "I feel like trash",
+      ". . .\n"+
+      "I feel like trash",
 
-        ". . .\n"+
-        "My place looks like trash.",
+      ". . .\n"+
+      "My place looks like trash.",
 
-        "Why is everything trash?",
+      "Why is everything trash?",
 
-        "Oh- Ah crap, my photo!"
-      }
-    };
+      "Oh- Ah crap, my photo!"
+    }
+  };
 
-  }
-  public String[][] setupTitles(){
-    return new String[][]
+  public static String Titles[][] =
+  {
     {
-      {
-        "OFFICIAL ANNOUNCEMENT",
-        "Martha",
-        "Martha",
-        "Martha",
-        "Martha"
-      }
-    };
-  }
+      "OFFICIAL ANNOUNCEMENT",
+      "Martha",
+      "Martha",
+      "Martha",
+      "Martha"
+    }
+  };
 }
-
-//Still
-//Walking
-//Running
-//Walking up stairs
-//Climbing Ladder
-
-//If Character goes off screen the slowing code breaks and they go fast ***

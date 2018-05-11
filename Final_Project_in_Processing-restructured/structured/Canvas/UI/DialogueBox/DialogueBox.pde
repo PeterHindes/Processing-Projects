@@ -1,4 +1,4 @@
-class dialogueBox {
+class DialogueBox {
   public void primary (int lineCount, String title, String message) {
 
     int opacityPC = 95;

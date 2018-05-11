@@ -1,4 +1,4 @@
-class Scene {
+class ScenePalette {
 
   void setupS(String title, int variant) {
 

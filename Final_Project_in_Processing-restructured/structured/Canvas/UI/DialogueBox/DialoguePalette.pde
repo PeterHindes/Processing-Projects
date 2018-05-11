@@ -1,4 +1,4 @@
-class dialogue {
+class DialoguePalette {
   public String[][] setupDialogue(){
 
     return new String[][]

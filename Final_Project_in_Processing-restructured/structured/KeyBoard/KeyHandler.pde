@@ -1,4 +1,4 @@
-public class keyHandler {
+public class KeyHandler {
 
   //keys                             UP      Down     RIGHT     LEFT      SHIFT  SPACE
   public static boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };

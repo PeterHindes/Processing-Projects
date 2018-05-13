@@ -1,4 +1,4 @@
-class sHandlers {
+class SceneHandler {
 
   Scene sn = new Scene();
 

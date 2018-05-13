@@ -1,8 +1,4 @@
-class DialogueBox {
-
-  public int dialoguePrimary = 0;
-  public int dialogueMinor = 0;
-
+class dialogueBox {
   public void primary (int lineCount, String title, String message) {
 
     int opacityPC = 95;

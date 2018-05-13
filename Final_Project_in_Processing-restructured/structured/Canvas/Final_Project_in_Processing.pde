@@ -1,15 +1,3 @@
-//Classes
-  //Dialogue
-    DialoguePalette dialoguePalette = new DialoguePalette();
-    DialogueBox dialogueBox = new DialogueBox();
-  //Keyboard
-    KeyHandler keyHandler = new KeyHandler();
-    KeyActions keyActions = new KeyActions();
-  //Scene
-    SceneHandler sceneHandler = new SceneHandler();
-    ScenePalette scenePalette = new ScenePalette();
-
-
 //Variables
   int time = 0;
   int[] playerPos = {30,0};
@@ -29,6 +17,11 @@
     import ddf.minim.*;
       Minim minim;
   //External
+    //Classes
+      dialogue dia = new dialogue();
+      dialogueBox db = new dialogueBox();
+      buildings bild = new buildings();
+      keyHandlers kh = new keyHandlers();
     //Images
       PImage backGrnd;
     //Sprites

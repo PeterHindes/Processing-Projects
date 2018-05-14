@@ -1,6 +1,6 @@
 class SceneHandler {
 
-  Scene sn = new Scene();
+  ScenePalette scenePalette = new ScenePalette();
 
   int sceneIndex = 0;
   int sceneVariant = 1;
@@ -32,11 +32,11 @@ class SceneHandler {
   }
 
   public void setupS(){
-    sn.setupS(sceneTitle[sceneIndex], sceneVariant);
+    scenePalette.setupS(sceneTitle[sceneIndex], sceneVariant);
   }
 
   public void drawS(){
-    sn.drawS(sceneTitle[sceneIndex], sceneVariant);
+    scenePalette.drawS(sceneTitle[sceneIndex], sceneVariant);
   }
 
 }

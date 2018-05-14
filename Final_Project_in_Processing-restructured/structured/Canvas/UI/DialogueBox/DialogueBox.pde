@@ -3,7 +3,7 @@ class DialogueBox {
   public int dialoguePrimary = 0;
   public int dialogueMinor = 0;
 
-  public void primary (int lineCount, String title, String message) {
+  public void primary (int lineCount, String title, String dialogue) {
 
     int opacityPC = 95;
     int opacityBI = (255/100)*opacityPC;
@@ -18,9 +18,9 @@ class DialogueBox {
 
     //Calculate
     //Height of title and body in seprate vars with their respective fonts
-    textFont(mesageFont);
+    textFont(resources.mesageFont);
     int bodyHeight  = int(textAscent())*(lineCount+1);
-    textFont(titleFont);
+    textFont(resources.titleFont);
     int titleHeight = int(textAscent());
     //body position with all padding verticaly
     int bodyNspacingHeight = bodyHeight          + dialoguePading;
@@ -32,7 +32,7 @@ class DialogueBox {
 
     //Rectangle
     translate(dialogueBoxPading,-dialogueBoxPading);
-    fill(msgBx[0], opacityBI);
+    fill(resources.msgBx[0], opacityBI);
     rect(0,0,
       rectRightPaded ,
       -wholeMessagePadded ,
@@ -44,12 +44,12 @@ class DialogueBox {
     translate(0,-bodyHeight);
     fill(0);
     textAlign(LEFT, TOP);
-    textFont(mesageFont);
-    text(message, 0,0, rectRightPaded - dialoguePading*2, siz[1]      - bodyHeight);
+    textFont(resources.mesageFont);
+    text(dialogue, 0,0, rectRightPaded - dialoguePading*2, siz[1]      - bodyHeight);
 
     //Title
     textAlign(LEFT, BOTTOM);
-    textFont(titleFont);
+    textFont(resources.titleFont);
     text(title, 0,-dialogueBoxTitlePading);
 
     popMatrix();

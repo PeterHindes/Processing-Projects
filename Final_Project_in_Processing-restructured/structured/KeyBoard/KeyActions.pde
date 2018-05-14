@@ -32,10 +32,10 @@ class KeyActions {
     //dialogue
       //Space
         if(keyHandler.keys[5]){
-          if (dialogueMinor < dialogue[dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
+          if (dialogueMinor < dialoguePalette.Dialogue[dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
             dialogueMinor++;
             //print("Minor Up " + dialogueMinor + " \n");
-          } else if (dialoguePrimary < dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
+          } else if (dialoguePrimary < dialoguePalette.Dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
             dialoguePrimary++;
             //print("Primary Up " + dialoguePrimary + " \n");
           } else {

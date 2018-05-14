@@ -1,8 +1,8 @@
 public class KeyHandler {
 
   //keys                             UP      Down     RIGHT     LEFT      SHIFT  SPACE
-  public static boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };
-  public static String keyNames[] = {"Up" ,  "Down",  "Right",  "Left", "Shift", "Space"};
+  public boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };
+  public String keyNames[] = {"Up" ,  "Down",  "Right",  "Left", "Shift", "Space"};
 
 
 
@@ -42,7 +42,7 @@ public class KeyHandler {
   public void release() {
 
     //Run single event actions
-      single();
+      keyActions.single();
 
     //Unset Keys
       if (key == CODED)   {

@@ -1,3 +1,7 @@
+//Libraries
+  import ddf.minim.*;
+    Minim minim;
+
 //Classes
   //Variables
   //Resources
@@ -46,24 +50,7 @@
     size           (1000, 700);
     siz = new int[]{1000, 700};
 
-    //Import External Resources
-      //Single Images
-        backGrnd = loadImage( "data/Img/Background/" + "betaInterior1-2d" + ".png" );
-      //Sprites
-        for ( int i = 0; i < marthaStill.length; i++ ) {
-          String formatted = String.format("%02d", i);
-          marthaStill[i]    = loadImage( "data/Img/Sprites/Martha/MarthaStill/"   + "sprite_" + formatted + ".png" );
-          //marthaWalking[i]  = loadImage( "data/Img/Sprites/Martha/MarthaWalking/" + "sprite_" + formatted + ".png" );
-          //marthaRunning[i]  = loadImage( "data/Img/Sprites/Martha/MarthaRunning/" + "sprite_" + formatted + ".png" );
-          //marthaLadder[i]   = loadImage( "data/Img/Sprites/Martha/MarthaLadder/"  + "sprite_" + formatted + ".png" );
-          //marthaStairs[i]   = loadImage( "data/Img/Sprites/Martha/MarthaStairs/"  + "sprite_" + formatted + ".png" );
-        }
-      //Fonts
-        titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
-        mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
-      //Sound
-      minim = new Minim(this);
-      glassBreakMedium = minim.loadSample( "data/SoundEffects/" + "glass-break-medium" + ".wav" , 2048);
+    resources.setup();
   }
 
   void draw () {
@@ -73,7 +60,7 @@
     if (keyPressed){
       time += millis();
       if (time > timeRequiredCurrent){
-        kh.repeat();
+        keyActions.repeat();
         time = 0;
       }
     }
@@ -81,11 +68,11 @@
 
     //Bg Calc
     //Calculate The height of the image relative to the scaled width
-    int quest = siz[0]/backGrnd.width;
-    int imgYscl = quest * backGrnd.height;
+    int quest = siz[0]/resources.backGrnd.width;
+    int imgYscl = quest * resources.backGrnd.height;
     //Render
     //background(175);
-    //image(backGrnd, 0,0, siz[0],imgYscl); //Background Image
+    //image(resources.backGrnd, 0,0, siz[0],imgYscl); //Background Image
 
     //Run
 
@@ -93,7 +80,7 @@
 
     canvas();
 
-    db.primary(2,  titles[dialoguePrimary][dialogueMinor], dialogue[dialoguePrimary][dialogueMinor]);
+    dialogueBox.primary(2,  dialoguePalette.Titles[dialoguePrimary][dialogueMinor], dialoguePalette.Dialogue[dialoguePrimary][dialogueMinor]);
 
   }
 
@@ -110,12 +97,12 @@
     //World
     //A Perfectly Centered but Limited background image
     //Calculate The height of the image relative to the scaled width
-    int quest = siz[0]/backGrnd.width;
-    int imgYscl = quest * backGrnd.height;
+    int quest = siz[0]/resources.backGrnd.width;
+    int imgYscl = quest * resources.backGrnd.height;
     //Image
-    image(backGrnd, 0,0, siz[0],imgYscl);
+    image(resources.backGrnd, 0,0, siz[0],imgYscl);
     //A Background image that has the proper height by default and is wider than the screen
-    //image(backGrnd, 0,0);
+    //image(resources.backGrnd, 0,0);
 
     //Player
     player();
@@ -130,19 +117,19 @@
 
     translate(playerPos[0],  siz[1]-playerPos[1]);
 
-    marthaCurrentVariant = marthaStill;
+    resources.marthaCurrentVariant = resources.marthaStill;
 
     float imageScale = 2.75f;
     //smooth(0);
-    image(marthaCurrentVariant[int(marthaCurrentFrame)],
+    image(resources.marthaCurrentVariant[int(marthaCurrentFrame)],
       0  ,
-      -floorLevel - (marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale)  ,
-      marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
-      marthaCurrentVariant[int(marthaCurrentFrame)].width * imageScale
+      -floorLevel - (resources.marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale)  ,
+      resources.marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
+      resources.marthaCurrentVariant[int(marthaCurrentFrame)].width * imageScale
     );
 
     //Advance Character Frame
-    if (marthaCurrentFrame < marthaCurrentVariant.length-marthFrameIncrement) {
+    if (marthaCurrentFrame < resources.marthaCurrentVariant.length-marthFrameIncrement) {
       marthaCurrentFrame+=marthFrameIncrement;
     } else {
       marthaCurrentFrame=0;
@@ -154,14 +141,14 @@
 
 //Keyboard Managment
   //Set Keys
-  void keyPressed()  { kh.press(); glassBreakMedium.trigger(); }
+  void keyPressed()  { keyHandler.press(); resources.glassBreakMedium.trigger(); }
 
   //Handle Key Release
-  void keyReleased() { kh.release(); }
+  void keyReleased() { keyHandler.release(); }
 
 //End Of Program
 void stop() {
-  glassBreakMedium.close();
+  resources.glassBreakMedium.close();
   minim.stop();
   super.stop();
 }

@@ -11,9 +11,9 @@ class DialogueBox {
     //Activate Matrix
     pushMatrix();
     //Allign to bottom with padding
-    //translate(0 + dialoguePading ,  siz[1] - (dialoguePading));
+    //translate(0 + dialoguePading ,  height - (dialoguePading));
     //Allign to bottom without padding
-    translate(0 ,  siz[1]);
+    translate(0 ,  height);
 
 
     //Calculate
@@ -26,7 +26,7 @@ class DialogueBox {
     int bodyNspacingHeight = bodyHeight          + dialoguePading;
     int titleNspacingHeight = titleHeight        + dialoguePading;
 
-    int rectRightPaded = siz[0] - dialogueBoxPading*2;
+    int rectRightPaded = width - dialogueBoxPading*2;
     int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The titleHeight is double because it is fliped to the top, and the body is bottom
 
 
@@ -45,7 +45,7 @@ class DialogueBox {
     fill(0);
     textAlign(LEFT, TOP);
     textFont(resources.mesageFont);
-    text(dialogue, 0,0, rectRightPaded - dialoguePading*2, siz[1]      - bodyHeight);
+    text(dialogue, 0,0, rectRightPaded - dialoguePading*2, height      - bodyHeight);
 
     //Title
     textAlign(LEFT, BOTTOM);

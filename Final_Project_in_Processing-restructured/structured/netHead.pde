@@ -1,5 +1,5 @@
 //Libraries
-  import ddf.minim.*;
+  import ddf.minim.*;   //Need a diffrent sound library
     Minim minim;
 
 //Classes

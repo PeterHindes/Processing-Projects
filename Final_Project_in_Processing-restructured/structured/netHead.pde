@@ -4,6 +4,7 @@
 
 //Classes
   //Variables
+    Vars vars = new Vars();
   //Resources
     Resources resources = new Resources();
   //Dialogue
@@ -15,6 +16,10 @@
   //Scene
     SceneHandler sceneHandler = new SceneHandler();
     ScenePalette scenePalette = new ScenePalette();
+  //UI
+    UI ui = new UI();
+  //Canvas
+    Canvas canvas = new Canvas();
 
 
 //Variables   [Move to separate class/file]
@@ -49,7 +54,7 @@
   void setup () {
     //size            (1000, 700);
     //siz = new int[] {1000, 700};
-    fullScreen(1);
+    fullScreen(2);
     //siz = new int[] {width, height};
 
     resources.setup();
@@ -87,33 +92,6 @@
   }
 
 //Custom Functions
-
-  void canvas() {
-    pushMatrix();
-    //if (/*Character X Position is greater than 80% of the screen*/) {
-      /*keep the canvas moving so they never exceede 80% of the screen*/
-    //} else if (/*Character X Position is less than 20% of the screen*/) {
-      /*keep the canvas moving so they never go below 20% of the screen*/
-    //}
-
-    //World
-    //A Perfectly Centered but Limited background image
-    //Calculate The height of the image relative to the scaled width
-    int quest = width/resources.backGrnd.width;
-    int imgYscl = quest * resources.backGrnd.height;
-    //Image
-    image(resources.backGrnd, 0,0, width,imgYscl);
-    //A Background image that has the proper height by default and is wider than the screen
-    //image(resources.backGrnd, 0,0);
-
-    //Player
-    player();
-
-    //End
-    popMatrix();
-
-  }
-
   void player() {
     pushMatrix();
 

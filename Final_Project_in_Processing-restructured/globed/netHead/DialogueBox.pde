@@ -1,1 +1,1 @@
-/Users/peter/Documents/GitHub/Processing-Projects/Final_Project_in_Processing-restructured/structured/Canvas/UI/DialogueBox/DialogueBox.pde
+Final_Project_in_Processing-restructured/structured/Canvas/UI/DialogueBox/DialogueBox.pde

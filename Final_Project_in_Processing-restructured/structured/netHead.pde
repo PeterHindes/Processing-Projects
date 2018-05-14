@@ -17,7 +17,7 @@
     ScenePalette scenePalette = new ScenePalette();
 
 
-//Variables
+//Variables   [Move to separate class/file]
   int time = 0;
   int[] playerPos = {30,0};
   int floorLevel = 60;

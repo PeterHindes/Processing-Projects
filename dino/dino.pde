@@ -1,0 +1,128 @@
+import java.util.Arrays;
+
+
+int floorHeight = 150;
+
+int obstCount = 16;
+
+int buffer = 25;
+
+//Movement
+int playerPos;
+int playerHeight = 0;
+int playerJumpHeight = 60*2;
+int playerSpeed = 6;
+int jumpSpeed = 10;
+boolean jumping = false;
+
+int[] ours;
+int[] yours;
+boolean startSet = false;
+
+void setup( ) {
+
+  fullScreen(1);
+
+  set1();
+  set2();
+}
+
+void set1() {
+  //print("Set1\n");
+  //playerPos = 15;
+
+  ours = obst(obstCount, false);
+  //Arrays.sort(ours);
+}
+void set2() {
+  //print("Set2\n");
+  playerPos = 15;
+
+  yours = obst(obstCount, true);
+  //Arrays.sort(yours);
+}
+
+void draw( ) {
+
+  background(#b2a780);
+  fill(0);
+  rect(0,height,width,-floorHeight);
+
+  hlfW();
+
+  pushMatrix();
+  translate(-(playerPos-buffer),0);
+
+  fill(150);
+  for (int curd : ours){
+    if (!startSet){
+      rect(curd,height-floorHeight,15,-40);
+    } else {
+      rect(curd+width*2,height-floorHeight,15,-40);
+    }
+  }
+  for (int curd : yours){
+    rect(curd,height-floorHeight,15,-40);
+  }
+
+  jTest();
+  player();
+
+  popMatrix();
+
+}
+
+//Player
+void player( ) {
+  playerPos+=playerSpeed;
+  fill(225);
+  rect (playerPos,height-floorHeight-playerHeight,15,-25);
+}
+
+//Keyboard
+void keyPressed(){
+  if(key == ' ' && !jumping && playerHeight == 0){
+
+    jumping = true;
+
+  }
+}
+
+//Player Jump
+void jTest() {
+  if(jumping){
+    if (playerHeight < playerJumpHeight){
+      playerHeight += jumpSpeed;
+    } else {
+      jumping = false;
+    }
+  } else if (playerHeight > 0) {
+    playerHeight -= jumpSpeed;
+  }
+}
+
+//Halfway Test
+void hlfW (){
+  if ((playerPos-buffer) > width && !startSet){
+    set1();
+    startSet = true;
+  }
+  if ((playerPos-buffer) >= width*2){
+    set2();
+    startSet = false;
+  }
+}
+
+//Setup
+int[] obst(int times,boolean secondSet) {
+  int[] result = new int[times];
+  for(int i = 0; i < times; i++){
+    result[i] = int(random(width));
+  }
+  if (secondSet){
+    for(int i = 0; i < times; i++){
+      result[i]+=width;
+    }
+  }
+  return result;
+}

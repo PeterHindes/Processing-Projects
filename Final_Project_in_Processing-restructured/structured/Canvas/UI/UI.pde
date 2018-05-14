@@ -1,4 +1,7 @@
 class UI {
+
+  float canvasRatio = 9/16
+
   void draw( ) {
 
     //Stats

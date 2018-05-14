@@ -49,7 +49,7 @@
   void setup () {
     //size            (1000, 700);
     //siz = new int[] {1000, 700};
-    fullScreen(2);
+    fullScreen(1);
     //siz = new int[] {width, height};
 
     resources.setup();
@@ -143,7 +143,7 @@
 
 //Keyboard Managment
   //Set Keys
-  void keyPressed()  { keyHandler.press(); }//resources.glassBreakMedium.trigger(); }
+  void keyPressed()  { keyHandler.press(); }
 
   //Handle Key Release
   void keyReleased() { keyHandler.release(); }

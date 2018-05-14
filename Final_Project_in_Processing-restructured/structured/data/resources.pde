@@ -40,6 +40,6 @@ class Resources {
           resources.mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
         //Sound
         minim = new Minim(this);
-        glassBreakMedium = minim.loadSample( "data/SoundEffects/" + "glass-break-medium" + ".wav" , 2048);
+        glassBreakMedium = minim.loadSample( sketchPath("data/SoundEffects/" + "glass-break-medium" + ".wav") , 2048);
     }
 }

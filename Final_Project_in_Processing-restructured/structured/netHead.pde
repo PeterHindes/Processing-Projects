@@ -50,7 +50,7 @@
     //size            (1000, 700);
     //siz = new int[] {1000, 700};
     fullScreen(2);
-    siz = new int[]{width, height};
+    //siz = new int[] {width, height};
 
     resources.setup();
   }
@@ -70,11 +70,11 @@
 
     //Bg Calc
     //Calculate The height of the image relative to the scaled width
-    int quest = siz[0]/resources.backGrnd.width;
+    int quest = width/resources.backGrnd.width;
     int imgYscl = quest * resources.backGrnd.height;
     //Render
     //background(175);
-    //image(resources.backGrnd, 0,0, siz[0],imgYscl); //Background Image
+    //image(resources.backGrnd, 0,0, width,imgYscl); //Background Image
 
     //Run
 
@@ -99,10 +99,10 @@
     //World
     //A Perfectly Centered but Limited background image
     //Calculate The height of the image relative to the scaled width
-    int quest = siz[0]/resources.backGrnd.width;
+    int quest = width/resources.backGrnd.width;
     int imgYscl = quest * resources.backGrnd.height;
     //Image
-    image(resources.backGrnd, 0,0, siz[0],imgYscl);
+    image(resources.backGrnd, 0,0, width,imgYscl);
     //A Background image that has the proper height by default and is wider than the screen
     //image(resources.backGrnd, 0,0);
 
@@ -117,7 +117,7 @@
   void player() {
     pushMatrix();
 
-    translate(playerPos[0],  siz[1]-playerPos[1]);
+    translate(playerPos[0],  height-playerPos[1]);
 
     resources.marthaCurrentVariant = resources.marthaStill;
 

@@ -20,6 +20,9 @@
     UI ui = new UI();
   //Canvas
     Canvas canvas = new Canvas();
+    //Camera
+      Camera camera = new Camera();
+      camera.Pan = camera.new Pan();
 
 
 //Variables   [Move to separate class/file]

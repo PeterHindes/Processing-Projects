@@ -141,7 +141,7 @@
 
 //Keyboard Managment
   //Set Keys
-  void keyPressed()  { keyHandler.press(); resources.glassBreakMedium.trigger(); }
+  void keyPressed()  { keyHandler.press(); }//resources.glassBreakMedium.trigger(); }
 
   //Handle Key Release
   void keyReleased() { keyHandler.release(); }

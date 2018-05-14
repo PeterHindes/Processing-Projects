@@ -39,7 +39,7 @@ class Resources {
           resources.titleFont = createFont("data/Font/Signika-Bold.ttf", 25, true);
           resources.mesageFont = createFont("data/Font/EBGaramond-Regular.ttf", 20, true);
         //Sound
-        minim = new Minim(this);
-        glassBreakMedium = minim.loadSample( sketchPath("data/SoundEffects/" + "glass-break-medium" + ".wav") , 2048);
+        //minim = new Minim(this);
+        //glassBreakMedium = minim.loadSample( "SoundEffects/" + "glass-break-medium" + ".wav" , 2048);
     }
 }

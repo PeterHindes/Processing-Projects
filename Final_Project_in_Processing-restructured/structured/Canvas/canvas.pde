@@ -1,7 +1,9 @@
 class Canvas {
   void draw() {
 
-    camera.pan("open");
+    pushMatrix();
+
+    //camera.pan("open");
 
     //World
     //A Perfectly Centered but Limited background image

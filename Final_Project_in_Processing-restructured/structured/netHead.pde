@@ -80,7 +80,7 @@
     //image(resources.backGrnd, 0,0, width,imgYscl); //Background Image
 
     //Run
-    canvas();
+    canvas.draw();
 
   }
 

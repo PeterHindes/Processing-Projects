@@ -19,7 +19,7 @@ class Player {
     popMatrix();
 
     //Advance Character Frame
-    if (marthaCurrentFrame < resources.marthaCurrentVariant.length-marthFrameIncrement) {
+    if (floor(marthaCurrentFrame) <= resources.marthaCurrentVariant.length+1) { // The plus 1 will likeley make an array bounds crash
       marthaCurrentFrame+=marthFrameIncrement;
     } else {
       marthaCurrentFrame=0;

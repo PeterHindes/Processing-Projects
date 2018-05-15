@@ -1,7 +1,4 @@
 class Vars {
-
-  public boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };
-
   //Variables
     public int time = 0;
     public int floorLevel = 60;
@@ -9,17 +6,17 @@ class Vars {
     public int dialogueMinor = 0;
 
     //Player
-      public static class playerPos { int x = 30; int y = 0; }
-
+      public class PlayerPos { int x = 30; int y = 0; }
     //Sprite Data
-      public static float marthaCurrentFrame = 0;
+      public float marthaCurrentFrame = 0;
+    //Keyboard
+      public boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };
+
+  //Var Class Clarification
+    PlayerPos playerPos = new PlayerPos();
 
 
-    //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
-    //public static final boolean keys[] = {false, false, false, false, false, false};
-
-
-  //Consistency variables
+  //Constants (For Consistency)
     //Time
       //public static final int timeRequiredWalk = 15000;
       //public static final int timeRequiredRun = 15000/2;
@@ -33,8 +30,9 @@ class Vars {
       public static final int dialogueBoxCornerRadius = 25;
       public static final int dialogueBoxTitlePading = 10;
     //Sprites
+    //Keyboard
       public String keyNames[] = {"Up" ,  "Down",  "Right",  "Left", "Shift", "Space"};
 
   //Consistency Variables With Setup Required
-    int timeRequiredCurrent = timeRequiredWalk;
+
 }

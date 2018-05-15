@@ -1,6 +1,10 @@
 class Player {
   void act( ){
-
+    int xDetec = 15;
+    int yDetec = 7;
+    if (pos.x + (xDetec/2) > ladder.x) {
+      print ("Erect\n");
+    }
   }
   void move( ){
     if(keyPressed){
@@ -8,6 +12,8 @@ class Player {
         pos.x -= 2;
       } else if(key == 'd'){
         pos.x += 2;
+      } else if(key == ' '){
+        act();
       }
     }
   }

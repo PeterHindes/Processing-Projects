@@ -1,10 +1,11 @@
 class Frames {  // [Curently Causes Array Bounds Exception]
   float Calc(float current, float increment, int total) {
-    if ( floor(current + increment) <= total ) {
-      current+=increment;
+    float ret = current;
+    if ( floor(ret + increment)+1 <= total ) {  //Does not cause a missing last frame issue
+      ret+=increment;
     } else {
-      current=0;
+      ret=0;
     }
-    return current;
+    return ret;
   }
 }

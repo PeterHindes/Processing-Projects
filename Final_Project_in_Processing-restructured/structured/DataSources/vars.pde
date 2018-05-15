@@ -17,9 +17,6 @@ class Vars {
 
 
   //Constants (For Consistency)
-    //Time
-      //public static final int timeRequiredWalk = 15000;
-      //public static final int timeRequiredRun = 15000/2;
     //Walk
       public static final int walkSpeed = 15;
       public static final int walkRunRatio = /*run*/4/3/*walk*/;

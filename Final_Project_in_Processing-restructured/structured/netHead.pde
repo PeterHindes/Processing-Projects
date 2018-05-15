@@ -37,7 +37,7 @@
   void setup () {
     //size            (1000, 700);
     //siz = new int[] {1000, 700};
-    fullScreen(2);
+    fullScreen(1);
     //siz = new int[] {width, height};
 
     resources.setup();

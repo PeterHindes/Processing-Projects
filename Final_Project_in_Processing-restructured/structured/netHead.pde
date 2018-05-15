@@ -7,22 +7,25 @@
     Vars vars = new Vars();
   //Resources
     Resources resources = new Resources();
-  //Dialogue
-    DialoguePalette dialoguePalette = new DialoguePalette();
-    DialogueBox dialogueBox = new DialogueBox();
   //Keyboard
     KeyHandler keyHandler = new KeyHandler();
     KeyActions keyActions = new KeyActions();
-  //Scene
-    SceneHandler sceneHandler = new SceneHandler();
-    ScenePalette scenePalette = new ScenePalette();
-  //UI
-    UI ui = new UI();
   //Canvas
     Canvas canvas = new Canvas();
     //Camera
       Camera camera = new Camera();
       camera.Pan = camera.new Pan();
+    //UI
+      UI ui = new UI();
+    //Dialogue
+      DialoguePalette dialoguePalette = new DialoguePalette();
+      DialogueBox dialogueBox = new DialogueBox();
+    //Scene
+      SceneHandler sceneHandler = new SceneHandler();
+      ScenePalette scenePalette = new ScenePalette();
+    //Player
+      Player player = new Player();
+      
 
 
 //Variables   [Move to separate class/file]

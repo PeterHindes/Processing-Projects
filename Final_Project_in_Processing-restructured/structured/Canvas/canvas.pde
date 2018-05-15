@@ -14,7 +14,7 @@ class Canvas {
     //image(resources.backGrnd, 0,0);
 
     //Player
-    player();
+    player.draw();
 
     //End
     popMatrix();

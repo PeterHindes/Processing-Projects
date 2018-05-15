@@ -2,13 +2,16 @@ class Vars {
 
   public boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };
 
-  //Variables   [Move to separate class/file]
+  //Variables
     public int time = 0;
-    //public static final int[] playerPos = {30,0};
     public int floorLevel = 60;
     public int dialoguePrimary = 0;
     public int dialogueMinor = 0;
-    //Sprites
+
+    //Player
+      public static class playerPos { int x = 30; int y = 0; }
+
+    //Sprite Data
       public static float marthaCurrentFrame = 0;
 
 

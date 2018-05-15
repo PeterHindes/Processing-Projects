@@ -1,6 +1,6 @@
 class DialogueHandler {
 
-  void ( ) {
+  void draw( ) {
 
   }
 

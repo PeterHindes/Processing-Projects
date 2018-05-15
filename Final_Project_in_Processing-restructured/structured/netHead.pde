@@ -14,7 +14,6 @@
     Canvas canvas = new Canvas();
     //Camera
       Camera camera = new Camera();
-      camera.Pan = camera.new Pan();
     //UI
       UI ui = new UI();
     //Dialogue
@@ -25,7 +24,7 @@
       ScenePalette scenePalette = new ScenePalette();
     //Player
       Player player = new Player();
-      
+
 
 
 //Variables   [Move to separate class/file]

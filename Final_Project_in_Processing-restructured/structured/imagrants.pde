@@ -16,8 +16,8 @@
     );
 
     //Advance Character Frame
-    if (marthaCurrentFrame < resources.marthaCurrentVariant.length-marthFrameIncrement) {
-      marthaCurrentFrame+=marthFrameIncrement;
+    if (marthaCurrentFrame < resources.marthaCurrentVariant.length-marthaFrameIncrement) {
+      marthaCurrentFrame+=marthaFrameIncrement;
     } else {
       marthaCurrentFrame=0;
     }

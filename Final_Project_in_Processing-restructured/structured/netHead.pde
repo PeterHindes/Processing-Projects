@@ -35,7 +35,7 @@
   int dialogueMinor = 0;
   //Sprites
     float marthaCurrentFrame = 0;
-    float marthFrameIncrement = 0.5;
+    float marthaFrameIncrement = 0.5;
 
   //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
   boolean keys[] = {false, false, false, false, false, false};

@@ -1,9 +1,16 @@
 class Player {
   void act( ){
+    //Consts
     int xDetec = 30;
     int yDetec = 7;
+
+    //Objects To Check For
+    Object[] arr = new Object[6];
+    arr[0] = ladder;
+    print(arr[0].x);  //Manage the shit for multiple objects and streamline it
+
     if (pos.x + siz.x + (xDetec/2) > ladder.x) {
-      print ("Erect\n");
+      print ("Active\n");
     }
   }
   void move( ){

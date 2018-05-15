@@ -8,6 +8,7 @@ Player player = new Player();
 
 void setup() {
   size(150,100);
+  //print(player.arr[0].x);
 }
 
 void draw() {

@@ -9,20 +9,20 @@ class Player {
     resources.marthaCurrentVariant = resources.marthaStill;
 
     //float imageScale = 2.75f; //You should not scale the image if you want sharp edges, pleas do this externaly
-    image(resources.marthaCurrentVariant[floor(marthaCurrentFrame)],
+    image(resources.marthaCurrentVariant[floor(vars.marthaCurrentFrame)],
       0  ,
-      -floorLevel - (resources.marthaCurrentVariant[int(marthaCurrentFrame)].height)  ,
-      resources.marthaCurrentVariant[floor(marthaCurrentFrame)].height  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
-      resources.marthaCurrentVariant[floor(marthaCurrentFrame)].width
+      -vars.floorLevel - (resources.marthaCurrentVariant[int(vars.marthaCurrentFrame)].height)  ,
+      resources.marthaCurrentVariant[floor(vars.marthaCurrentFrame)].height  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
+      resources.marthaCurrentVariant[floor(vars.marthaCurrentFrame)].width
     );
 
     popMatrix();
 
     //Advance Character Frame
-    if (floor(marthaCurrentFrame) <= resources.marthaCurrentVariant.length) { // The plus 1 will likeley make an array bounds crash
-      marthaCurrentFrame+=marthaFrameIncrement;
+    if (floor(vars.marthaCurrentFrame+vars.marthaFrameIncrement) <= resources.marthaCurrentVariant.length) {
+      vars.marthaCurrentFrame+=vars.marthaFrameIncrement;
     } else {
-      marthaCurrentFrame=0;
+      vars.marthaCurrentFrame=0;
     }
 
   }

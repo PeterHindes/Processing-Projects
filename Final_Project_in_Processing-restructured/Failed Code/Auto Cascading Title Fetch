@@ -1,21 +1,21 @@
 //Auto Cascading Title Fetch [incomplete] [pita]
 String titleProper;
-if(!(titles[dialoguePrimary][dialogueMinor] == ":;")){
-  titleProper = titles[dialoguePrimary][dialogueMinor];
+if(!(titles[vars.dialoguePrimary][vars.dialogueMinor] == ":;")){
+  titleProper = titles[vars.dialoguePrimary][vars.dialogueMinor];
 } else {
 
-  int dialogueMinorProper = dialogueMinor;
-  int dialoguePrimaryProper = dialoguePrimary;
+  int vars.dialogueMinorProper = vars.dialogueMinor;
+  int vars.dialoguePrimaryProper = vars.dialoguePrimary;
 
-  while (titles[dialoguePrimaryProper][dialogueMinorProper] == ":;") {
-    if (dialogueMinorProper > 0) {
-      dialogueMinorProper--;
-    } else if (dialoguePrimaryProper > 0) {
-      dialoguePrimaryProper--;
-      dialogueMinorProper = dialogueMinor;
+  while (titles[vars.dialoguePrimaryProper][vars.dialogueMinorProper] == ":;") {
+    if (vars.dialogueMinorProper > 0) {
+      vars.dialogueMinorProper--;
+    } else if (vars.dialoguePrimaryProper > 0) {
+      vars.dialoguePrimaryProper--;
+      vars.dialogueMinorProper = vars.dialogueMinor;
     } else {
       print("Error all the way backed up!\n");
     }
   }
-  titleProper = titles[dialoguePrimaryProper][dialogueMinorProper];
+  titleProper = titles[vars.dialoguePrimaryProper][vars.dialogueMinorProper];
 }

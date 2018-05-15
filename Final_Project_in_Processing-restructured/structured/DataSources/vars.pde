@@ -30,6 +30,7 @@ class Vars {
       public static final int dialogueBoxCornerRadius = 25;
       public static final int dialogueBoxTitlePading = 10;
     //Sprites
+      float marthaFrameIncrement = 0.5;
     //Keyboard
       public String keyNames[] = {"Up" ,  "Down",  "Right",  "Left", "Shift", "Space"};
 

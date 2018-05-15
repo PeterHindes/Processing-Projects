@@ -12,9 +12,9 @@ class KeyActions {
         } else if (vars.keys[1]) {
 
         } else if (vars.keys[2]) {
-          playerPos[0]+=5;
+          vars.playerPos.x+=5;
         } else if (vars.keys[3]) {
-          playerPos[0]-=5;
+          vars.playerPos.x-=5;
         }
       //Shift
         if (vars.keys[4])        {
@@ -32,12 +32,12 @@ class KeyActions {
     //dialogue
       //Space
         if(vars.keys[5]){
-          if (dialogueMinor < dialoguePalette.Dialogue[dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
-            dialogueMinor++;
-            //print("Minor Up " + dialogueMinor + " \n");
-          } else if (dialoguePrimary < dialoguePalette.Dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
-            dialoguePrimary++;
-            //print("Primary Up " + dialoguePrimary + " \n");
+          if (vars.dialogueMinor < dialoguePalette.Dialogue[vars.dialoguePrimary].length-1){    //Subtract one to match count to developerCount (start with 0)
+            vars.dialogueMinor++;
+            //print("Minor Up " + vars.dialogueMinor + " \n");
+          } else if (vars.dialoguePrimary < dialoguePalette.Dialogue.length-1){    //Subtract one to match count to developerCount (start with 0)
+            vars.dialoguePrimary++;
+            //print("Primary Up " + vars.dialoguePrimary + " \n");
           } else {
             //print("All Out\n");
           }

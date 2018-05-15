@@ -1,8 +1,5 @@
 class DialogueBox {
 
-  public int dialoguePrimary = 0;
-  public int dialogueMinor = 0;
-
   public void primary (int lineCount, String title, String dialogue) {
 
     int opacityPC = 95;
@@ -11,7 +8,7 @@ class DialogueBox {
     //Activate Matrix
     pushMatrix();
     //Allign to bottom with padding
-    //translate(0 + dialoguePading ,  height - (dialoguePading));
+    //translate(0 + vars.dialoguePading ,  height - (vars.dialoguePading));
     //Allign to bottom without padding
     translate(0 ,  height);
 
@@ -23,15 +20,15 @@ class DialogueBox {
     textFont(resources.titleFont);
     int titleHeight = int(textAscent());
     //body position with all padding verticaly
-    int bodyNspacingHeight = bodyHeight          + dialoguePading;
-    int titleNspacingHeight = titleHeight        + dialoguePading;
+    int bodyNspacingHeight = bodyHeight          + vars.dialoguePading;
+    int titleNspacingHeight = titleHeight        + vars.dialoguePading;
 
-    int rectRightPaded = width - dialogueBoxPading*2;
-    int wholeMessagePadded = bodyHeight+titleHeight*2+dialogueBoxTitlePading; //The titleHeight is double because it is fliped to the top, and the body is bottom
+    int rectRightPaded = width - vars.dialogueBoxPading*2;
+    int wholeMessagePadded = bodyHeight+titleHeight*2+vars.dialogueBoxTitlePading; //The titleHeight is double because it is fliped to the top, and the body is bottom
 
 
     //Rectangle
-    translate(dialogueBoxPading,-dialogueBoxPading);
+    translate(vars.dialogueBoxPading,-vars.dialogueBoxPading);
     fill(resources.msgBx[0], opacityBI);
     rect(0,0,
       rectRightPaded ,
@@ -40,17 +37,17 @@ class DialogueBox {
     );
 
     //Message
-    translate(dialoguePading,-dialoguePading);
+    translate(vars.dialoguePading,-vars.dialoguePading);
     translate(0,-bodyHeight);
     fill(0);
     textAlign(LEFT, TOP);
     textFont(resources.mesageFont);
-    text(dialogue, 0,0, rectRightPaded - dialoguePading*2, height      - bodyHeight);
+    text(dialogue, 0,0, rectRightPaded - vars.dialoguePading*2, height      - bodyHeight);
 
     //Title
     textAlign(LEFT, BOTTOM);
     textFont(resources.titleFont);
-    text(title, 0,-dialogueBoxTitlePading);
+    text(title, 0,-vars.dialogueBoxTitlePading);
 
     popMatrix();
   }

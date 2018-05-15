@@ -8,22 +8,22 @@
 
     float imageScale = 2.75f;
     //smooth(0);
-    image(resources.marthaCurrentVariant[int(marthaCurrentFrame)],
+    image(resources.marthaCurrentVariant[int(vars.marthaCurrentFrame)],
       0  ,
-      -floorLevel - (resources.marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale)  ,
-      resources.marthaCurrentVariant[int(marthaCurrentFrame)].height * imageScale  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
-      resources.marthaCurrentVariant[int(marthaCurrentFrame)].width * imageScale
+      -vars.floorLevel - (resources.marthaCurrentVariant[int(vars.marthaCurrentFrame)].height * imageScale)  ,
+      resources.marthaCurrentVariant[int(vars.marthaCurrentFrame)].height * imageScale  ,  //Image is scaled, need to figure out how to use aliased image, or manualy resize it
+      resources.marthaCurrentVariant[int(vars.marthaCurrentFrame)].width * imageScale
     );
 
     //Advance Character Frame
-    if (marthaCurrentFrame < resources.marthaCurrentVariant.length-marthaFrameIncrement) {
-      marthaCurrentFrame+=marthaFrameIncrement;
+    if (vars.marthaCurrentFrame < resources.marthaCurrentVariant.length-vars.marthaFrameIncrement) {
+      vars.marthaCurrentFrame+=vars.marthaFrameIncrement;
     } else {
-      marthaCurrentFrame=0;
+      vars.marthaCurrentFrame=0;
     }
 
     popMatrix();
   }
 
 
-dialogueBox.primary(2,  dialoguePalette.Titles[dialoguePrimary][dialogueMinor], dialoguePalette.Dialogue[dialoguePrimary][dialogueMinor]);
+dialogueBox.primary(2,  dialoguePalette.Titles[vars.dialoguePrimary][vars.dialogueMinor], dialoguePalette.Dialogue[vars.dialoguePrimary][vars.dialogueMinor]);

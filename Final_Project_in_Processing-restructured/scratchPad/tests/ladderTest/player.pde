@@ -1,8 +1,8 @@
 class Player {
   void act( ){
-    int xDetec = 15;
+    int xDetec = 30;
     int yDetec = 7;
-    if (pos.x + (xDetec/2) > ladder.x) {
+    if (pos.x + siz.x + (xDetec/2) > ladder.x) {
       print ("Erect\n");
     }
   }

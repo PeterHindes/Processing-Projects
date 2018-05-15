@@ -1,5 +1,5 @@
 
-class Pos { int x = 60; int y = 70; }
+class Pos { int x = 60; int y = 100; }
 Pos pos = new Pos();
 Ladder ladder = new Ladder();
 Player player = new Player();
@@ -9,5 +9,7 @@ void setup() {
 }
 
 void draw() {
-
+  background(75);
+  player.draw();
+  ladder.draw();
 }

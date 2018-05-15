@@ -19,11 +19,7 @@ class Player {
     popMatrix();
 
     //Advance Character Frame
-    if (floor(vars.marthaCurrentFrame+vars.marthaFrameIncrement) <= resources.marthaCurrentVariant.length) {
-      vars.marthaCurrentFrame+=vars.marthaFrameIncrement;
-    } else {
-      vars.marthaCurrentFrame=0;
-    }
+    vars.marthaCurrentFrame = frames.Calc(vars.marthaCurrentFrame, vars.marthaFrameIncrement, resources.marthaCurrentVariant.length);
 
   }
 }

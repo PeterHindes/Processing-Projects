@@ -13,6 +13,8 @@
     //Keyboard
       KeyHandler keyHandler = new KeyHandler();
       KeyActions keyActions = new KeyActions();
+    //Sprites
+      Frames frames = new Frames();
 
   //Canvas
     Canvas canvas = new Canvas();

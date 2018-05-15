@@ -26,35 +26,6 @@
       Player player = new Player();
 
 
-
-/*/Variables   [Move to separate class/file]
-  int time = 0;
-  int[] playerPos = {30,0};
-  int vars.floorLevel = 60;
-  int vars.dialoguePrimary = 0;
-  int vars.dialogueMinor = 0;
-  //Sprites
-    float vars.marthaCurrentFrame = 0;
-    float vars.marthaFrameIncrement = 0.5;
-
-  //keys            UP     Down   RIGHT  LEFT   SHIFT  SPACE
-  boolean keys[] = {false, false, false, false, false, false};
-
-
-//Consistency variables
-  //Time
-    int timeRequiredWalk = 15000;
-    int timeRequiredRun = 15000/2;
-  //dialogueBox
-    int vars.dialoguePading = 10;
-    int vars.dialogueBoxPading = 15;
-    int dialogueBoxCornerRadius = 25;
-    int vars.dialogueBoxTitlePading = 10;
-
-//Dynamic Consistency variables
-  int[] siz;
-  int timeRequiredCurrent = timeRequiredWalk;
-*/
 //System Functions
   void setup () {
     //size            (1000, 700);

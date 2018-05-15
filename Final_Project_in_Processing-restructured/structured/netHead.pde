@@ -9,10 +9,12 @@
     //Resources
       Resources resources = new Resources();
 
-  //Calculate
+  //Compute
+    Compute compute = new Compute();
     //Keyboard
       KeyHandler keyHandler = new KeyHandler();
       KeyActions keyActions = new KeyActions();
+      Axis axis = new Axis();
     //Sprites
       Frames frames = new Frames();
 
@@ -57,9 +59,12 @@
     //background(175);
     //image(resources.backGrnd, 0,0, width,imgYscl); //Background Image
 
-    //Run
-    canvas.draw();
 
+    //Compute
+      compute.update();
+
+    //Canvas
+      canvas.draw();
   }
 
 //Keyboard Calling

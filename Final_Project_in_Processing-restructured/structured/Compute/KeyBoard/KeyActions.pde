@@ -5,7 +5,7 @@ class KeyActions {
   //boolean vars.keys[] = {false, false, false, false, false};
   public void repeat() {
 
-    //Movement
+    /*/Movement
       //Arrow Keys  UP     Down   LEFT   RIGHT  SHIFT
         if        (vars.keys[0]) {
 
@@ -21,7 +21,7 @@ class KeyActions {
 
         } else              {
 
-        }
+        }*/
 
   }
 

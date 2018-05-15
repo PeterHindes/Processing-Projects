@@ -10,6 +10,7 @@ class Vars {
     //Sprite Data
       public float marthaCurrentFrame = 0;
     //Keyboard
+      //Keys                      UP      Down     LEFT      RIGHT     SHIFT  SPACE
       public boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };
       public class InputAxis { int x = 0; int y = 0; }
 

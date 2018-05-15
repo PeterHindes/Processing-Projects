@@ -17,6 +17,8 @@
       Axis axis = new Axis();
     //Sprites
       Frames frames = new Frames();
+    //Player
+      Movement movement = new Movement();
 
   //Canvas
     Canvas canvas = new Canvas();

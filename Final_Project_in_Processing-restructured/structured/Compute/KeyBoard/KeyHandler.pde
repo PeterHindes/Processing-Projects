@@ -5,24 +5,28 @@ public class KeyHandler {
     //Set Keys
     if (key == CODED) {
       switch(keyCode) {
+        //Arrows
         case UP:
           vars.keys[0] = true;
           break;
         case DOWN:
           vars.keys[1] = true;
           break;
-        case RIGHT:
+        case LEFT:
           vars.keys[2] = true;
           break;
-        case LEFT:
+        case RIGHT:
           vars.keys[3] = true;
           break;
+
+        //Modifiers
         case SHIFT:
           vars.keys[4] = true;
           break;
       }
     } else {
       switch(key) {
+        //Movement
         case ' ':
           vars.keys[5] = true;
           break;

@@ -11,9 +11,11 @@ class Vars {
       public float marthaCurrentFrame = 0;
     //Keyboard
       public boolean keys[] =    {false,  false ,  false  ,  false ,   false, false  };
+      public class InputAxis { int x = 0; int y = 0; }
 
   //Var Class Clarification
     PlayerPos playerPos = new PlayerPos();
+    InputAxis inputAxis = new InputAxis();
 
 
   //Constants (For Consistency)

@@ -1,12 +1,12 @@
 class KeyActions {
 
   //Keys To Actions
-  //  Keys                       UP     Down   RIGHT  LEFT   SHIFT
+  //  Keys                 UP     Down   LEFT   RIGHT  SHIFT
   //boolean vars.keys[] = {false, false, false, false, false};
   public void repeat() {
 
     //Movement
-      //Arrow Keys  UP     Down   RIGHT  LEFT   SHIFT
+      //Arrow Keys  UP     Down   LEFT   RIGHT  SHIFT
         if        (vars.keys[0]) {
 
         } else if (vars.keys[1]) {
@@ -26,7 +26,6 @@ class KeyActions {
   }
 
   //  Keys                       UP     Down   RIGHT  LEFT   SHIFT
-  //boolean vars.keys[] = {false, false, false, false, false};
   private void single() {
 
     //dialogue

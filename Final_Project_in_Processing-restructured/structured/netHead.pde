@@ -3,13 +3,17 @@
     Minim minim;
 
 //Classes
-  //Variables
-    Vars vars = new Vars();
-  //Resources
-    Resources resources = new Resources();
-  //Keyboard
-    KeyHandler keyHandler = new KeyHandler();
-    KeyActions keyActions = new KeyActions();
+  //Data
+    //Variables
+      Vars vars = new Vars();
+    //Resources
+      Resources resources = new Resources();
+
+  //Calculate
+    //Keyboard
+      KeyHandler keyHandler = new KeyHandler();
+      KeyActions keyActions = new KeyActions();
+
   //Canvas
     Canvas canvas = new Canvas();
     //Camera
@@ -24,6 +28,7 @@
       ScenePalette scenePalette = new ScenePalette();
     //Player
       Player player = new Player();
+
 
 
 //System Functions

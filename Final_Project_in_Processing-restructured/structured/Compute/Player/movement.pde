@@ -13,6 +13,6 @@ class Movement {
   }
 //vars.playerPos.x+=5;
   void update( ) {
-    
+    print(vars.inputAxis.x + " : " + vars.inputAxis.x + "\n");
   }
 }

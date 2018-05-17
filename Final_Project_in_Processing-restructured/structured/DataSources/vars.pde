@@ -1,12 +1,19 @@
 class Vars {
   //Variables
-    public int time = 0;
     public int floorLevel = 60;
     public int dialoguePrimary = 0;
     public int dialogueMinor = 0;
 
     //Player
       public class PlayerPos { int x = 30; int y = 0; }
+    //Objects
+      class DataTable {
+        String objectName;
+        int x;
+        int y;
+        int sX;
+        int sY;
+      }
     //Sprite Data
       public float marthaCurrentFrame = 0;
     //Keyboard
@@ -17,6 +24,7 @@ class Vars {
   //Var Class Clarification
     PlayerPos playerPos = new PlayerPos();
     InputAxis inputAxis = new InputAxis();
+    DataTable[] objectLocs = new DataTable[3];
 
 
   //Constants (For Consistency)

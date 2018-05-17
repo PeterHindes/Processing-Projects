@@ -8,6 +8,11 @@ class Ladder2 {
   }
   void draw(){
     fill(100,20,20);
+    if (timer[1].count() < 1000) {
+      stroke(pal[1]);
+    } else {
+      stroke(pal[0]);
+    }
     rect(tables[2].x,tables[2].y,tables[2].sX,tables[2].sY);
   }
 }

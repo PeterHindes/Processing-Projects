@@ -20,6 +20,7 @@ class Player {
 
       ) {
         print (tables[i].objectName + "\n");
+        timer[i-1].start();
       }
     }
   }
@@ -37,6 +38,7 @@ class Player {
   void draw() {
     player.move();
     fill(0,255,150);
+    stroke(0);
     rect(tables[0].x,tables[0].y,tables[0].sX,tables[0].sY);
     //print("Draw " + tables[0].x + ":" + tables[0].y + "  " + tables[0].sX + ":" + tables[0].sY + "\n");
     fill(0,0,0);

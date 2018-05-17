@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Open The Dir to work in
+cd /Users/peter/Documents/GitHub/Processing-Projects
+
 # Clear The globed Folder
 rm -r Final_Project_in_Processing-restructured/globed/netHead/*
 

@@ -1,6 +1,8 @@
 //Libraries
-  import ddf.minim.*;   //Need a diffrent sound library
-    Minim minim;
+  //import ddf.minim.*;   //Need a diffrent sound library
+  //  Minim minim;
+  package src.javaranch;
+  import java.lang.reflect.Field;
 
 //Classes
   //Data

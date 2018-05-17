@@ -12,6 +12,7 @@ class Player {
     int yDetec = 7;
 
     for(int i = 1; i < tables.length ; i++) {
+      //print((tables[0].x+tables[0].sX + (xDetec/2) > tables[i].x) + "\n" + i + "\n\n");
       if (
         //Left Sid + Dist to Right+buffer :is greater than: left of target object
         tables[0].x+tables[0].sX + (xDetec/2) > tables[i].x && //Left Of Object :: object on right side

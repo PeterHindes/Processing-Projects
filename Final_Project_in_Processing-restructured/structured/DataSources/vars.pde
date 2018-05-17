@@ -13,6 +13,17 @@ class Vars {
         int y;
         int sX;
         int sY;
+        void set(String iobjectName, int ix,int iy, int isX,int isY) {
+          objectName = iobjectName;
+          x = ix;
+          y = iy;
+          sX = isX;
+          sY = isY;
+        }
+        void setPos(int ix, int iy) {
+          x = ix;
+          y = iy;
+        }
       }
     //Sprite Data
       public float marthaCurrentFrame = 0;

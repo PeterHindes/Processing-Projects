@@ -1,0 +1,76 @@
+//UI ui = new UI();
+//Frames frames = new Frames();
+//Ladder ladder = new Ladder();
+//Player player = new Player();
+//Timer timer = new Timer();
+//Axis axis = new Axis();
+//DialogueBox dialogueBox = new DialogueBox();
+//FriendlyNPCs friendlyNPCs = new FriendlyNPCs();
+//Movement movement = new Movement();
+//Resources resources = new Resources();
+//Vars vars = new Vars();
+//Camera camera = new Camera();
+//DialogueHandler dialogueHandler = new DialogueHandler();
+//Interact interact = new Interact();
+//MovementAlgorithms movementAlgorithms = new MovementAlgorithms();
+//SceneHandler sceneHandler = new SceneHandler();
+//Canvas canvas = new Canvas();
+//DialoguePalette dialoguePalette = new DialoguePalette();
+//KeyActions keyActions = new KeyActions();
+//Nearby nearby = new Nearby();
+//ScenePalette scenePalette = new ScenePalette();
+//Compute compute = new Compute();
+//EnemyNPCs enemyNPCs = new EnemyNPCs();
+//KeyHandler keyHandler = new KeyHandler();
+//!NetHead netHead = new NetHead();
+//SetupObjects setupObjects = new SetupObjects();
+
+
+//Classes
+  //Data
+    //Variables
+      Vars vars = new Vars();
+    //Dialogue
+      DialoguePalette dialoguePalette = new DialoguePalette();
+    //Resources
+      Resources resources = new Resources();
+
+  //Compute
+    Compute compute = new Compute();
+    //Timer
+      Timer timer = new Timer();
+    //Keyboard
+      KeyHandler keyHandler = new KeyHandler();
+      KeyActions keyActions = new KeyActions();
+      Axis axis = new Axis();
+    //Dialogue
+      DialogueHandler dialogueHandler = new DialogueHandler();
+    //Sprites
+      Frames frames = new Frames();
+    //NPC
+      MovementAlgorithms movementAlgorithms = new MovementAlgorithms();
+      EnemyNPCs enemyNPCs = new EnemyNPCs();
+      FriendlyNPCs friendlyNPCs = new FriendlyNPCs();
+    //Player
+      Movement movement = new Movement();
+      //Interaction
+        Nearby nearby = new Nearby();
+        Interact interact = new Interact();
+    //Objects
+      SetupObjects setupObjects = new SetupObjects();
+      Ladder ladder = new Ladder();
+
+
+  //Canvas
+    Canvas canvas = new Canvas();
+    //Camera
+      Camera camera = new Camera();
+    //UI
+      UI ui = new UI();
+    //Dialogue
+      DialogueBox dialogueBox = new DialogueBox();
+    //Scene
+      SceneHandler sceneHandler = new SceneHandler();
+      ScenePalette scenePalette = new ScenePalette();
+    //Player
+      Player player = new Player();

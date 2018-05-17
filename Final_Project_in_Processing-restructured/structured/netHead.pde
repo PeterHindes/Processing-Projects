@@ -4,38 +4,54 @@
   package src.javaranch;
   import java.lang.reflect.Field;
 
-//Classes
-  //Data
-    //Variables
-      Vars vars = new Vars();
-    //Resources
-      Resources resources = new Resources();
+  //Classes
+    //Data
+      //Variables
+        Vars vars = new Vars();
+      //Dialogue
+        DialoguePalette dialoguePalette = new DialoguePalette();
+      //Resources
+        Resources resources = new Resources();
 
-  //Compute
-    Compute compute = new Compute();
-    //Keyboard
-      KeyHandler keyHandler = new KeyHandler();
-      KeyActions keyActions = new KeyActions();
-      Axis axis = new Axis();
-    //Sprites
-      Frames frames = new Frames();
-    //Player
-      Movement movement = new Movement();
+    //Compute
+      Compute compute = new Compute();
+      //Timer
+        Timer timer = new Timer();
+      //Keyboard
+        KeyHandler keyHandler = new KeyHandler();
+        KeyActions keyActions = new KeyActions();
+        Axis axis = new Axis();
+      //Dialogue
+        DialogueHandler dialogueHandler = new DialogueHandler();
+      //Sprites
+        Frames frames = new Frames();
+      //NPC
+        MovementAlgorithms movementAlgorithms = new MovementAlgorithms();
+        EnemyNPCs enemyNPCs = new EnemyNPCs();
+        FriendlyNPCs friendlyNPCs = new FriendlyNPCs();
+      //Player
+        Movement movement = new Movement();
+        //Interaction
+          Nearby nearby = new Nearby();
+          Interact interact = new Interact();
+      //Objects
+        SetupObjects setupObjects = new SetupObjects();
+        Ladder ladder = new Ladder();
 
-  //Canvas
-    Canvas canvas = new Canvas();
-    //Camera
-      Camera camera = new Camera();
-    //UI
-      UI ui = new UI();
-    //Dialogue
-      DialoguePalette dialoguePalette = new DialoguePalette();
-      DialogueBox dialogueBox = new DialogueBox();
-    //Scene
-      SceneHandler sceneHandler = new SceneHandler();
-      ScenePalette scenePalette = new ScenePalette();
-    //Player
-      Player player = new Player();
+
+    //Canvas
+      Canvas canvas = new Canvas();
+      //Camera
+        Camera camera = new Camera();
+      //UI
+        UI ui = new UI();
+      //Dialogue
+        DialogueBox dialogueBox = new DialogueBox();
+      //Scene
+        SceneHandler sceneHandler = new SceneHandler();
+        ScenePalette scenePalette = new ScenePalette();
+      //Player
+        Player player = new Player();
 
 
 

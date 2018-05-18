@@ -1,5 +1,6 @@
 class Ladder {
-  Timer ladderTimer = new Timer();
+  Timer timer = new Timer();
+  boolean highlight = false;
   void setup() {
     vars.objectLocs[1].objectName = "ladder";
     vars.objectLocs[1].x = 125;
@@ -9,7 +10,7 @@ class Ladder {
   }
   void draw(){
     fill(100,20,20);
-    if (ladderTimer.count() < 1000) { //Rearchitect
+    if (highlight) {
       stroke(200);
     } else {
       stroke(50);

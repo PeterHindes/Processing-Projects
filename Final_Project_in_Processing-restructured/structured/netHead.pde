@@ -16,7 +16,8 @@
     //Compute
       Compute compute = new Compute();
       //Timer
-        Timer globalTimer = new Timer();
+        //Setup in individual objects
+        //Timer globalTimer = new Timer();
       //Keyboard
         KeyHandler keyHandler = new KeyHandler();
         KeyActions keyActions = new KeyActions();
@@ -63,7 +64,6 @@
     //siz = new int[] {width, height};
 
     resources.setup();
-    globalTimer.start();
   }
 
   void draw () {

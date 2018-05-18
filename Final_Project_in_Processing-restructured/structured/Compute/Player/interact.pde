@@ -1,3 +1,3 @@
 class Interact {
-  void 
+  
 }

@@ -1,8 +1,8 @@
 //Libraries
   //import ddf.minim.*;   //Need a diffrent sound library
   //  Minim minim;
-  package src.javaranch;
-  import java.lang.reflect.Field;
+  //package src.javaranch;
+  //import java.lang.reflect.Field;
 
   //Classes
     //Data
@@ -16,7 +16,7 @@
     //Compute
       Compute compute = new Compute();
       //Timer
-        Timer timer = new Timer();
+        Timer globalTimer = new Timer();
       //Keyboard
         KeyHandler keyHandler = new KeyHandler();
         KeyActions keyActions = new KeyActions();
@@ -63,6 +63,7 @@
     //siz = new int[] {width, height};
 
     resources.setup();
+    globalTimer.start();
   }
 
   void draw () {
@@ -95,8 +96,8 @@
   void keyReleased() { keyHandler.release(); }
 
 //End Of Program [Is this really necessary]
-void stop() {
-  resources.glassBreakMedium.close();
-  minim.stop();
-  super.stop();
-}
+//void stop() {
+//  resources.glassBreakMedium.close();
+//  minim.stop();
+//  super.stop();
+//}

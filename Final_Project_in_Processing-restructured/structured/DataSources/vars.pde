@@ -25,6 +25,8 @@ class Vars {
           y = iy;
         }
       }
+      int xDetec = 15;
+      int yDetec = 15;
     //Sprite Data
       public float marthaCurrentFrame = 0;
     //Keyboard

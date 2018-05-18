@@ -13,7 +13,7 @@ class Resources {
       PFont titleFont;
       PFont mesageFont;
     //Sound
-      AudioSample glassBreakMedium;
+      //AudioSample glassBreakMedium;
   //Palletes
     //Colors
       color[] msgBx = {#634275, #222e30};

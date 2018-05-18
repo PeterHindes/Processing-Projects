@@ -25,7 +25,7 @@ class Movement {
           run();
         }
       }
-      if(vars.keys[5] != 0) {
+      if(vars.keys[5]) {
         jump();
       }
     }

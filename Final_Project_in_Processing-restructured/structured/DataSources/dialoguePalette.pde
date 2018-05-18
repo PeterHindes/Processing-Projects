@@ -7,7 +7,10 @@ class DialoguePalette {
       "Martha",
       "Martha",
       "Martha",
-      "Martha"
+      "Martha",
+      "Martha",
+      "Martha",
+      "Letter",
     }
   };
 
@@ -25,7 +28,16 @@ class DialoguePalette {
 
       "Why is everything trash?",
 
-      "Oh- Ah crap, my photo!"
+      "Oh- Ah crap, my photo!",
+      
+      "Grace, I should see if she's alright... I need to go to our meeting place", //after picking up photo
+      
+      "Wow! why did I do that. "+
+      "More importantly what are those. "+
+      "This can't be good.", //after jumping out window & entering scene with monsters
+      
+      "Hey Mars! I managed to find people with access to a bunker in the next town over. "+
+      "I hope you aren't dead yet. Come find me - Grace",
     }
   };
   

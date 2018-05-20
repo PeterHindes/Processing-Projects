@@ -6,31 +6,31 @@ boolean[][] shape = new boolean[4][2];
 
 //Actual Shapes
 boolean[][] lShap = {
-  {false, false}
+  {false, false},
   {true,  false},
   {true,  false},
   {true,  true }
 };
 boolean[][] tShap = {
-  {false, false}
+  {false, false},
   {true,  false},
   {true,  true },
   {true,  false}
 };
 boolean[][] sqShap = {
-  {false, false}
+  {false, false},
   {false, false},
   {true,  true },
   {true,  true }
 };
 boolean[][] linShap = {
-  {true,  false}
+  {true,  false},
   {true,  false},
   {true,  false},
   {true,  false}
 };
 boolean[][] zShap = {
-  {false, false}
+  {false, false},
   {true,  false},
   {true,  true },
   {false, true }

@@ -35,7 +35,7 @@ boolean[][] zShap = {
   {true,  true },
   {false, true }
 };
-//test
+
 void settings( ) {
   size(int(500*0.75),int(1000*0.75));
 }

@@ -1,7 +1,6 @@
 
 //2d Array Convention, y first x second
 boolean[][] board = new boolean[10][5];
-//boolean[][] falling = new boolean[10][5];
 boolean[][] shape = new boolean[4][2];
 
 //Actual Shapes
@@ -40,18 +39,21 @@ void settings( ) {
   size(int(500*0.75),int(1000*0.75));
 }
 
+
+//Vars
+float sizeToSpacingRatio = 1f/5f;
+int brickSize = 25;
+int brickSpacing = int(brickSize*sizeToSpacingRatio);
+
 void setup( ) {
-  //board[0][0] = true;
   shape=zShap;
 
-  /*/Put Shape On Board
-  for (int i=0;  i<shape.length;  i++){
-    for (int u=0;  u<shape[i].length;  u++){
-      print(board[i][u] | zShap[i][u]);
-      board[i][u] = board[i][u] | zShap[i][u];
+  //Put Shape On Board
+  for (int i=0;  i<shape[0].length;  i++) {
+    for (int u=0;  u<shape.length;  u++) {
+      board[u][i] = board[u][i] | zShap[u][i];
     }
-    print("\n");
-  }*/
+  }
 }
 
 void draw( ) {
@@ -68,15 +70,29 @@ int ranShap( ) {
 }
 
 void drawBoard( ) {
-  for (int i=0;  i<board.length;  i++){
-    for (int u=0;  u<board[i].length;  u++){
-      //print(board[i][u]);
-      rect(indexToPos(i),indexToPos(u),20,20);
+  for (int i=0;  i<board[0].length;  i++) {
+    for (int u=0;  u<board.length;  u++) {
+      if(board[u][i]){
+        fill(255,0,0);
+      } else {
+        fill(0,255,0);
+      }
+      rect(indexToPos(i,false),indexToPos(u,true),brickSize,brickSize);
     }
-    //print("\n");
   }
-  //print("\n\n\n\n");
 }
-int indexToPos( int indx ) {
-  return indx * (20+5);
+int indexToPos( int indx , boolean vert ) {
+  int ret;
+  if (vert){
+    ret = height-(invertRange(0,indx,board.length) * (brickSize+brickSpacing));
+  } else {
+    ret = indx * (brickSize+brickSpacing) + brickSpacing;
+  }
+  return ret;
+}
+int invertRange( int botm , int num , int tp ) {
+  int mid = (botm + tp) /2;
+  int dif = mid - num;
+  int ret = mid + dif;
+  return ret;
 }

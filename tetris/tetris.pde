@@ -41,19 +41,42 @@ void settings( ) {
 }
 
 void setup( ) {
-  board = zShap;  //Dont Overwrite the wrest
+  //board[0][0] = true;
+  shape=zShap;
+
+  /*/Put Shape On Board
+  for (int i=0;  i<shape.length;  i++){
+    for (int u=0;  u<shape[i].length;  u++){
+      print(board[i][u] | zShap[i][u]);
+      board[i][u] = board[i][u] | zShap[i][u];
+    }
+    print("\n");
+  }*/
 }
 
 void draw( ) {
   update();
-
-
+  drawBoard();
 }
 
 void update( ) {
-  print(ranShap() +"\n");
+
 }
 
 int ranShap( ) {
   return ceil(random(0,5))-1;
+}
+
+void drawBoard( ) {
+  for (int i=0;  i<board.length;  i++){
+    for (int u=0;  u<board[i].length;  u++){
+      //print(board[i][u]);
+      rect(indexToPos(i),indexToPos(u),20,20);
+    }
+    //print("\n");
+  }
+  //print("\n\n\n\n");
+}
+int indexToPos( int indx ) {
+  return indx * (20+5);
 }

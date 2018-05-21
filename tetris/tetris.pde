@@ -72,15 +72,21 @@ void shapeSet( ) {
       //unset ghost
       board[u+offset.y][i+offset.x] = lastBoard[u+offset.y][i+offset.x];
       //set shape
-      board[u+offset.y][i+offset.x] = board[u+offset.y][i+offset.x] | zShap[u][i];
+      board[u+offset.y][i+offset.x] = board[u+offset.y][i+offset.x] | shape[u][i];
     }
   }
 }
 
 //Set new pice up
 void nextShap( ) {
+  //Warn
+  print("Next Pice\n");
+
   //Back up the baord
   lastBoard=board;
+
+  //Reset offsets
+  offset.y=0;offset.x=0;
 
   //Set a new shape
   int riteNao = ranShap();
@@ -106,14 +112,13 @@ boolean dropCheck( ) {
     //Array Bounds protection
     if(cHite < board.length){
       if(board[cHite][checking]){
-        //print("Its under us!!!\n");
+        print("Its under us!!!\n");
         ret = true;
       }
     } else {
-      //print("Were at the bottom :)\n");
+      ret = true;
+      print("Were at the bottom :)\n");
     }
-    //print(checking + " : " + cHite + "\n");
-    //print(shape.length + ":" + board.length + "\n");
   }
   return ret;
 }
@@ -121,6 +126,7 @@ boolean dropCheck( ) {
 void shapeDrop( ) {
   if(dropCheck()) {
     //Go to next shape and solidify current one
+    nextShap();
   }else{
     if(offset.y+shape.length < board.length){
       offset.y++;

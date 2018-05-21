@@ -35,6 +35,7 @@ boolean[][] zShap = {
 
 //Currently Falling Shape
 boolean[][] shape = new boolean[4][2];
+Timer nxtFrm = new Timer();
 //Board before current shape (for refrence)
 boolean[][] lastBoard = new boolean[10][5];
 
@@ -53,6 +54,7 @@ void settings( ) {
 }
 void setup( ) {
   shape=zShap;
+  nxtFrm.start();
 }
 
 //Loop
@@ -128,8 +130,12 @@ void shapeDrop( ) {
     //Go to next shape and solidify current one
     nextShap();
   }else{
+    //Array Bounds Protection
     if(offset.y+shape.length < board.length){
-      offset.y++;
+      if(nxtFrm.count() > 500){
+        offset.y++;
+        nxtFrm.start();
+      }
     }
   }
 }

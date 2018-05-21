@@ -46,7 +46,8 @@ class Offset { int y=0; int x=0; } Offset offset = new Offset();
 
 //Setup
 void settings( ) {
-  size(int(500*0.75),int(1000*0.75));
+  float scale = 0.5;
+  size(int(500*scale),int(1000*scale));
 }
 void setup( ) {
   shape=zShap;
@@ -69,6 +70,7 @@ void update( ) {
 }
 
 //Check below pice
+//Array bounds error currently!!
 boolean dropCheck( ) {  ///You will eventualy have to handle convex shapes with more complex systems
   boolean ret = false;
   for (int i=0;  i<shape[0].length;  i++) {
@@ -83,7 +85,7 @@ boolean dropCheck( ) {  ///You will eventualy have to handle convex shapes with 
 }
 //Make the current pice move down
 void shapeDrop( ) {
-  dropCheck();
+  //dropCheck();
   offset.y++;
 }
 

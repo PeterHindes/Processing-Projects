@@ -90,7 +90,7 @@ void nextShap( ) {
   //Reset offsets
   offset.y=0;offset.x=0;
 
-  //Set a new shape
+  /*/Set a new shape
   int riteNao = ranShap();
   switch (riteNao) {
     case 0:
@@ -99,7 +99,7 @@ void nextShap( ) {
     default:
       shape=zShap;
       break;
-  }
+  }*/
 }
 
 //Check below pice
@@ -152,6 +152,7 @@ void drawBoard( ) {
       rect(indexToPos(i,false),indexToPos(u,true),brickSize,brickSize);
     }
   }
+  debugBoard();
 }
 
 //Maths
@@ -175,4 +176,19 @@ int invertRange( int botm , int num , int tp ) {
 //Return random number between 1 and 5 that has been shifted down 1 for array use
 int ranShap( ) {
   return ceil(random(0,5))-1;
+}
+
+//Debuging
+void debugBoard( ) {
+  for (int u=0;  u<board.length;  u++) {
+    for (int i=0;  i<board[0].length;  i++) {
+      if(board[u][i]){
+        print(board[u][i] + "  ");
+      }else{
+        print(board[u][i] + " ");
+      }
+    }
+    print("\n");
+  }
+  print("\n\n");
 }

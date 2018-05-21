@@ -84,8 +84,8 @@ void nextShap( ) {
   //Warn
   print("Next Pice\n");
 
-  //Back up the baord
-  lastBoard=board;
+  //Back up the baord ////There is an issue here that is causing ghost tiles
+  //lastBoard=board;
 
   //Reset offsets
   offset.y=0;offset.x=0;

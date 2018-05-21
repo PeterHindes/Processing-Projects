@@ -35,6 +35,8 @@ boolean[][] zShap = {
 
 //Currently Falling Shape
 boolean[][] shape = new boolean[4][2];
+//Board before current shape (for refrence)
+boolean[][] lastBoard = new boolean[10][5];
 
 
 //Vars
@@ -51,13 +53,6 @@ void settings( ) {
 }
 void setup( ) {
   shape=zShap;
-
-  //Put Shape On Board
-  for (int i=0;  i<shape[0].length;  i++) {
-    for (int u=0;  u<shape.length;  u++) {
-      board[u][i] = board[u][i] | zShap[u][i];
-    }
-  }
 }
 
 //Loop
@@ -67,26 +62,70 @@ void draw( ) {
 }
 void update( ) {
   shapeDrop();
+  shapeSet();
+}
+
+void shapeSet( ) {
+  //Put Shape On Board
+  for (int i=0;  i<shape[0].length;  i++) {
+    for (int u=0;  u<shape.length;  u++) {
+      //unset ghost
+      board[u+offset.y][i+offset.x] = lastBoard[u+offset.y][i+offset.x];
+      //set shape
+      board[u+offset.y][i+offset.x] = board[u+offset.y][i+offset.x] | zShap[u][i];
+    }
+  }
+}
+
+//Set new pice up
+void nextShap( ) {
+  //Back up the baord
+  lastBoard=board;
+
+  //Set a new shape
+  int riteNao = ranShap();
+  switch (riteNao) {
+    case 0:
+      shape=lShap;
+      break;
+    default:
+      shape=zShap;
+      break;
+  }
 }
 
 //Check below pice
-//Array bounds error currently!!
-boolean dropCheck( ) {  ///You will eventualy have to handle convex shapes with more complex systems
+///You will eventualy have to handle convex shapes with more complex systems
+boolean dropCheck( ) {
   boolean ret = false;
   for (int i=0;  i<shape[0].length;  i++) {
+    //x positionfor test
     int checking = i+offset.x;
-    int cHite = offset.y+shape.length+1;
-    if(board[checking][cHite]){
-      print("Its under us!!!\n");
-      ret = true;
+    //Right Below the shape
+    int cHite = offset.y+shape.length;
+    //Array Bounds protection
+    if(cHite < board.length){
+      if(board[cHite][checking]){
+        //print("Its under us!!!\n");
+        ret = true;
+      }
+    } else {
+      //print("Were at the bottom :)\n");
     }
+    //print(checking + " : " + cHite + "\n");
+    //print(shape.length + ":" + board.length + "\n");
   }
   return ret;
 }
 //Make the current pice move down
 void shapeDrop( ) {
-  //dropCheck();
-  offset.y++;
+  if(dropCheck()) {
+    //Go to next shape and solidify current one
+  }else{
+    if(offset.y+shape.length < board.length){
+      offset.y++;
+    }
+  }
 }
 
 //Draw the board to the screen and !nothing else!

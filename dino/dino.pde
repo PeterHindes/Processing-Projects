@@ -1,43 +1,54 @@
+
 import java.util.Arrays;
 
+int floorHeight = 150; //How hight the floor is from the bottom of the screen in pixels
 
-int floorHeight = 150;
+int obstCount = 16; //how many obstacles per screen (per haf of feild)
 
-int obstCount = 16;
-
-int buffer = 25;
+int buffer = 25; //How far in pixels the player is from the left of the screen
 
 //Movement
-int playerPos;
-int playerHeight = 0;
-int playerJumpHeight = 60*2;
-int playerSpeed = 6;
-int jumpSpeed = 10;
-boolean jumping = false;
+int playerPos; //Players position along the feild (x)
+int playerHeight = 0; //Players height (progress in jump)(y)
+int playerJumpHeight = 60*2; // How hight the player will jump
+int playerSpeed = 6; //How much the player advances each frame (more is faster)
+int jumpSpeed = 10; //How fast the player moves up each frame while jumping
+boolean jumping = false; //True if the player is in the process of jumping
 
+
+//The arrays for obstacle positions on the feild
 int[] ours;
 int[] yours;
+
+//Draw first half at the end of the feild(true) or the begining(false)
+//used for making the transition seamless
+//when this is set back to false the player is also brought back to the begining
 boolean startSet = false;
 
 void setup( ) {
 
+  //Put the program into full screen
   fullScreen(1);
 
+  //Setup the feild for first run
   set1();
   set2();
 }
 
 void set1() {
+  //Debug that we are setting half one of the feild
   //print("Set1\n");
-  //playerPos = 15;
 
+  //Make an array of positions for the first half of the feild
   ours = obst(obstCount, false);
+  //Sort the array
   //Arrays.sort(ours);
 }
 void set2() {
   //print("Set2\n");
   playerPos = 15;
 
+  //Make an array of positions for the second half of the feild
   yours = obst(obstCount, true);
   //Arrays.sort(yours);
 }

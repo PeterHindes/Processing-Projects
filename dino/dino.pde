@@ -1,6 +1,8 @@
 
 import java.util.Arrays;
 
+Feild feild = new Feild();
+
 int floorHeight = 150; //How hight the floor is from the bottom of the screen in pixels
 
 int obstCount = 16; //how many obstacles per screen (per haf of feild)
@@ -12,13 +14,10 @@ int playerPos; //Players position along the feild (x)
 int playerHeight = 0; //Players height (progress in jump)(y)
 int playerJumpHeight = 60*2; // How hight the player will jump
 int playerSpeed = 6; //How much the player advances each frame (more is faster)
-int jumpSpeed = 10; //How fast the player moves up each frame while jumping
+float jumpSpeed = 10f; //How fast the player moves up each frame while jumping [variable]
+float defaultJumpSpeed = 10f; //How fast the player starts moving up (momentem?)
 boolean jumping = false; //True if the player is in the process of jumping
-
-
-//The arrays for obstacle positions on the feild
-int[] ours;
-int[] yours;
+boolean falling = false; //True if the player is in the process of returning from a jump
 
 //Draw first half at the end of the feild(true) or the begining(false)
 //used for making the transition seamless
@@ -26,57 +25,33 @@ int[] yours;
 boolean startSet = false;
 
 void setup( ) {
-
   //Put the program into full screen
   fullScreen(1);
-
-  //Setup the feild for first run
-  set1();
-  set2();
-}
-
-void set1() {
-  //Debug that we are setting half one of the feild
-  //print("Set1\n");
-
-  //Make an array of positions for the first half of the feild
-  ours = obst(obstCount, false);
-  //Sort the array
-  //Arrays.sort(ours);
-}
-void set2() {
-  //print("Set2\n");
-  playerPos = 15;
-
-  //Make an array of positions for the second half of the feild
-  yours = obst(obstCount, true);
-  //Arrays.sort(yours);
+  //Setup The Feild
+  feild.setup();
 }
 
 void draw( ) {
 
-  background(#b2a780);
+  background(#b2a780);  //Give A Background Collor
+
+  //Draw A Black Floor
   fill(0);
   rect(0,height,width,-floorHeight);
 
-  hlfW();
+  //Update the Feild
+  feild.update();
 
-  pushMatrix();
-  translate(-(playerPos-buffer),0);
+  pushMatrix(); //Were Using matrix!! [Push and pop each frame (may not be preformant)]
+  translate(-(playerPos-buffer),0); //Move the map left (Creats the effect of the player moving right)
 
-  fill(150);
-  for (int curd : ours){
-    if (!startSet){
-      rect(curd,height-floorHeight,15,-40);
-    } else {
-      rect(curd+width*2,height-floorHeight,15,-40);
-    }
-  }
-  for (int curd : yours){
-    rect(curd,height-floorHeight,15,-40);
-  }
 
-  jTest();
+  //Draw the Feild
+  feild.draw();
+
+  //Update Player
+  jgTest();
+  //Draw Player
   player();
 
   popMatrix();
@@ -100,40 +75,43 @@ void keyPressed(){
 }
 
 //Player Jump
+//If we are jumping then do the calculations for our next height
 void jTest() {
-  if(jumping){
-    if (playerHeight < playerJumpHeight){
+  if(jumping){ //Send us up for the jump
+    if (playerHeight < playerJumpHeight){ //Were not at the peak yet
       playerHeight += jumpSpeed;
-    } else {
+    } else { //We are done jumping
       jumping = false;
     }
-  } else if (playerHeight > 0) {
+  } else if (playerHeight > 0) { //Send us back down after jumping
     playerHeight -= jumpSpeed;
   }
 }
-
-//Halfway Test
-void hlfW (){
-  if ((playerPos-buffer) > width && !startSet){
-    set1();
-    startSet = true;
-  }
-  if ((playerPos-buffer) >= width*2){
-    set2();
-    startSet = false;
-  }
-}
-
-//Setup
-int[] obst(int times,boolean secondSet) {
-  int[] result = new int[times];
-  for(int i = 0; i < times; i++){
-    result[i] = int(random(width));
-  }
-  if (secondSet){
-    for(int i = 0; i < times; i++){
-      result[i]+=width;
+void jgTest() {
+  if(jumping){ //Send us up for the jump
+    if (jumpSpeed > 0.5){ //Were not at the peak yet
+      jumpSpeed-=jumpSpeed/3; //Take away a third of the current value
+    } else { //We are done jumping
+      jumpSpeed = defaultJumpSpeed;
+      jumping = false;
+      falling = true;
     }
+    print(jumpSpeed + "\n");
+    playerHeight += jumpSpeed;
+  } else if (falling) {
+    if (jumpSpeed > 0.5){
+      jumpSpeed-=jumpSpeed/3;
+    } //else { //We are done jumping
+    //  //jumpSpeed = defaultJumpSpeed;
+    //  //jumping = false;
+    //}
+    if (playerHeight<0){
+      jumpSpeed = defaultJumpSpeed;
+      falling = false;
+    }
+    print(jumpSpeed + "  " + playerHeight + "\n");
+    playerHeight -= jumpSpeed;
+  } else if (playerHeight != 0) { //Send us back down after jumping
+    playerHeight = 0;
   }
-  return result;
 }

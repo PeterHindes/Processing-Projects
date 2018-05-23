@@ -19,11 +19,6 @@ float defaultJumpSpeed = 10f; //How fast the player starts moving up (momentem?)
 boolean jumping = false; //True if the player is in the process of jumping
 boolean falling = false; //True if the player is in the process of returning from a jump
 
-//Draw first half at the end of the feild(true) or the begining(false)
-//used for making the transition seamless
-//when this is set back to false the player is also brought back to the begining
-boolean startSet = false;
-
 void setup( ) {
   //Put the program into full screen
   fullScreen(1);
@@ -65,16 +60,7 @@ void player( ) {
   rect (playerPos,height-floorHeight-playerHeight,15,-25);
 }
 
-//Keyboard
-void keyPressed(){
-  if(key == ' ' && !jumping && playerHeight == 0){
-
-    jumping = true;
-
-  }
-}
-
-//Player Jump
+//Player Jump [Definantly needs work]
 //If we are jumping then do the calculations for our next height
 void jTest() {
   if(jumping){ //Send us up for the jump
@@ -113,5 +99,14 @@ void jgTest() {
     playerHeight -= jumpSpeed;
   } else if (playerHeight != 0) { //Send us back down after jumping
     playerHeight = 0;
+  }
+}
+
+//Keyboard
+void keyPressed(){
+  if(key == ' ' && !jumping && playerHeight == 0){
+
+    jumping = true;
+
   }
 }

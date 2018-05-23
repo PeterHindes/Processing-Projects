@@ -4,6 +4,10 @@ class Feild {
     //The arrays for obstacle positions on the feild
     int[] fOne;
     int[] fTwo;
+    //Loup
+    //Draw first half at the end of the feild(true) or the begining(false)
+    //used for making the transition seamless
+    boolean startSet = false;
 
   void update() {
     //Test For Halfway

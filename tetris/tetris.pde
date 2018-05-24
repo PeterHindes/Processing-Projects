@@ -124,7 +124,7 @@ boolean dropCheck( ) {
     int cHite = offset.y+shape.length; //Offset in the y + the hight of the shape its self
 
     if(cHite < board.length){ //Array Bounds protection
-      if(board[cHite][checking] && shape[shape.length-1][i]){
+      if(board[cHite][checking] && shape[shape.length-1][i]){ //This dosent check for convex parts like the left of the z pice
         print("Its under us!!!\n");
         ret = true;
       }
@@ -155,11 +155,11 @@ void shapeDrop( ) {
 void drawBoard( ) {
   for (int i=0;  i<board[0].length;  i++) {
     for (int u=0;  u<board.length;  u++) {
-      if (board[u][i]) { //Chose the collor based on true or false
+      if (board[u][i]) { //Chose the collor based on true or false //Red for true
         fill(255,0,0);
-      } else if(u==offset.y && i==offset.x) {
-        fill(0,0,255);
-      } else {
+      } else if(u==offset.y && i==offset.x) { //Highlight the offset square
+        //fill(0,0,255);
+      } else { //Make all other tiles green
         fill(0,255,0);
       }
       rect(indexToPos(i,false),indexToPos(u,true),brickSize,brickSize); //Draw a tile

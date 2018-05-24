@@ -1,3 +1,5 @@
+Debug debug = new Debug();
+
 //2d Array Convention, y first x second
 boolean[][] board = new boolean[10][5];
 
@@ -103,7 +105,7 @@ void shapeSet( ) {
 //Set new pice up
 void nextShap( ) {
   //Warn
-  print("Next Pice\n");
+  //print("Next Pice\n");
 
   //Back up the baord ////There is an issue here that is causing ghost tiles
   for (int i=0;  i<board[0].length;  i++) {
@@ -111,10 +113,9 @@ void nextShap( ) {
       lastBoard[u][i]=board[u][i];
     }
   }
-  //debugBoard();
 
   //Reset offsets
-  offset.y=0;offset.x=0;
+  offset.y=0;offset.x=int(board[0].length/2);
 
   //Set a new shape
   int riteNao = ranShap();
@@ -158,22 +159,22 @@ boolean dropCheck( ) {
     //Right Below the shape
     int cHite = offset.y+shape.length; //Offset in the y + the hight of the shape its self
 
-    //cHite Corection for convexions    [[Not Working]]
-    print(shape[shape.length-1][i] + " ");
+    //cHite Corection for convexions    [[Not Working]]  :Convexionshould check up the whole peice (eg the i pice is blank on the right side):
+    //print(shape[shape.length-1][i] + " ");
     if ( !shape[shape.length-1][i] ) {
       cHite--;
-      print("Convexion\n");
+      //print("Convexion\n");
     }
-    print(cHite + "\n");
+    //print(cHite + "\n");
 
     if(cHite < board.length){ //Array Bounds protection
       if(board[cHite][checking] && shape[shape.length-1][i]){ //This dosent check for convex parts like the left of the z pice
         ret = true;
-        print("Its under us!!!\n");
+        //print("Its under us!!!\n");
       }
     } else {
       ret = true;
-      print("Were at the bottom :)\n");
+      //print("Were at the bottom :)\n");
     }
   }
   return ret;
@@ -246,19 +247,4 @@ void keyPressed() {
       }
     }
   }
-}
-
-//Debuging
-void debugBoard( ) {
-  for (int u=0;  u<board.length;  u++) {
-    for (int i=0;  i<board[0].length;  i++) {
-      if(board[u][i]){
-        print(board[u][i] + "  ");
-      }else{
-        print(board[u][i] + " ");
-      }
-    }
-    print("\n");
-  }
-  print("\n\n");
 }

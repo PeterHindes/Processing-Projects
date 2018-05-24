@@ -64,15 +64,21 @@ void draw( ) {
 }
 void update( ) {
   shapeDrop();
-  //shapeSet();
+  shapeSet();
 }
 
 void shapeSet( ) {
+  //Clear Brick Form Board [nuke edition]
+  for (int i=0;  i<board[0].length;  i++) {
+    for (int u=0;  u<board.length;  u++) {
+      board[u][i]=lastBoard[u][i];
+    }
+  }
   //Put Shape On Board
   for (int i=0;  i<shape[0].length;  i++) {
     for (int u=0;  u<shape.length;  u++) {
       //unset ghost
-      board[u+offset.y][i+offset.x] = lastBoard[u+offset.y][i+offset.x];
+      //board[u+offset.y][i+offset.x] = lastBoard[u+offset.y][i+offset.x];
       //set shape
       board[u+offset.y][i+offset.x] = board[u+offset.y][i+offset.x] | shape[u][i];
     }
@@ -85,8 +91,12 @@ void nextShap( ) {
   print("Next Pice\n");
 
   //Back up the baord ////There is an issue here that is causing ghost tiles
-  lastBoard=board;
-  debugBoard();
+  for (int i=0;  i<board[0].length;  i++) {
+    for (int u=0;  u<board.length;  u++) {
+      lastBoard[u][i]=board[u][i];
+    }
+  }
+  //debugBoard();
 
   //Reset offsets
   offset.y=0;offset.x=0;
@@ -112,8 +122,8 @@ boolean dropCheck( ) {
     int checking = i+offset.x; //The offset + the index we are checking
     //Right Below the shape
     int cHite = offset.y+shape.length; //Offset in the y + the hight of the shape its self
-    //Array Bounds protection
-    if(cHite < board.length){
+
+    if(cHite < board.length){ //Array Bounds protection
       if(board[cHite][checking] && shape[shape.length-1][i]){
         print("Its under us!!!\n");
         ret = true;
@@ -184,9 +194,13 @@ int ranShap( ) {
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == LEFT) {
-      offset.x--;
+      if (!(offset.x-1 < 0)){
+        offset.x--;
+      }
     } else if (keyCode == RIGHT) {
-      offset.x++;
+      if (!(offset.x+shape[0].length+1 > board[0].length)){
+        offset.x++;
+      }
     }
   }
 }

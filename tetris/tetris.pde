@@ -64,7 +64,7 @@ void draw( ) {
 }
 void update( ) {
   shapeDrop();
-  shapeSet();
+  //shapeSet();
 }
 
 void shapeSet( ) {
@@ -85,7 +85,8 @@ void nextShap( ) {
   print("Next Pice\n");
 
   //Back up the baord ////There is an issue here that is causing ghost tiles
-  //lastBoard=board;
+  lastBoard=board;
+  debugBoard();
 
   //Reset offsets
   offset.y=0;offset.x=0;
@@ -105,15 +106,15 @@ void nextShap( ) {
 //Check below pice
 ///You will eventualy have to handle convex shapes with more complex systems
 boolean dropCheck( ) {
-  boolean ret = false;
+  boolean ret = false; //What we retun, false by default
   for (int i=0;  i<shape[0].length;  i++) {
-    //x positionfor test
-    int checking = i+offset.x;
+    //x position for test
+    int checking = i+offset.x; //The offset + the index we are checking
     //Right Below the shape
-    int cHite = offset.y+shape.length;
+    int cHite = offset.y+shape.length; //Offset in the y + the hight of the shape its self
     //Array Bounds protection
     if(cHite < board.length){
-      if(board[cHite][checking]){
+      if(board[cHite][checking] && shape[shape.length-1][i]){
         print("Its under us!!!\n");
         ret = true;
       }
@@ -126,15 +127,15 @@ boolean dropCheck( ) {
 }
 //Make the current pice move down
 void shapeDrop( ) {
-  if(dropCheck()) {
+  if(dropCheck()) { //Are we touching down?
     //Go to next shape and solidify current one
     nextShap();
-  }else{
+  } else { //If not lets drop down another
     //Array Bounds Protection
     if(offset.y+shape.length < board.length){
-      if(nxtFrm.count() > 500){
-        offset.y++;
-        nxtFrm.start();
+      if(nxtFrm.count() > 500){ //Wait 500ms or 1/2sec
+        offset.y++; //Send board offset of peice down one
+        nxtFrm.start(); //Reset Timer
       }
     }
   }
@@ -144,15 +145,16 @@ void shapeDrop( ) {
 void drawBoard( ) {
   for (int i=0;  i<board[0].length;  i++) {
     for (int u=0;  u<board.length;  u++) {
-      if(board[u][i]){
+      if (board[u][i]) { //Chose the collor based on true or false
         fill(255,0,0);
+      } else if(u==offset.y && i==offset.x) {
+        fill(0,0,255);
       } else {
         fill(0,255,0);
       }
-      rect(indexToPos(i,false),indexToPos(u,true),brickSize,brickSize);
+      rect(indexToPos(i,false),indexToPos(u,true),brickSize,brickSize); //Draw a tile
     }
   }
-  debugBoard();
 }
 
 //Maths
@@ -176,6 +178,17 @@ int invertRange( int botm , int num , int tp ) {
 //Return random number between 1 and 5 that has been shifted down 1 for array use
 int ranShap( ) {
   return ceil(random(0,5))-1;
+}
+
+//Keyboard
+void keyPressed() {
+  if (key == CODED) {
+    if (keyCode == LEFT) {
+      offset.x--;
+    } else if (keyCode == RIGHT) {
+      offset.x++;
+    }
+  }
 }
 
 //Debuging

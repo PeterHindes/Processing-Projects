@@ -1,9 +1,14 @@
 class Feild {
 
   //Feild Vars
-    //The arrays for obstacle positions on the feild
-    int[] fOne;
-    int[] fTwo;
+    //The arrays for obstacle positions on the feild (Half = one screen)
+    int[] fOne; //First Half
+    int[] fTwo; //Second Half
+    //Obstacle Vars
+    int obstCount = 16;//How many obstacles per screen (per half of feild)
+    int obstHight = 7;//% //How tall the obstacles will be in percent
+    int obstWidth = 3;//% //How wide the obstacles will be in percent
+
     //Loup
     //Draw first half at the end of the feild(true) or the begining(false)
     //used for making the transition seamless
@@ -20,13 +25,13 @@ class Feild {
     fill(150); //Gray obstacles
     for (int curd : fOne){ //Loup over the first feild and for each instance put the value in curd
       if (!startSet){ //is the player at the front or end of the map (for continuous feild)
-        rect(curd,height-floorHeight,15,-40); //Draw the feild at the front
+        rect(curd,height-floorHeight,scale.PcToPx(obstWidth),-scale.PcToPx(obstHight)); //Draw the feild at the front
       } else {
-        rect(curd+width*2,height-floorHeight,15,-40); //Draw the feild at the end
+        rect(curd+width*2,height-floorHeight,scale.PcToPx(obstWidth),-scale.PcToPx(obstHight)); //Draw the feild at the end
       }
     }
     for (int curd : fTwo){ //Loup over the second feild and for each instance put the value in curd
-      rect(curd,height-floorHeight,15,-40); //Draw the obstacle
+      rect(curd,height-floorHeight,scale.PcToPx(obstWidth),-scale.PcToPx(obstHight)); //Draw the obstacle
     }
   }
 

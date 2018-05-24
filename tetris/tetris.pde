@@ -59,6 +59,8 @@ int brickSize = 25;
 int brickSpacing = int(brickSize*sizeToSpacingRatio);
 class Offset { int y=0; int x=0; } Offset offset = new Offset();
 
+int brickFallWaitMS = 750;
+
 
 //Setup
 void settings( ) {
@@ -184,7 +186,7 @@ void shapeDrop( ) {
   } else { //If not lets drop down another
     //Array Bounds Protection
     if(offset.y+shape.length < board.length){
-      if(nxtFrm.count() > 500){ //Wait 500ms or 1/2sec
+      if(nxtFrm.count() > brickFallWaitMS){ //Wait 500ms or 1/2sec
         offset.y++; //Send board offset of peice down one
         nxtFrm.start(); //Reset Timer
       }

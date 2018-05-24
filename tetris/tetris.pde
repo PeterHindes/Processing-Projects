@@ -123,6 +123,14 @@ boolean dropCheck( ) {
     //Right Below the shape
     int cHite = offset.y+shape.length; //Offset in the y + the hight of the shape its self
 
+    //cHite Corection for convexions    [[Not Working]]
+    print(shape[shape.length-1][i] + " ");
+    if ( !shape[shape.length-1][i] ) {
+      cHite--;
+      print("Convexion\n");
+    }
+    print(cHite + "\n");
+
     if(cHite < board.length){ //Array Bounds protection
       if(board[cHite][checking] && shape[shape.length-1][i]){ //This dosent check for convex parts like the left of the z pice
         print("Its under us!!!\n");

@@ -1,7 +1,10 @@
 Debug debug = new Debug();
 
 //2d Array Convention, y first x second
-boolean[][] board = new boolean[10][5];
+int boardY = 20;
+int boardX = 8;
+
+boolean[][] board = new boolean[boardY][boardX];
 
 //Actual Shapes
 boolean[][] oShap = {
@@ -52,7 +55,7 @@ boolean[][] tShap = {
 boolean[][] shape = new boolean[4][2];
 Timer nxtFrm = new Timer();
 //Board before current shape (for refrence)
-boolean[][] lastBoard = new boolean[10][5];
+boolean[][] lastBoard = new boolean[boardY][boardX];
 
 
 //Vars
@@ -67,7 +70,7 @@ int brickFallWaitMS = 750;
 //Setup
 void settings( ) {
   float scale = 0.5;
-  size(int(500*scale),int(1000*scale));
+  size(int(500*scale),int(1250*scale));
 }
 void setup( ) {
   shape=sShap;

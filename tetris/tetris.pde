@@ -2,10 +2,40 @@
 boolean[][] board = new boolean[10][5];
 
 //Actual Shapes
+boolean[][] oShap = {
+  {false, false},
+  {false, false},
+  {true,  true },
+  {true,  true }
+};
+boolean[][] iShap = {
+  {true,  false},
+  {true,  false},
+  {true,  false},
+  {true,  false}
+};
+boolean[][] sShap = {
+  {false, false},
+  {true,  false},
+  {true,  true },
+  {false, true }
+};
+boolean[][] zShap = {
+  {false, false},
+  {false, true },
+  {true,  true },
+  {true,  false}
+};
 boolean[][] lShap = {
   {false, false},
   {true,  false},
   {true,  false},
+  {true,  true }
+};
+boolean[][] jShap = {
+  {false, false},
+  {false, true },
+  {false, true },
   {true,  true }
 };
 boolean[][] tShap = {
@@ -14,24 +44,7 @@ boolean[][] tShap = {
   {true,  true },
   {true,  false}
 };
-boolean[][] sqShap = {
-  {false, false},
-  {false, false},
-  {true,  true },
-  {true,  true }
-};
-boolean[][] linShap = {
-  {true,  false},
-  {true,  false},
-  {true,  false},
-  {true,  false}
-};
-boolean[][] zShap = {
-  {false, false},
-  {true,  false},
-  {true,  true },
-  {false, true }
-};
+
 
 //Currently Falling Shape
 boolean[][] shape = new boolean[4][2];
@@ -53,7 +66,7 @@ void settings( ) {
   size(int(500*scale),int(1000*scale));
 }
 void setup( ) {
-  shape=zShap;
+  shape=sShap;
   nxtFrm.start();
 }
 
@@ -101,16 +114,36 @@ void nextShap( ) {
   //Reset offsets
   offset.y=0;offset.x=0;
 
-  /*/Set a new shape
+  //Set a new shape
   int riteNao = ranShap();
+  print (riteNao + "\n");
   switch (riteNao) {
     case 0:
-      shape=lShap;
+      shape=oShap;
       break;
-    default:
+    case 1:
+      shape=iShap;
+      break;
+    case 2:
+      shape=sShap;
+      break;
+    case 3:
       shape=zShap;
       break;
-  }*/
+    case 4:
+      shape=lShap;
+      break;
+    case 5:
+      shape=jShap;
+      break;
+    case 6:
+      shape=tShap;
+      break;
+
+    default:
+      shape=lShap;
+      break;
+  }
 }
 
 //Check below pice
@@ -133,8 +166,8 @@ boolean dropCheck( ) {
 
     if(cHite < board.length){ //Array Bounds protection
       if(board[cHite][checking] && shape[shape.length-1][i]){ //This dosent check for convex parts like the left of the z pice
-        print("Its under us!!!\n");
         ret = true;
+        print("Its under us!!!\n");
       }
     } else {
       ret = true;
@@ -193,9 +226,9 @@ int invertRange( int botm , int num , int tp ) {
   int ret = mid + dif;
   return ret;
 }
-//Return random number between 1 and 5 that has been shifted down 1 for array use
+//Return random number between 1 and 7 that has been shifted down 1 (0-6) [7 Posibilities]
 int ranShap( ) {
-  return ceil(random(0,5))-1;
+  return ceil(random(0,7))-1;
 }
 
 //Keyboard

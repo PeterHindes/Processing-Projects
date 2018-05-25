@@ -122,7 +122,7 @@ void nextShap( ) {
 
   //Set a new shape
   int riteNao = ranShap();
-  print (riteNao + "\n");
+  //print (riteNao + "\n");
   switch (riteNao) {
     case 0:
       shape=oShap;
